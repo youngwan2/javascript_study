@@ -1,2 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 복사</title>
+    <script>
+      // // 얕은 복사
+      const 구름 = {
+        이름: "구름",
+        나이: 6,
+        종족: "강아지",
+      };
 
+      // const 별 = 구름; // 메모리에 저장된 데이터의 위치 주소를 가리키는 화살표가 저장되어 같은 위치의 데이터를 가리킴
+      // // 같은 화살표가 가리키는 값을 바꾸므로 원본과 복사가 동일한 값을 가진다.
+      // 별.이름 = "별님이";
+      // 별.나이 = 1;
+      // console.log(별);
+      // console.log(구름)
 
+      // /* 깊은복사1 */
+      // const 별2 ={...구름}
+      // console.log(별2)
+      // 별2.이름 ="달덩이"
+      // 별2.나이 =2000
+      // console.log(별2)
+
+      /* 깊은복사2 */
+
+      // json 에는 함수가 포함되지 않아서 활용이 제약됨.
+      const 별 = JSON.parse(JSON.stringify(구름, null, 2));
+      별.이름 = "별님이";
+      별.나이 = 1;
+      console.log("구름", 구름);
+      console.log("별", 별);
+
+      const jsonfile = {
+        name: null,
+        age: undefined,
+        hobby: true,
+        hobby2: function () {},
+      };
+
+      const transfile = JSON.stringify(jsonfile);
+      console.log(transfile);
+    </script>
+  </head>
+  <body></body>
+</html>
