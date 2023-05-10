@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>불연산자/ and와 or 연산자(&& / ||)</title>
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+      }
+    </style>
+    <script>
+      console.log("     <불연산자>     ");
+      console.log("======== %%논리곱연산=========");
+      console.log("true && false =", true && false);
+      console.log("true && true =", true && true);
+      console.log("false && false =", false && false);
+      console.log("true && true =", true && true);
+
+      console.log("======== %%논리합연산=========");
+      console.log("true || false =", true || false);
+      console.log("true || true =", true || true);
+      console.log("false || false =", false || false);
+      console.log("true || true =", true || true);
+    </script>
+  </head>
+  <body>
+    <h1>논리곱 연산자</h1>
+    <hr />
+    <br />
+    <pre>
+      ex) 빵과 우유 <br>
+      사왔다 : 1 === true
+      없다   : 0 === false
+
+    <h4>--and(== &&) 조건--</h4>
+      빵   우유   결과
+      0     0      0
+      1     0      0
+      0     1      0
+      1     1      1
+    
+    <h4>-- or(== ||) 조건--</h4>
+      빵   우유   결과
+      0     0      0
+      1     0      1
+      0     1      1
+      1     1      1
+    </pre>
+  </body>
+</html>

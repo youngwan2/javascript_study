@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>과목점수 판독기</title>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(440px);
+        }
+      }
+      body {
+        color: white;
+        animation: 1s appear ease-in-out;
+        background-image: url('../img/pool.jpg');
+        
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      div {
+        color: rgb(255, 255, 255);
+        position: fixed;
+        background: rgba(0, 0, 0, 0.151);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        padding: 80px;
+        box-shadow:  -5px -5px 5px 0 black,40px 40px 8px 2px rgba(0, 0, 0, 0.945) inset,
+          40px 40px 8px 2px rgba(0, 0, 0, 0.699);
+        transition: 2s;
+      }
+
+      div:hover {
+        box-shadow: 0 0 0 0 black, 0 0 0 0 inset black, 0 0 0 0 black;
+        transform: translate(-55%, -55%);
+        background:transparent;
+        cursor: pointer;
+      }
+      p {
+        font-size: 17px;
+      }
+      table {
+        width: 380px;
+      }
+      table > tr {
+        border: 1px solid white;
+        text-align: center;
+      }
+      table td {
+        border: 1px solid white;
+        text-align: center;
+        padding: 5px;
+      }
+      table th {
+        border: 1px solid white;
+        text-align: center;
+        width: 80px;
+        background-color: #ff0;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //  국어점수, 수학점수, 과학점수를 입력 받는다.
+      // 그리고 3과목의 평균 점수를 출력한다.
+      // 국어점수가 70점 이상이고,
+      // 수학점수가 50점 초과이며
+      // 과학점수가 80점 이상이라면
+      // 화면에 True 를 표시한다.
+      // 점수가 안 되면 false 를 표시한다.
+
+      const 국어점수 = Number(prompt("국어점수는 몇 점인가요?", 0));
+      const 수학점수 = Number(prompt("수학점수는 몇 점인가요?", 0));
+      const 과학점수 = Number(prompt("과학점수는 몇 점인가요?", 0));
+      const 과목평균 = (국어점수 + 수학점수 + 과학점수) / 3;
+
+      const 국어통과유무 = 국어점수 > 69;
+      const 수학통과유무 = 수학점수 > 50;
+      const 과학통과유무 = 과학점수 > 79;
+      const 판독기 = 국어통과유무 && 수학통과유무 && 과학통과유무;
+
+      const doc = `
+  
+    <div>
+      <h1>과목점수 판독기</h1>
+    <hr />
+      <p><strong>3과목평균 : </strong>${과목평균} 점</p>
+      <p><strong>통과유무 : </strong>${판독기}</p>
+
+      <table>
+      <tr>
+        <th>국어점수</th>
+        <th>수학점수</th>
+        <th>과학점수</th>
+        <th>과목평균</th>
+        <th>통과</th>
+      </tr>
+      <tr>
+        <td>${국어점수}</td>
+        <td>${수학점수}</td>
+        <td>${과학점수}</td>
+        <td>${과목평균}</td>
+        <td>${판독기}</td>
+      </tr>     
+    </table>
+    </div>
+      `;
+
+      document.write(doc);
+    </script>
+  </body>
+</html>

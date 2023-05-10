@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>거스름돈 계산기</title>
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+
+      h1 {
+        color: white;
+        text-align: center;
+      }
+
+      body {
+        background-color: black;
+        animation: appear 1s ease-in-out;
+      }
+      tr td {
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      td:nth-child(1) {
+        width: 200px;
+      }
+      td:nth-child(2) {
+        width: 100px;
+      }
+      th {
+        border: 1px solid black;
+        background-color: antiquewhite;
+      }
+      table {
+        width: 600px;
+        background-color: white;
+        border-collapse: collapse;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      p a {
+        color: white;
+      }
+    </style>
+    <script>
+      // 분리할 금액을 입력 받는다.
+      let price = prompt("거스름돈으로 계산할 금액을 넣어주세요."); // 분리할 돈
+      document.write(
+        `<h1>입력하신 <mark>${
+          price || 0
+        }원</mark> 을 거스름돈으로 분리하면</h1><hr>`
+      );
+      //   분리된 금액에 대한 갯수를 저장하는 장소를 만든다.
+      let 오만원 = 0;
+      let 만원 = 0;
+      let 오천원 = 0;
+      let 천원 = 0;
+      let 오백원 = 0;
+      let 백원 = 0;
+      let 오십원 = 0;
+      let 십원 = 0;
+
+      // 몫만 구할 때 쓰는 방식 3개
+      // 1. Math.floor()
+      // 2. parselnt()
+      // 3. ~~3.14 => 3
+
+      /**   Math.floor(숫자형) : () 안에 들어간 숫자형 데이터의 소수점을 내림한다.
+     예를 들어 2.2 나 2.9 가 있다면 각각 2.0, 2.0 을 만들어준다. */
+      if (price >= 50000) {
+        console.log("5만원권  " + Math.floor(price / 50000) + "장");
+        오만원 = Math.floor(price / 50000);
+        price = price % 50000; // 오만원으로 나누고 남은 금액을 price 에 저장한다.
+      }
+
+      // 만일 앞에서 50000 으로 나누고 남은 price 가 10000 이상이라면
+      // 해당 if 문을 실행한다.
+      // 실행하는 과정은 앞서 과정과 동일하다.
+      // 만일 남은 금액이 6000원 이라고 한다면 다음 조건인 if(price>=5000) 의 조건을 확인하고,
+      // 조건을 충족하면 해당 조건문을 실행한다.
+      if (price >= 10000) {
+        console.log("1만원권  " + Math.floor(price / 10000) + "장");
+        만원 = Math.floor(price / 10000);
+        price = price % 10000;
+      }
+
+      if (price >= 5000) {
+        console.log("5천원권 " + Math.floor(price / 5000) + "장");
+        오천원 = Math.floor(price / 5000);
+        price = price % 5000;
+      }
+
+      if (price >= 1000) {
+        console.log("1천원권  " + Math.floor(price / 1000) + "장");
+        천원 = Math.floor(price / 1000);
+        price = price % 1000;
+      }
+
+      if (price >= 500) {
+        console.log("500원 " + Math.floor(price / 500) + "개");
+        오백원 = Math.floor(price / 500);
+        price = price % 500;
+      }
+
+      if (price >= 100) {
+        console.log("100원 " + Math.floor(price / 100) + "개");
+        백원 = Math.floor(price / 100);
+        price = price % 100;
+      }
+
+      if (price >= 50) {
+        console.log("50원 " + Math.floor(price / 50) + "개");
+        오십원 = Math.floor(price / 50);
+        price = price % 50;
+      }
+
+      if (price >= 10) {
+        console.log("10원 " + Math.floor(price / 10) + "개");
+        십원 = Math.floor(price / 10);
+        price = price % 10;
+      }
+
+      //각각의 지페 갯수를 저장한 변수를 테이블의 ${변수} 에 저장한다.
+      const doc = `
+             <table>
+             <tr>
+               <th>잔돈</th>
+               <th>개수</th>
+             </tr>
+             <tr>
+               <td>5만원권</td>
+               <td>${오만원}장</td>
+             </tr>
+
+             <tr>
+               <td>1만원권</td>
+               <td>${만원}장</td>
+             </tr>
+             <tr>
+               <td>5천원권</td>
+               <td>${오천원}장</td>
+             </tr>
+             <tr>
+               <td>1천원권</td>
+               <td>${천원}장</td>
+             </tr>
+             <tr>
+               <td>5백원</td>
+               <td>${오백원}개</td>
+             </tr>
+             <tr>
+               <td>1백원</td>
+               <td>${백원}개</td>
+             </tr>
+             <tr>
+               <td>50원</td>
+               <td>${오십원}개</td>
+             </tr>
+             <tr>
+               <td>10원</td>
+               <td>${십원}개</td>
+             </tr>
+           </table>
+       `;
+      document.write(doc);
+    </script>
+  </head>
+  <body>
+    <p><a href="./js03-00.html">목차로 돌아가기</a></p>
+  </body>
+</html>

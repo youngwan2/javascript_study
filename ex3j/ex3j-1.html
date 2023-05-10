@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력받기</title>
+    <script>
+      // 태어나신 년도를 입력하세요. => 당신은 00 년도 생 이군요.
+      /*
+        const 태어난연도 = prompt('태어난 년도를 입력하세요.')
+        const 기준년도 = 2023-1900
+        const 알고싶은나이 = 태어난연도-1900
+        const 나이 = alert(`당신의 현재 나이는 ${태어난연도-알고싶은나이+1} 살 입니다.`)
+        
+    */
+
+      const year = Number(prompt("민증 보여주세요. ... 언제 태어나셨죠?"));
+
+      if (year > 2004) {
+        alert("돌아가.");
+      }
+
+      if (!year || year == "") {
+        alert("얼버부리지 마세요. 안 통해요. 뭐 안주만 드실거라면..");
+      }
+
+      if (year <= 2004) {
+        alert(
+          "즐거운 시간 되세요. 참고로 저희 가게 아보카도 오븐구이 쥑이게 잘합니다."
+        );
+      }
+
+      if (year === 2004) {
+        alert("오. 올해 성인이 되셨네요. 보너스로 안주 더 챙겨드릴게요.");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

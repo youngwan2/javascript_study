@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict";
+
+      const frults = [
+        "apple",
+        "pear",
+        "watermelon",
+        "melon",
+        "peach",
+        "strawberry",
+        "mango",
+        "banana",
+        "kiwi",
+        "grape",
+        "orange",
+        "mandarin",
+      ];
+
+      // 글자 길이가 5글자 이상만 뽑아서 새로운 배열에 넣기
+      function filter() {
+        const filter = [];
+        for (const fruit of frults) {
+          if (fruit.length >= 5) filter.push(fruit);
+        }
+        return filter;
+      }
+
+      const result = filter();
+      console.log(`걸러진 과일 목록:`, result);
+
+      // 글자 길이가 긴 순서대로 나열하기
+      function sortFunc(fruits) {
+        for (let i = 0; i < fruits.length; i++) {
+          let temp = 0;
+          for (let j = 0; j < fruits.length - 1; j++) {
+            if (fruits[j].length > fruits[j + 1].length) {
+              temp = fruits[j];
+              fruits[j] = fruits[j + 1];
+              fruits[j + 1] = temp;
+            }
+          }
+        }
+        return fruits;
+      }
+
+      const sortFrults = sortFunc(frults);
+      console.log(`정렬된 과일 목록:`, sortFrults);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>눈치게임만들기</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      h1 {
+        background-color: tomato;
+      }
+
+      h2 {
+        line-height: 50px;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>눈치게임 Log</h1>
+    <hr />
+    <script>
+      //1. 스무고개 0~100 까지 숫자를 랜덤하게 고른다.
+
+      alert("눈치게임에 오신 것을 환영합니다.");
+
+      const randomNumber = Math.floor(Math.random() * 100);
+      let input = Number(prompt(`0~100 까지의 숫자 중 하나를 입력하세요.`));
+      let inputStack = [];
+
+      //
+      let count = 0;
+
+      // 입력값을 배열에 저장한다.
+      inputStack.push(input);
+      let $index = 0;
+      let 목숨 = 5;
+      console.log(randomNumber);
+
+      // for (let i = 0; i <= 목숨; i++) {
+      //   if (randomNumber === input) {
+      //     console.log("성공을 축하합니다.");
+      //   } else if (randomNumber > input && 목숨 > 0) {
+      //     console.log(
+      //       `입력하신 ${input} 보다 큰 수입니다. 남은 목숨은 ${목숨--}개 입니다.`
+      //     );
+      //     input = Number(prompt(`0~100 까지의 숫자 중 하나를 입력하세요.`));
+      //   } else if (randomNumber < input && 목숨 > 0) {
+      //     console.log(
+      //       `입력하신 ${input} 보다 작은 수 입니다. 남은 목숨은 ${목숨--}개 입니다.`
+      //     );
+      //     input = Number(prompt(`0~100 까지의 숫자 중 하나를 입력하세요.`));
+      //   } else if (목숨 === 0) {
+      //     console.log(`실패하였습니다. 다시 도전해주세요!`);
+      //   }
+      // }
+
+      let i = -4;
+      while (목숨 >= i) {
+        // 중복된 값을 입력하였을 경우 중복된 값을 입력하였다고 알린다.
+
+        // 랜덤값과 입력값이 서로 같다면 실행
+        if (randomNumber === input) {
+          alert(`성공을 축하 드립니다. 정답은 ${randomNumber} 입니다.`);
+
+          // 랜덤값이 입력값보다 크면서 목숨이 0 보다 큰 경우 실행
+        } else if (randomNumber > input && 목숨 > 0) {
+          alert(
+            `입력한 숫자 보다 큰 수입니다. 입력값: ${input}, 정답: ${randomNumber}`
+          );
+          document.write(
+            `<h2>입력하신 <mark> ${input} </mark> 보다 <u>큰 수</u>입니다. 남은 목숨은 <u> ${--목숨}개 </u> 입니다.</h2>`
+          );
+
+          //--- 다음 입력값 처리
+          input = Number(prompt(`0~100 까지의 숫자 중 하나를 입력하세요.`));
+          inputStack.push(input);
+          $index = inputStack.indexOf(input);
+
+          // 랜덤 번호 보다 입력값이 작으면서 목숨이 0보다 크면서 같은 경우
+        } else if (randomNumber < input && 목숨 >= 0) {
+          alert(
+            `입력한 숫자 보다 작은 수입니다.  입력값: ${input}, 정답: ${randomNumber}`
+          );
+          document.write(
+            `<h2>입력하신 <mark> ${input} </mark> 보다 <u>작은 수</u>입니다. 남은 목숨은 <u>${--목숨}개</u> 입니다.</h2>`
+          );
+          input = Number(prompt(`0~100 까지의 숫자 중 하나를 입력하세요.`));
+          inputStack.push(input);
+          $index = inputStack.indexOf(input);
+
+          // 그 외 처리
+        } else {
+          console.log("실패 입니다. 다시 도전 해주세요.");
+          alert(`정답은 ${randomNumber} 입니다.`);
+        }
+
+        // // 중복 값을 처리한다.
+        // for (let i = 0; i < inputStack; i++) {
+        //   if (inputStack[i] === input) {
+        //   }
+        // }
+
+        i++;
+        console.log(inputStack);
+      }
+    </script>
+  </body>
+</html>

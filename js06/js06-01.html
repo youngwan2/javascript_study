@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for 반복문 문제풀이</title>
+    <style></style>
+    <script>
+      // // 1. 반 갈린 별
+      // let star = '';
+
+      // for(let i=0; i<5; i++){
+      //   for(let j=0; j<5-i; j++){
+      //     star+='*'
+      //     console.log(star)
+      //   }
+      // }
+
+      // // 2. 트리모양 별
+      // let star = " ";
+      // let tree = "";
+      // for (let i = 0; i < 5; i++) {
+      //   console.log(`---------------- i 영역(바깥): ${i}`)
+
+      //   for (let j = 5; j > i * 1; j--) {
+      //     tree += star;
+      //     console.log(`------j 영역: ${j}`,tree)
+      //   }
+
+      //   for (let k = 0; k < 2 * i - 1; k++) {
+      //     tree += "*";
+      //     console.log(`------ k 영역:${k}`,tree)
+      //   }
+      //   tree += "\n";
+      // }
+      // console.log(tree);
+
+      // 3. 역 나오는 별(반쪽자리 마름모)
+
+      // let starArr = [
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      //   "*",
+      // ];
+      // let star = "";
+
+      // for (let i = 0; i < starArr.length - 1; i++) {
+      //   star += starArr[i] + " ";
+      //   console.log(star);
+      // }
+
+      // for (let i = starArr.length - 1; i >= 0; i--) {
+      //   console.log(...starArr);
+
+      //   starArr.length = i;
+      // }
+
+      // 4. 피라미드 마름모()
+      let out = "";
+
+      /** 피라미드 */
+      for (let i = 1; i < 5; i++) {
+        // 5 가 i 보다 큰 조건을 만족할 때 까지 빈공백을 추가한다.
+        for (let j = 5; j > i; j--) {
+          out += " "; //빈공백을 만들고
+        }
+
+        // 2 * i 를 곱하면 별의 갯수가 짝수가 되고,
+        // 여기서 1을 뺌으로써 홀수 갯수의 별이 피라미드로 그려진다.
+        for (let k = 0; k < 2 * i - 1; k++) {
+          out += "*"; // 별을 추가하고
+        }
+        out += "\n"; // 개행하고
+      }
+
+      /** 역피라미드  */
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < i; j++) {
+          out += " "; // 다시 빈공백을 추가하고
+        }
+        for (let k = 0; k < 2 * (5 - i) + 1; k++) {
+          out += "*"; // 별을 짝수 갯수 만큼 제거하고,
+        }
+        out += "\n"; // 개행하고
+      }
+
+      console.log(out);
+    </script>
+  </head>
+  <body></body>
+</html>

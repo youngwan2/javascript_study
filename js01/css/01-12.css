@@ -1,0 +1,49 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0,470px) perspective(600px) rotateX(360deg) rotateY(360deg) scale(0.01);
+  }
+}
+
+body {
+  background: black !important;
+  animation: 1s appear ease-in-out;
+  color: white;
+  width: 100%;
+}
+
+table {
+  position: absolute;
+  top: 50%;
+  max-width: 900px;
+  min-width: 700px;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+table th {
+  background: rgb(97, 197, 164);
+  color: black;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+table th:nth-of-type(2) {
+  width: 280px;
+}
+
+table th:nth-of-type(3) {
+  width: 200px;
+}
+
+table td {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  width: 100px;
+  text-align: center;
+}
+
+.a {
+  border-collapse: collapse;
+}

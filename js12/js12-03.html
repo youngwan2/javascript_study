@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최솟값 구하기</title>
+    <script>
+
+        /* 매개변수에 배열이 가능한 함수 */
+      // 최솟값
+      const arr = [44, 66, 0, -11, -22, 99, 88, 555555555, -444];
+      function min(a) {
+        let vs = a[0];
+        for (let i = 0; i < a.length; i++) if (vs > a[i]) vs = a[i];
+        return vs;
+
+        ff
+      }
+
+      //   최댓값
+
+      function max(a) {
+        let vs = a[0];
+        for (let i = 0; i < a.length; i++) if (vs < a[i]) vs = a[i];
+        return vs;
+      }
+
+
+      function minMax(min,max){
+            return [min, max]
+              }
+
+    const result = minMax(min(arr),max(arr))
+    
+    console.log(`최솟값은 ${result[0]}, 최댓값은 ${result[1]} 입니다.`)
+
+    //         /* min(11,22,33,44) ==>> 11 */
+
+    //         function max(...arr){
+    //         let filter = 0;
+    //         for(let i = 0; i<arr.length; i++){
+    //             if(arr[0]<arr[i]){
+    //                 filter = arr[i]
+    //             } 
+    //         }
+    //         return filter
+    //     }
+
+    //    console.log( max(22,11,6,100,44,55))
+
+    </script>
+  </head>
+  <body></body>
+</html>

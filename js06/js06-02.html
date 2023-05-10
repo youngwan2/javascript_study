@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.while 반복문</title>
+    <style>
+      h1 {
+        color: greenyellow;
+      }
+      body {
+        animation: appear 1s 1 ease-in-out;
+        background-color: black;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+      }
+
+      p > a {
+        text-decoration: none;
+        color: white;
+      }
+
+      p > a:hover {
+        color: gold;
+      }
+    </style>
+    <script>
+      // i-- 되면서 i 가 0 보다 큰 경우가 true 때 까지 반복문을 돌린 후 탈출한다.
+      let i = 5;
+      while (i > 0) {
+        console.log(`${i}`);
+        i--;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

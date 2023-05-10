@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>얕은복사, 깊은복사</title>
+    <script>
+      // 기본형 얕은 복사
+      // let v1 = '얕은 복사'
+      // let v2 = v1
+      // console.log(`v1:`,v1)
+      // console.log(`v2:`,v2)
+      // console.log(v1===v2)
+      // console.log(`---------------`)
+      // v2 = '얕은 빡침'
+      // console.log(`v1:`,v1)
+      // console.log(`v2:`,v2)
+      // console.log(v1===v2)
+      // console.log(`---------------`)
+
+      /* 참조형 얕은복사 */
+      //   let arr1 = [11, 22, 33, 44, 55];
+      //   let arr2 = arr1;
+
+      //   console.log(arr1);
+      //   console.log(arr2);
+      //   console.log(arr1 === arr2);
+
+      //   console.log(`---------------`);
+
+      //   arr2[0] = 77;
+
+      //   console.log(arr1);
+      //   console.log(arr2);
+      //   console.log(arr1 === arr2);
+
+      //   console.log(`---------------`);
+
+      /* 참조형 깊은 복사 */
+      let arr1 = [11, 22, 33, 44, 55];
+      let arr2 = [...arr1];
+
+      console.log(arr1);
+      console.log(arr2);
+      console.log(arr1 === arr2);
+
+      console.log(`---------------`);
+
+      arr2[0] = 77;
+
+      console.log(arr1);
+      console.log(arr2);
+      console.log(arr1 === arr2);
+
+      console.log(`---------------`);
+    </script>
+  </head>
+  <body></body>
+</html>

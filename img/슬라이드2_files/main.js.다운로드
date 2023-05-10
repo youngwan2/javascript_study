@@ -1,0 +1,739 @@
+/**
+ * @author (주)한신정보기술 퍼블리셔팀 XXX
+ * @since XXXX-XX-XX
+ * @version 1.0.0
+ */
+
+(function($) {
+	'use strict';
+
+	$(function() {
+		$('#tab_board .tab_btn').on('click',function(){
+			var $this = $(this),
+				$MyParent = $this.parent('li'),
+				ParentIndex = $MyParent.index(),
+				$OtherParents = $MyParent.siblings('li'),
+				IsActive = $MyParent.is('.active'),
+				$tabbox = $this.parents('ul.list').siblings('.tabbox'),
+				$MyTab = $tabbox.find('li').eq(ParentIndex),
+				$OtherTab = $MyTab.siblings('li');
+			if(!IsActive){
+				$OtherParents.removeClass('active');
+				$MyParent.addClass('active');
+				$OtherTab.removeClass('active');
+				$MyTab.addClass('active');
+			};
+		});
+
+		$('#tab_board .tabbox ul li button').on('click',function(){
+			var $this = $(this),
+				$MyParent = $this.parent('li'),
+				ParentIndex = $MyParent.index(),
+				$OtherParents = $MyParent.siblings('li'),
+				IsActive = $MyParent.is('.active'),
+				$listbox = $this.parents('.tabbox').siblings('ul.list'),
+				$MyList = $listbox.find('>li').eq(ParentIndex),
+				$OtherList = $MyList.siblings('li');
+			if(!IsActive){
+				$OtherParents.removeClass('active');
+				$MyParent.addClass('active');
+				$OtherList.removeClass('active');
+				$MyList.addClass('active');
+			};
+		});
+
+
+
+		//탭버튼 - 버튼, 콘텐츠 분리
+		$('.tab_layout').each(function(){
+			var tab_layout = $(this),
+				$tab = tab_layout.find('> .tab_button > ul > li'),
+				$tabContent = tab_layout.find(' > .tab_content'),
+				$thisTitle = tab_layout.find('h3');
+
+
+			$(window).on("load", function(){
+				//로드 됐을때 보여줄 탭. data-roadtab 속성 없을시 기본값 1
+				if(!tab_layout.is('[data-roadtab]')){
+					tab_layout.attr('data-roadtab','1');
+				}
+
+				var num = tab_layout.attr('data-roadtab');
+
+				var $tab_view = tab_layout.find(' > .tab_content.tab'+num);
+				$tab.eq(num-1).addClass('active');
+				$tab_view.addClass('active');
+			});
+
+			$tab.bind("click",function(event){
+				var this_eq = $tab.index( $(this) ),
+					this_text = $tab.eq(this_eq).children().text();
+				$tab.removeClass('active').removeAttr('title');
+				$tab.eq(this_eq).addClass('active').attr('title', '선택됨');
+				$tabContent.removeClass('active');
+				tab_layout.find('.tab_content.tab'+(this_eq+1)).addClass('active');
+				event.preventDefault();
+				$thisTitle.text(this_text);
+			});
+		});
+
+
+		//visual
+		var visualSlick =$('#visual .slide_list');
+
+		visualSlick.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+			var i = (currentSlide ? currentSlide : 0) + 1;
+			//console.log(i + '/' + slick.slideCount);
+			var n = slick.slideCount;
+
+			$('#visual .count .current').text(i); //현재페이지
+			$('#visual .count .all').text(n); //전체페이지
+		});
+		visualSlick.slick({
+			autoplay : true,
+			speed : 300,
+			autoplaySpeed:9000,
+			infinite: true,
+			dots:false,
+			prevArrow : $('.slide_control .prev'),
+			nextArrow : $('.slide_control .next'),
+			pauseOnDotsHover : true,
+			swipe:false,
+			draggable:false
+		});
+		$('#visual .pause').on('click', function(event) {
+			$('#visual .play').show().focus();
+			$('#visual .pause').hide();
+			visualSlick.slick('slickPause').slick('slickSetOption', 'pauseOnDotsHover', false);
+		});
+		$('#visual .play').on('click', function(event) {
+			$('#visual .pause').show().focus();
+			$('#visual .play').hide();
+			visualSlick.slick('slickPlay').slick('slickSetOption', 'pauseOnDotsHover', true);
+		});
+
+		//새로운 소식
+		$('.gallery .tab_button button').bind('click', function(e){
+			var filter = $(this).val();
+			var key = "."+filter;
+			$('.gallery .tab_button button').removeClass('active').find('.skip').remove();
+			$(this).addClass('active').append('<span class="skip">선택됨</span>');
+
+			$('.gallery .list').slick('slickUnfilter');
+			$('.gallery .list').slick('slickFilter',key).slick('refresh');
+			$('.gallery .list').slick('slickGoTo', 0);
+
+			$('.gallery .more a').hide();
+			$('.gallery .more a'+key).show();
+			//$('.gallery .list').slick('resize');
+
+			$.fn.ignore = function(sel){
+				return this.clone().find(sel||">*").remove().end();
+			};
+			var $thisTitle = $('.gallery').find('h3'),
+				thisText = $(this).ignore('span').text();
+
+			$thisTitle.text(thisText);
+
+		});
+		$(window).on("load", function(){
+			$('.gallery .tab_button button:first-child').addClass('active').append('<span class="skip">선택됨</span>');
+			var filter = $('.gallery .tab_button button:first-child').val();
+			var key = "."+filter;
+			$('.gallery .list').slick('slickFilter',key).slick('refresh');
+			$('.gallery .more a').hide();
+			$('.gallery .more a'+key).show();
+		});
+
+
+		//배너
+		var boardSlick = function(a) {
+			if ($(a).length) {
+				$(a).slick({
+					autoplay : false,
+					dots : false,
+					swipe : false,
+					draggable : false,
+					infinite: true,
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					arrows : false,
+					variableWidth: true,
+					responsive:  [
+						{
+							breakpoint: 1320,
+							settings: {
+								slidesToShow: 3,
+								swipe : true,
+								draggable : true
+							}
+						},
+						{
+							breakpoint:640,
+							settings : 'unslick'
+
+						}]
+				})
+			}
+		};
+		boardSlick(".board .tab1 .list");
+		boardSlick(".board .tab2 .list");
+		boardSlick(".board .tab3 .list");
+		boardSlick(".board .tab4 .list");
+		boardSlick(".board .tab5 .list");
+
+		var gallerySlick =$('.gallery .list');
+
+		gallerySlick.slick({
+			swipe:false,
+			draggable:false,
+			slidesToShow: 4,
+			infinite: true,
+			slidesToScroll: 1,
+			variableWidth: true,
+			dots:false,
+			prevArrow : $('.gallery .control .prev'),
+			nextArrow : $('.gallery .control .next'),
+			responsive: [
+				{
+					breakpoint: 1320,
+					settings: {
+						slidesToShow: 3,
+						variableWidth : true,
+						swipe : true,
+						draggable : true
+					}
+				}]
+		});
+
+		var prSlick =$('.promote .slide_list');
+
+		prSlick.slick({
+			swipe:false,
+			draggable:false,
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			infinite: true,
+			variableWidth : true,
+			dots:false,
+			prevArrow : $('.promote .control .prev'),
+			nextArrow : $('.promote .control .next'),
+			responsive: [
+				{
+					breakpoint: 1320,
+					settings: {
+						slidesToShow: 3,
+						swipe : true,
+						draggable : true
+					}
+				},
+				{
+					breakpoint:800,
+					settings: {
+						arrows : false,
+						slidesToShow: 2
+					}
+
+				}]
+		});
+		//팝업존
+		var popupSlick =$('.popup .slide_list');
+		popupSlick.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+			var i = (currentSlide ? currentSlide : 0) + 1;
+			//console.log(i + '/' + slick.slideCount);
+			var n = slick.slideCount;
+			if(i<10){
+				i = '0' + i
+			}
+			if(n<10){
+				n = '0' + n
+			}
+
+			$('.popup .count .current').text(i); //현재페이지
+			$('.popup .count .all').text(n); //전체페이지
+		});
+		popupSlick.slick({
+			swipe:false,
+			draggable:false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: true,
+			dots:false,
+			prevArrow : $('.popup .control .prev'),
+			nextArrow : $('.popup .control .next'),
+			responsive:[
+				{
+					breakpoint: 1320,
+					settings: {
+						slidesToShow: 2,
+						variableWidth : true,
+						swipe : true,
+						draggable : true
+					}
+				},
+				{
+					breakpoint:1000,
+					settings: {
+						slidesToShow: 2,
+						variableWidth : true,
+						swipe : true,
+						draggable : true
+					}
+				}]
+		});
+		$('.popup .pause').on('click', function(event) {
+			$('.popup .play').show().focus();
+			$('.popup .pause').hide();
+			visualSlick.slick('slickPause').slick('slickSetOption', 'pauseOnDotsHover', false);
+		});
+		$('.popup .play').on('click', function(event) {
+			$('.popup .pause').show().focus();
+			$('.popup .play').hide();
+			visualSlick.slick('slickPlay').slick('slickSetOption', 'pauseOnDotsHover', true);
+		});
+
+
+		//팝업존2
+		var popupSlick =$('.popup2 .slide_list');
+		popupSlick.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+			var i = (currentSlide ? currentSlide : 0) + 1;
+			//console.log(i + '/' + slick.slideCount);
+			var n = slick.slideCount;
+			if(i<10){
+				i = '0' + i
+			}
+			if(n<10){
+				n = '0' + n
+			}
+
+			$('.popup2 .count .current').text(i); //현재페이지
+			$('.popup2 .count .all').text(n); //전체페이지
+		});
+		popupSlick.slick({
+			swipe:false,
+			draggable:false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: true,
+			dots:false,
+			prevArrow : $('.popup2 .control .prev'),
+			nextArrow : $('.popup2 .control .next'),
+			responsive:[
+				{
+					breakpoint: 1320,
+					settings: {
+						slidesToShow: 1,
+						variableWidth : true,
+						swipe : true,
+						draggable : true
+					}
+				},
+				{
+					breakpoint:1000,
+					settings: {
+						slidesToShow: 1,
+						variableWidth : true,
+						swipe : true,
+						draggable : true
+					}
+				}]
+		});
+		$('.popup2 .pause').on('click', function(event) {
+			$('.popup2 .play').show().focus();
+			$('.popup2 .pause').hide();
+			visualSlick.slick('slickPause').slick('slickSetOption', 'pauseOnDotsHover', false);
+		});
+		$('.popup2 .play').on('click', function(event) {
+			$('.popup2 .pause').show().focus();
+			$('.popup2 .play').hide();
+			visualSlick.slick('slickPlay').slick('slickSetOption', 'pauseOnDotsHover', true);
+		});
+
+		//효과 영역
+		$(".quick_open").click(function(){
+			TweenMax.to($(".quick"), 0.7, {visibility:'visible', opacity:1, right:0, ease:Power3.easeOut, onComplete:function(){
+					/*$(".quick .shortcut_link li").each(function(q){
+                        TweenMax.to($(this), 0.2*q, {left:0, opacity:1, ease:Power3.easeOut});
+                    });*/
+					TweenMax.to($(".quick .inner"), 0.3,{delay:0.2, opacity:1, ease:Power3.easeOut});
+					TweenMax.to($(".quick .quick_close"), 0.3,{left:-76, opacity:1, ease:Power3.easeOut});
+				}});
+		});
+
+		$(".quick .quick_close").click(function(){
+			TweenMax.to($(".quick .quick_close .bar span"), 0.2,{transform:'rotate(0)', ease:Power3.easeOut, onComplete:function(){
+					TweenMax.to($(".quick .quick_close"), 0.3,{delay:0.3, opacity:0, left:0, ease:Power3.easeOut, onComplete:function(){
+							TweenMax.to($(".quick"), 1.5, {delay:0.2, opacity:0, right:"-100%", ease:Power3.easeOut, onComplete:function(){
+									TweenMax.to($(".quick"), 0, {visibility:'hidden',ease:Power3.easeOut});
+									TweenMax.to($(".quick .quick_close .bar1"), 0, {transform:'rotate(-45deg)',ease:Power3.easeOut});
+									TweenMax.to($(".quick .quick_close .bar2"), 0, {transform:'rotate(45deg)',ease:Power3.easeOut});
+								}});
+							TweenMax.to($(".quick .inner"), 1.5,{opacity:0, ease:Power3.easeOut});
+						}});
+
+				}});
+
+		});
+
+	});
+})(jQuery);
+
+
+function maxText(target,maxLength){
+	target.each(function(){
+		var _this = $(this);
+		if(_this.text().length >= maxLength){
+			_this.text($(this).text().substr(0,maxLength)+'...')
+		}
+	})
+}
+$(window).on("load", function(){
+	//최대텍스트 길이
+	maxText($('.board .tab_content .text'),40);
+	maxText($('.gallery .slide .text_area .title'),40);
+})
+
+
+
+
+$(function() {
+	var $body = $('body'),
+		$customizeService = $('.customize_service'),
+		$setting = $customizeService.find('.setting'),
+		$closeBtn = $customizeService.find('.close_btn'),
+		$counter = $customizeService.find('.counter'),
+		$settingCheck = $customizeService.find('.setting_check'),
+		$reset = $customizeService.find('.reset'),
+		$save = $customizeService.find('.save'),
+		$iconList = $customizeService.find('.icon_list'),
+		$iconItem = $iconList.children('.icon_item'),
+		$settingBtn = $customizeService
+	iconListElement = $iconList[0],
+
+		isArray = Array.isArray,
+
+		customizeServiceData = getCustomizeServiceData(),
+		iconListOptions = {
+			swipe : true,
+			draggable : true,
+			slidesToShow : 7,
+			prevArrow : $customizeService.find('.prev'),
+			nextArrow : $customizeService.find('.next'),
+			responsive:  [{
+				breakpoint : 1320,
+				settings : {
+					slidesToShow : 6,
+					swipe : true,
+					draggable : true
+				}
+			}, {
+				breakpoint : 1000,
+				settings : {
+					slidesToShow : 7
+				}
+			}, {
+				breakpoint : 740,
+				settings : {
+					slidesToShow : 5,
+					variableWidth : true
+				}
+			}]
+		};
+
+	//체크된 세팅 얻기
+	function getSettingChecked() {
+		return $settingCheck.filter(':checked');
+	}
+
+	//카운터 지정
+	function setCounter() {
+		$counter.text(getSettingChecked().length);
+	}
+
+	//데이터 추가
+	function addCustomizeServiceData(value) {
+		//문자열일 때
+		if(typeof value === 'string') {
+			var customizeServiceData = getCustomizeServiceData();
+
+			value = value.trim();
+
+			//양쪽 공백 제거 후 값이 있으면서 기존 데이터에 없을 때
+			if(value && !~customizeServiceData.indexOf(value)) {
+				customizeServiceData.push(value);
+
+				setCustomizeServiceData(customizeServiceData);
+			}
+		}
+	}
+
+	//데이터 삭제
+	function removeCustomizeServiceData(value) {
+		//문자열일 때
+		if(typeof value === 'string') {
+			var customizeServiceData = getCustomizeServiceData(),
+				selectedCustomServiceIndex = customizeServiceData.indexOf(value.trim());
+
+			//인덱스가 있을 때
+			if(~selectedCustomServiceIndex) {
+				customizeServiceData.splice(selectedCustomServiceIndex, 1);
+
+				setCustomizeServiceData(customizeServiceData);
+			}
+		}
+	}
+
+	//데이터 지정
+	function setCustomizeServiceData(data) {
+		//배열일 때
+		if(isArray(data)) {
+			var isRun = true;
+
+			data.forEach(function(value, index, array) {
+				//문자열일 때
+				return typeof value === 'string' ? true : isString = false;
+			}, data);
+
+			//모든 데이터가 문자열일 때
+			if(isRun) {
+				localStorage.customizeService = JSON.stringify(data);
+			}
+		}
+	}
+
+	//데이터 얻기
+	function getCustomizeServiceData() {
+		try {
+			var result = JSON.parse(localStorage.customizeService);
+		}catch(e) {}
+
+		//배열이 아닐 때
+		if(!isArray(result)) {
+			result = [];
+		}
+
+		return result;
+	}
+
+	//설정하기
+	$customizeService.find('.setting_btn').on('click', function(event) {
+		$body.addClass('overh');
+
+		$setting.addClass('active');
+	});
+
+	//닫기
+	$closeBtn.on('click', function(event) {
+		$body.removeClass('overh');
+
+		$setting.removeClass('active');
+	});
+
+	//체크박스
+	$settingCheck.on('change', setCounter).triggerHandler('change');
+
+	//저장된 데이터를 불러와서 체크박스 체크
+	$settingCheck.filter(function(index, element) {
+		var value = element.value,
+			result = false;
+
+		//문자열일 때
+		if(typeof value === 'string') {
+			value = value.trim();
+
+			//양쪽 공백 제거 후 값이 있으면서 기존 데이터와 같은게 있을 때
+			if(value && ~customizeServiceData.indexOf(value)) {
+				result = true;
+			}
+		}
+
+		return result;
+	}).prop('checked', true).triggerHandler('change');
+
+	//초기화
+	$customizeService.find('.reset').on('click', function(event) {
+		$settingCheck.prop('checked', false);
+
+		setCounter();
+	});
+
+	//저장
+	$customizeService.find('.save').on('click', (function() {
+		function result() {
+			var slick = iconListElement.slick,
+				$settingChecked = getSettingChecked();
+
+			//슬릭이 세팅되어있을 때
+			if(slick && !slick.unslicked) {
+				$iconList.slick('destroy');
+			}
+
+			$iconList.empty();
+
+			var $matchedIconItem = $iconItem.filter(function(index, element) {
+				var customizeServiceKey = $(element).removeData('customizeServiceKey').data('customizeServiceKey'),
+					result = false;
+
+				//문자열일 때
+				if(typeof customizeServiceKey === 'string') {
+					customizeServiceKey = customizeServiceKey.trim();
+
+					///양쪽 공백 제거 후 값이 있을 때
+					if(customizeServiceKey) {
+						$settingChecked.each(function(index, element) {
+							var value = element.value,
+								isRun = true;
+
+							//문자열일 때
+							if(typeof value === 'string') {
+								value = value.trim();
+
+								///양쪽 공백 제거 후 값이 있으면서 키와 값이 같을 때
+								if(value && customizeServiceKey === value) {
+									addCustomizeServiceData(value);
+
+									result = true;
+
+									isRun = false;
+								}
+
+							}
+
+							return isRun;
+						});
+					}
+				}
+
+				return result;
+			});
+
+			//매칭된 요소가 있을 때
+			if($matchedIconItem.length) {
+				$iconList.append($matchedIconItem);
+			}else{
+				var customizeServiceData = [];
+
+				$iconItem.each(function(index, element) {
+					var customizeServiceKey = $(element).removeData('customizeServiceKey').data('customizeServiceKey');
+
+					//문자열일 때
+					if(typeof customizeServiceKey === 'string') {
+						customizeServiceKey = customizeServiceKey.trim();
+
+						///양쪽 공백 제거 후 값이 있을 때
+						if(customizeServiceKey) {
+							customizeServiceData.push(customizeServiceKey);
+						}
+					}
+				});
+
+				setCustomizeServiceData(customizeServiceData);
+
+				$settingCheck.filter(function(index, element) {
+					var value = element.value,
+						result = false;
+
+					//문자열일 때
+					if(typeof value === 'string') {
+						value = value.trim();
+
+						///양쪽 공백 제거 후 값이 있으면서 데이터가 있을 때
+						if(value && ~customizeServiceData.indexOf(value)) {
+							result = true;
+						}
+					}
+
+					return result;
+				}).prop('checked', true).triggerHandler('change');
+
+				$iconList.append($iconItem);
+			}
+
+			$iconList.slick(iconListOptions);
+		}
+
+		result();
+
+		return function(event) {
+			setCustomizeServiceData([]);
+
+			result();
+
+			$closeBtn.triggerHandler('click');
+		};
+	})());
+});
+
+$("a").on("click", function(e){
+	var $this = $(this);//element a
+	$this.find(">img").attr("src", function(index, attr){
+		if(attr.match('_on')){
+			return attr.replace("_on.png", "._off.png");
+		}else{
+			return attr.replace("_off.png", "_on.png");
+		}
+	});
+});
+
+
+
+$(document).ready(function(){
+	//이미지 롤오버
+	$('a.over_img').mouseover(function (){
+		var file = $(this).find('img').attr('src').split('/');
+		var filename = file[file.length-1];
+		var path = '';
+		for(i=0 ; i < file.length-1 ; i++){
+			path = ( i == 0 )?path + file[i]:path + '/' + file[i];
+		}
+		$(this).find('img').attr('src',path+'/'+filename.replace('_off.','_on.'));
+
+	}).mouseout(function(){
+		var file = $(this).find('img').attr('src').split('/');
+		var filename = file[file.length-1];
+		var path = '';
+		for(i=0 ; i < file.length-1 ; i++){
+			path = ( i == 0 )?path + file[i]:path + '/' + file[i];
+		}
+		$(this).find('img').attr('src',path+'/'+filename.replace('_on.','_off.'));
+	});
+});
+
+
+
+
+
+$(document).ready(function($) {
+	var $window = $(window);
+
+	function resize() {
+		if ($window.width() < 1000) {
+			$('.depth1_list > li:first-child').addClass('active');
+			$('html').addClass('lnb_active');
+			return ;
+		}
+		$('.depth1_list > li:first-child').removeClass('active');
+	}
+
+	$window.resize(resize).trigger('resize');
+});
+
+$(document).ready( function() {
+	$('.linkZoneAjax').click( function() {
+		var linkZoneIemNo = $(this).attr("id");
+		$.ajax({
+			url:'./updateLinkZoneItemCnt.do',
+			type: "GET",
+			dataType: 'json',
+			data:{"linkZoneIemNo" : linkZoneIemNo},
+			success:function(data) {
+			},
+			error:function(request,status,error){
+			}
+		}); /* $.ajax */
+	});
+});
+
+
+
+/* 처음 페이지 열면 1번째 메뉴가 열려있길 요청해서 ㅊ ㅓ리한 스크립트*/

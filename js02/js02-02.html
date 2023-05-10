@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>환율계산기</title>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+      }
+
+      table {
+        border-collapse: collapse;
+        border: 1px solid black;
+        width: 400px;
+      }
+      table > tr {
+        border: 1px solid black;
+      }
+
+      th {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        text-align: center;
+      }
+
+      td {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>환율계산기</h1>
+    <hr />
+
+    <script>
+      const dollar = prompt('환전하고자 하는 달러를 입력해 주세요!.',1);
+      const ex = 1350;
+      const won1 = Number(dollar) * ex
+      const won2 = Number(dollar) * ex
+      const won3 = Number(dollar) * ex
+      const table = `
+      <table>
+      <tr>
+        <th colspan="3">입력하신 ${dollar}달러를 환전하면</th>
+      </tr>
+      <tr>
+        <td>한국</td>
+        <td>${dollar}</td>
+        <td>${won1}원</td>
+      </tr>
+      <tr>
+        <td>일본</td>
+        <td>${dollar}</td>
+        <td>${won2}앤</td>
+      </tr>
+      <tr>
+        <td>중국</td>
+        <td>${dollar}</td>
+        <td>${won3}위안</td>
+      </tr>
+    </table>
+      `;
+
+      document.write(table)
+    </script>
+  </body>
+</html>

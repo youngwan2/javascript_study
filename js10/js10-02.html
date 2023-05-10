@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공포의 구구단</title>
+    <link rel="stylesheet" href="js10-02.css" />
+  </head>
+  <body>
+    <video src="../img/fire.mp4"
+      autoplay muted loop></video>
+    ></video>
+    <div class="image_container">
+    <img src="../img/animal2.png" alt="다람쥐">
+  </div>
+
+    <script>
+      const num = 9;
+
+      let table = ``;
+      for (let i = 1; i <= num; i++) {
+        table += `<div class="container">
+          <h3>${i}단</h3>`;
+        for (let j = 1; j <= num; j++) {
+          table += `
+          <p>${i} X ${j} = ${i * j}</p>
+        `;
+          if (i === i && j === 9) {
+            table += `</div><br>`;
+          }
+        }
+      }
+      document.write(`<div class="outer">`);
+      document.write(table);
+      document.write(`</div>`);
+      const random1 = Math.floor(Math.random() * 9) + 1;
+      const random2 = Math.floor(Math.random() * 9) + 1;
+      console.log(random1 * random2);
+
+      // const gugu = Number(prompt(`${random1} * ${random2} 는?`))
+      const answer = random1 * random2;
+
+      if (gugu === answer) {
+        alert("정답!");
+      } else {
+        alert("에잉 쯔즛.. 틀렸습니다. 공부하세요!");
+      }
+    </script>
+  </body>
+</html>

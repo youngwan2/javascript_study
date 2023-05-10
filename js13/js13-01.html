@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 나머지 매개변수에 담은 값들을 반환하고 인덱스로 접근하면?
+      const ar = function fn(a, b, ...arr) {
+        return arr;
+      };
+
+      console.log(ar(11, 22, 33)[0]); // 33
+    </script>
+  </head>
+  <body>
+    <pre>
+        <p>... 나머지매개변수 => [배열로 만들어준다.]</p>
+        ㄴ 함수 만들 때 매개변수로 집어 넣을 때 사용
+
+        let cats =[1,2,3,4,5]
+        function cat(...arr) {
+            return arr
+        }
+
+
+
+        cat(...cats)
+        <p>... 전개연산자 => [배열을] -> 풀어준다.</p>
+        ㄴ 실행할 때 집어넣는다.
+
+    </pre>
+  </body>
+</html>

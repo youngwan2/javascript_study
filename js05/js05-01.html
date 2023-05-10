@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>합구하기</title>
+
+    <style>
+        body{
+            background-color: burlywood;
+            
+        }
+        table{
+            box-shadow: 30px 60px 5px rgba(0, 0, 0, 0.788);
+      
+            border: 1px solid black;
+            border-collapse: collapse;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%) perspective(600px);
+            border-radius: 5px;
+            transition: 1s;
+            transform-origin: left center;
+        }
+        table th{
+            border-radius: 5px;
+            font-size: 1.5rem;
+            background-color: white;
+            background-color: antiquewhite;
+            width: 200px;
+            border-bottom: 1px solid black;
+        }
+
+        table td{
+            border-radius: 5px;
+            padding:1rem;
+            font-size: 2rem;
+            text-align: center;
+            background-color: white;
+        }
+
+        table:hover{
+            transform: rotateY(150deg) rotateX(60deg) rotateZ(-40deg) translate(-40%,-50%) perspective(600px);
+            cursor: pointer;
+        }
+    </style>
+    <script>
+      //   const input = prompt("0부터 n까지의 합을 구할 때 n을 정해주세요.") * 1;
+      //   let sum = 0;
+      //   for (let i = 0; i <= input; i++) {
+      //     sum += i;
+      //     console.log(sum);
+      //   }
+
+      /* 문제1) 1부터 20까지의 수를 모두 더한 값을 나타내어라(해결) */
+
+      // let sum = 0;
+      // for (let i = 1; i <= 20; i++) {
+      //   sum += i;
+      //   console.log(sum,i)
+      // }
+      // console.log(`최종합계:`sum);
+
+      /* 문제2) 1부터 입력받은 수까지 모두 더한 값을 나타내어라 */
+
+      //   let input = Number(
+      //     prompt("모두 더하고자 하는 정수를 입력하시오(ex. 20).", 1)
+      //   );
+      //   let sum = 0;
+      //   for (let index = 1; index <= input; index++) {
+      //     sum += index;
+      //     console.log(`합계: ${sum}, input:${input}, index:${index}`);
+      //   }
+      //   console.log(`최종합계:`,sum);
+
+      //문제 3) n부터 m 까지 입력받은 수의 짝수만 더하여 나타내어라.
+      const n = prompt("m 까지 나타낼 정수의 최솟값 n을 입력하세요.", 1) * 1;
+      const m =
+        prompt("n 에서 부터 나타낼 정수의 최댓값 m을 입력하세요. ", 10) * 1;
+      let sum = 0;
+      for (let i = n; i < m; i++) {
+        if (i % 2 === 0) {
+          sum += i;
+          console.log(`소계:${sum}, 짝수 인덱스: ${i}`);
+        }
+      }
+      console.log(`최종합계:`, sum);
+      document.write(`    <table>
+      <tr>
+        <th>합계</th>
+      </tr>
+      <tr>
+        <td>${sum}</td>
+      </tr>
+    </table>`);
+    </script>
+  </head>
+  <body></body>
+</html>

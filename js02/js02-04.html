@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-9 까지 하나를 입력 받아 구구단을 페이지에 나타내기</title>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(440px);
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+        background: linear-gradient(60deg, rgb(177, 6, 126), black);
+      }
+      p{
+        margin: 1rem 0;
+        padding:5px;
+      }
+
+      P:nth-last-of-type(2n){
+        background: yellow;
+      }
+
+      div {
+        position: absolute;
+        padding: 18px;
+        height: 600px;
+        width: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) perspective(600px);
+        background-color: white;
+        font-size: 1.4rem;
+        box-shadow: 0 0 0 0, 1px 2px 20px 10px black inset;
+        border-radius: 5px;
+        transition: 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+      }
+      @keyframes effect {
+        from {
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      div:hover {
+        left: 50%;
+        top: 50%;
+        cursor: pointer;
+        animation: 5s infinite alternate effect;
+        transform: scale(1.08) translate(-50%, -60%) rotateY(40deg) rotateX(-50deg);
+
+        box-shadow: 150px 130px 8px 3px rgba(0, 0, 0, 0.712), 0 0 0 0 inset,
+          1px 1px 15px 8000px rgb(11, 54, 110);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //  2-9 까지 하나를 입력 받아 구구단을 페이지에 나타내기
+
+      const gugudanLeft = prompt("기본은 2단 입니다.", 2);
+      const gugudanRight = prompt("2-9 중 하나를 입력하세요.", 2);
+      const gugudanRight2 = 2;
+      const gugudanRight3 = 3;
+      const gugudanRight4 = 4;
+      const gugudanRight5 = 5;
+      const gugudanRight6 = 6;
+      const gugudanRight7 = 7;
+      const gugudanRight8 = 8;
+      const gugudanRight9 = 9;
+
+      const gugudanResult = gugudanLeft * gugudanRight;
+      const gugudanResult2 = gugudanLeft * gugudanRight2;
+      const gugudanResult3 = gugudanLeft * gugudanRight3;
+      const gugudanResult4 = gugudanLeft * gugudanRight4;
+      const gugudanResult5 = gugudanLeft * gugudanRight5;
+      const gugudanResult6 = gugudanLeft * gugudanRight6;
+      const gugudanResult7 = gugudanLeft * gugudanRight7;
+      const gugudanResult8 = gugudanLeft * gugudanRight8;
+      const gugudanResult9 = gugudanLeft * gugudanRight9;
+
+      const doc = `
+    
+      <div>
+        <h2>구구단 만들기(기본옵션 2단)</h2>
+        <hr>
+        <p><strong>${gugudanLeft} X ${gugudanRight} = ${gugudanResult}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight2} = ${gugudanResult2}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight3} = ${gugudanResult3}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight4} = ${gugudanResult4}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight5} = ${gugudanResult5}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight6} = ${gugudanResult6}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight7} = ${gugudanResult7}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight8} = ${gugudanResult8}</strong></p>  
+        <p><strong>${gugudanLeft} X ${gugudanRight9} = ${gugudanResult9}</strong></p>  
+        </div>
+  `;
+
+      document.write(doc);
+    </script>
+  </body>
+</html>

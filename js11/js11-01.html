@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수의 파라미터, 리턴(return)1</title>
+    <script>
+      //       function a1(num) {
+      //         console.log(`a1:`,num * num);
+      //       }
+      //       function a2(num) {
+      //         return num*num;
+      //       }
+
+      //       a1(5);
+      //       console.log(`a2:`,a2(5));
+
+      // // 자바스크립트에서 함수는 값으로 취급된다.
+      //       const v1 = a1(2)
+
+      // 중요) 함수는 return 을 만나면 함수를 종료하고 탈출한다.
+
+      let val = 777;
+      function fn() {
+        val = 888;
+        console.log(val);
+        return 100;
+        val = 999;
+        console.log(val);
+        console.log(v1);
+      }
+
+      const v1 = fn();
+      console.log(v1);
+    </script>
+  </head>
+  <body></body>
+</html>

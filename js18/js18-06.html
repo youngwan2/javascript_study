@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const pet = {
+        name: "구름",
+        eat: function (food) {
+          alert(this.name + "은(는) " + food + "을(를) 먹습니다.");
+        },
+      };
+
+      const obj = {
+        number:123,
+        string:'홍길동',
+        boolean :true,
+        array:[1,2,3],
+        method :function(){
+            return this.number 
+        }
+      }
+
+      console.log(obj.method())
+      console.log(typeof obj.method)
+      console.log(typeof obj.boolean)
+
+
+    </script>
+  </head>
+  <body></body>
+</html>

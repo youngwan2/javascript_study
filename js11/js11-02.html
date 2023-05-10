@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수의 파라미터, 리턴(return)2</title>
+    <script>
+
+        // 함수의 매개변수에는 =값 형태로 초기값을 전달할 수 있다.
+      function fn(num=123) {
+        return num;
+      }
+      // 함수는 값이다.
+      console.log("fn(333:", fn(333));
+
+      // 함수는 값이므로 배열 안에도 넣을 수 있다.
+      // 매개변수를 지정 후 아무런 값을 전달하지 않으면 undefined 가 할당된다.
+      const arr = [11, 22, 33, 44, 55, fn(222), fn(444), fn()];
+      console.log(`arr:`, arr);
+    </script>
+  </head>
+  <body></body>
+</html>

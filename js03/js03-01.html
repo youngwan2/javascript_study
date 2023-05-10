@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>예제 p132(오전과 오후 구분하기)</title>
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+
+      h1{
+        color:greenyellow
+      }
+      body {
+        animation: 1s appear ease-in-out;
+        background-color: black;
+        color:white;
+        
+      }
+      pre{
+        line-height: 2;
+        font-size: 15px;
+      }
+
+    </style>
+    <script>
+      const date = new Date();
+      const hour = date.getHours();
+
+      if (hour < 12) {
+        alert(`오전 입니다.${date}`);
+      }
+
+      if (hour >= 12) {
+        alert(`오후 입니다.${date}`);
+      }
+    </script>
+  </head>
+  <body>
+
+    <p><a style="text-decoration: none; color:white;" href="./js03-00.html">목차로 돌아가기</a></p>
+  </body>
+</html>

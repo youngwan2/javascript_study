@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스위치 조건문2(응용)</title>
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+
+      h1{
+        color:greenyellow
+      }
+      body {
+        animation: 1s appear ease-in-out;
+        background-color: black;
+        color:white;
+        
+      }
+      pre{
+        line-height: 2;
+        font-size: 15px;
+      }
+
+    </style>
+    <script>
+      const str = prompt("과일명을 입력하세요.");
+      switch (str) {
+        case "사과":
+          console.log("사과 입니다.");
+          break;
+        case "수박":
+          console.log("수박 입니다.");
+          break;
+        case "바나나":
+          console.log("바나나 입니다.");
+          break;
+        case "키위":
+          console.log("키위 입니다.");
+          break;
+        case "딸기":
+          console.log("딸기 입니다.");
+          break;
+        default:
+          alert("재고가 없습니다.");
+          console.log("과일 없음. 가삼.");
+          break;
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <a style="text-decoration: none; color: white" href="./js03-00.html"
+        >목차로 돌아가기</a
+      >
+    </p>
+    <hr />
+    <pre>
+        <h3>소스코드</h3>
+        <hr>
+        const str = prompt("과일명을 입력하세요.");
+        switch (str) {
+          case "사과":
+            console.log("사과 입니다.");
+            break;
+          case "수박":
+            console.log("수박 입니다.");
+            break;
+          case "바나나":
+            console.log("바나나 입니다.");
+            break;
+          case "키위":
+            console.log("키위 입니다.");
+            break;
+          case "딸기":
+            console.log("딸기 입니다.");
+            break;
+          default:
+            alert("재고가 없습니다.");
+            console.log("과일 없음. 가삼.")
+            break;
+        }
+    </pre>
+  </body>
+</html>

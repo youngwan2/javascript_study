@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      th {
+        border: 1px solid black;
+      }
+
+      .btn_container{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,100px);
+      }
+
+      .btn_container>button{
+        padding:20px;
+        background-color: teal;
+        color:white;
+        border: none;
+        border-radius: 50%;
+
+      }
+
+      .btn_container>button:focus{
+        background-color: tomato;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div style="
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    ">
+        <table style =" border-collapse: collapse; width:600px; text-align:center;">
+    <h3>판매품목</h3>
+    <tr>
+        <th  style ="border: 1px solid black;  background:black; color:white">No.</th>
+        <th  style ="border: 1px solid black;  background:black; color:white">품목</th>
+        <th  style ="border: 1px solid black;  background:black; color:white">정가</th>
+        <th  style ="border: 1px solid black;  background:black; color:white">할인율</th>
+        <th  style ="border: 1px solid black;  background:black; color:white">할인된가격</th>
+        
+    </tr>
+        `
+    <!-- testing  -->
+    <div class="btn_container">
+    <button onclick="discountFunc(0)">10%</button>
+    <button onclick="discountFunc(1)">20%</button>
+    <button onclick="discountFunc(2)">30%</button>
+    <button onclick="discountFunc(3)">40%</button>
+</div>
+
+    <script>
+        const products = [
+          "컴퓨터",
+          "노트북",
+          "태블릿PC",
+          "스마트폰",
+          "공유기",
+          "키보드",
+          "마우스",
+        ];
+        let price = [800000, 22000000, 800000, 2000000, 120000, 80000, 50000];
+        let total_price = 0;
+        let discntPer = [0.1, 0.2, 0.3, 0.4];
+        let discntPrice = [];
+        let totalDisCntPrice = 0;
+  
+        function discountFunc(perIndex) {
+          totalDisCntPrice = 0;
+          total_price = 0;
+          document.close();
+          document.write(`
+          <div style="
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          ">
+              <table style =" border-collapse: collapse; width:600px; text-align:center;">
+          <h3>판매품목</h3>
+          <tr>
+              <th  style ="border: 1px solid black;  background:black; color:white">No.</th>
+              <th  style ="border: 1px solid black;  background:black; color:white">품목</th>
+              <th  style ="border: 1px solid black;  background:black; color:white">정가</th>
+              <th  style ="border: 1px solid black;  background:black; color:white">할인율</th>
+              <th  style ="border: 1px solid black;  background:black; color:white">할인된가격</th>
+              
+          </tr>
+              `);
+          for (let i = 0; i < products.length; i++) {
+            discntPrice[i] = price[i] - price[i] * discntPer[perIndex];
+  
+            document.write(`
+              
+                  <tr>
+              <td  style ="border: 1px solid black">${i + 1}</td>
+              <td  style ="border: 1px solid black">${products[i]}</td>
+              <td  style ="border: 1px solid black">￦ ${price[i].toLocaleString(
+                "en-US"
+              )}</td>
+              <td  style ="border: 1px solid black"> ${
+                discntPer[perIndex] * 100
+              }%</td>
+              <td  style ="border: 1px solid black">￦ ${discntPrice[
+                i
+              ].toLocaleString("en-US")}</td>
+          </tr>
+                         
+              `);
+  
+            // 총금액
+            total_price += price[i];
+  
+            // 할인된 총 금액
+            totalDisCntPrice += discntPrice[i];
+          }
+  
+          document.write(` 
+          <tr>
+              <td  style ="border: 1px solid black"  colspan="2">총계</td>
+              <td  style ="border: 1px solid black">￦ ${total_price.toLocaleString(
+                "en-US"
+              )}</td>
+              <td  style ="border: 1px solid black; ">할인총계</td>
+              <td  style ="border: 1px solid black">￦ ${totalDisCntPrice.toLocaleString(
+                "en-US"
+              )}</td>
+          
+          </table>
+          <div style="text-align:center; margin-top:1rem">
+            
+          <button onclick="discountFunc(0)" style="        
+            padding:20px;
+            background-color: teal;
+            color:white;
+            border: none;
+            border-radius: 50%;">10%</button>
+          <button onclick="discountFunc(1)" style="        
+            padding:20px;
+            background-color: teal;
+            color:white;
+            border: none;
+            border-radius: 50%;">20%</button>
+          <button onclick="discountFunc(2)" style="        
+            background-color: teal;
+            color:white;
+            border: none;
+            border-radius: 50%;">30%</button>
+          <button onclick="discountFunc(3)" style="        
+            padding:20px;
+            background-color: teal;
+            color:white;
+            border: none;
+            border-radius: 50%;">40%</button>
+      </div>
+          </div>
+          `);
+        }
+  
+        // 할인금액 = 정가 - (정가 x 할인율)
+  
+        // 각 할인율 버튼을 클릭하면 모든 품목에 해당 할인율이 적용되도록 함
+      </script>
+  </body>
+</html>

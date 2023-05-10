@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜덤</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    </style>
+    <script>
+      const ran = Math.random() * 100 + 1;
+      const integer = Math.floor(ran);
+      console.log(integer);
+
+      // 10% 넘어가면 일반 회색
+      // 5% ~ 10% 레어템 노
+      // 2 ~ 5% 유니크 초
+      // 2 % 미만 레전드 아이템 당첨 금
+
+      if (ran >= 10) {
+        console.log("일반 아이템(회색)");
+        document.write('<p style="color:gray">일반 아이템(회색)</p>');
+      } else if (ran >= 5 && ran < 10) {
+        console.log("레어 아이템(노란색)");
+        document.write('<p style="color:yellow">레어 아이템(노란색)</p>');
+      } else if (ran >= 2 && ran < 5) {
+        console.log("유니크 아이템(초록색)");
+        document.write('<p style="color:green">유니크 아이템(초록색)</p>');
+      } else {
+        console.log("레전드 아이템(금색)");
+        document.write('<p style="color:gold">레전드 아이템(금색)</p>');
+      }
+
+      document.write(`<h1>확률: ${ran}</h1>`);
+    </script>
+  </head>
+  <body></body>
+</html>

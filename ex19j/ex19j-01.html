@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this에 관하여</title>
+    <script>
+      // this 예제1
+      /* 
+      * this는 호출하는 방식에 따라서 가리키는 값이 달라진다.
+      * 객체 내에서 함수(메소드)를 사용했을 경우에는 이 때 this는 바로 위에 객체를 가리킨다.*/
+      
+      
+      const obj1 = {
+        a: 1,
+        b: 2,
+        c: function () {
+          console.log(`a =`,this.a);
+   
+        },
+      };
+      obj1.c();
+      // this 예제2
+      const obj2 = {
+        a: 1,
+        b: 2,
+        c: function () {
+          console.log(this.b);
+        },
+        d: function () {
+            console.log(`b =`,this.b)
+        }
+      };
+      
+      obj2['d']()
+      // this 예제3
+      const obj3 = {
+        a: 1,
+        b: 2,
+        c: function () {
+          console.log(`a + a =`,this.a+this.a);
+          console.log(`b =`,this.b);
+        },
+      };
+
+
+      obj3['c']()
+
+      const test = function test() {
+        // "use strict"
+        console.log(this.document);
+      };
+      //   test()
+
+      /* 
+    // 브라우저
+    f1() === window -> true
+
+    // 노드
+    f1() === global -> true
+    */
+    </script>
+  </head>
+  <body></body>
+</html>

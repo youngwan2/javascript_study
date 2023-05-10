@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+      }
+      #header {
+        z-index: 100;
+        background-color: black;
+        align-items: center;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        height: 70px;
+        width: 100%;
+      }
+
+      #header > h1 {
+        padding-left: 8px;
+      }
+
+      .header_nav li {
+        display: inline-block;
+        margin: 10px;
+        font-size: 18px;
+      }
+
+      .header_nav:hover > .side_bar {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0);
+      }
+
+      .side_bar {
+        transform: translateY(-100px);
+        z-index: 1;
+        transition: 0.3s;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        background-color: gray;
+        top: 4.3rem;
+        height: 300px;
+        width: 100%;
+      }
+
+      .header_right_box {
+        display: flex;
+        padding-right: 8px;
+      }
+
+      .header_login {
+        padding-right: 8px;
+      }
+
+      .modal {
+        transition: 1s;
+        width: 300px;
+        height: 300px;
+        background-color: tomato;
+        border-radius: 5px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <h1>SHOP</h1>
+      <nav class="header_nav">
+        <li>cate1</li>
+        <li>cate2</li>
+        <li>cate3</li>
+        <div class="side_bar"></div>
+      </nav>
+      <div class="header_right_box">
+        <div class="header_login">login</div>
+        <div class="header_cart">cart</div>
+      </div>
+    </header>
+    <div class="modal">
+      모달
+      <button class="close-btn">닫기</button>
+    </div>
+    <button class="open-btn">버튼</button>
+    <script>
+      const btn = document.querySelector(".open-btn");
+      const closeBtn = document.querySelector(".close-btn");
+      const modal = document.querySelector(".modal");
+
+      btn.addEventListener("click", () => {
+        modal.style.transition =1
+        modal.style.visibility = "visible";
+        modal.style.opacity = 1;
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.style.visibility = "hidden";
+        modal.style.opacity = 0;
+      });
+    </script>
+  </body>
+</html>

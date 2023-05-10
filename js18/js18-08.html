@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // object 로 dog 를 만들어라
+
+    const dog ={
+      name:"똘똘이",
+      age:15000,
+      sound:"멍",
+      dna :"시고르자브종",
+      eat :function(){
+        console.log(`${this.name}은 "${this.sound}!" 하며 밥을 먹습니다.`)
+      },
+      play: function(){
+        console.log(`${this.name}은 "놀아~" 하면 잠을 잡니다. 그러고는 저녁에 산책 가자고 조릅니다.`)
+      },
+      wow:function(wow="머어엉"){
+        console.log(`${this.name}은 "${wow} 하며 짖습니다"` )
+      }
+    }
+
+    dog.wow("멍!멍멍!멍멍멍멍!")
+    dog.eat()
+    dog.play()
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

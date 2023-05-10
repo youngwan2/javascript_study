@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      a1 = 1234;
+      a2 = "1234";
+      a3 = 3456;
+      a4 = "일이삼사";
+      // == 은 문자열인 숫자인가 숫자형인 숫자인가를 따지지 않고 숫자만 따진다.
+      // ===은 문자열인 숫자와 숫자형인 숫자의 타입까지 따져서 비교한다.
+      console.log("a1:", a1, "a2:", a2, "a3:", a3, "a4", a4);
+      console.log(
+        "a1:",
+        typeof a1,
+        "a2:",
+        typeof a2,
+        "a3:",
+        typeof a3,
+        "a4:",
+        typeof a4
+      );
+      console.log("a1과 a2를 ==로 비교하면? " + (a1 == a2) + " 이다.");
+      console.log("a1과 a2를 ===로 비교하면? " + (a1 === a2) + " 이다.");
+      console.log("a1과 a3를 ==로 비교하면? " + (a1 == a3) + " 이다.");
+      console.log("a1과 a3를 ===로 비교하면? " + (a1 === a3) + " 이다.");
+      console.log("a1과 a4를 ==로 비교하면? " + (a1 == a4) + " 이다.");
+      console.log("a1과 a4를 ===로 비교하면? " + (a1 === a4) + " 이다.");
+      console.log("a2과 a3를 ==로 비교하면? " + (a2 == a3) + " 이다.");
+      console.log("a2과 a3를 ===로 비교하면? " + (a2 === a3) + " 이다.");
+      console.log("a2과 a4를 ==로 비교하면? " + (a2 == a4) + " 이다.");
+      console.log("a2과 a4를 ===로 비교하면? " + (a2 === a4) + " 이다.");
+      console.log("a3과 a4를 ==로 비교하면? " + (a3 == a4) + " 이다.");
+      console.log("a3과 a4를 ===로 비교하면? " + (a3 === a4) + " 이다.");
+    </script>
+  </head>
+  <body></body>
+</html>

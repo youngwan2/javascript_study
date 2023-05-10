@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+    <style>
+      body{
+        background-color: teal;
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        background-image: url('../img/칠판.png') ;
+        background-position: center ;
+        background-repeat: no-repeat;
+        background-size: contain;
+        color: black;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) ;
+        height: 430px;
+        transition: 1s;
+      }
+
+      .container:hover{
+        background-image: url('../img/fox.png');
+    
+      }
+
+      .container>div{
+        padding: 50px 80px 80px 80px;
+        margin: 0 auto;
+      }
+      .container > div > p {
+        word-break: break-all;
+        max-width: 700px;
+        font-size: 1rem;
+        line-height: 2;
+        color:white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+      
+      
+    </style>
+    <script>
+      // const arr = Array(100).fill(0).map((v,i)=> v= i+1)
+
+      // console.log(arr)
+
+      const arr = Array(200)
+        .fill(0)
+        .map((value, index) => {
+          if (!((index + 1) % 11)) return (index + 1) * 2;
+          return index + 1;
+        });
+
+      console.log(arr);
+      document.write('<div class="container">');
+      document.write(`<div><p>${arr}</p></div>`);
+      document.write("</div>");
+    </script>
+  </head>
+  <body></body>
+</html>

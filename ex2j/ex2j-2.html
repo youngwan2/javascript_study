@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: radial-gradient(20rem, rgba(18, 111, 148, 0.89), rgb(5, 42, 109));
+        color: white;
+      }
+
+      div{
+        background: rgba(0, 0, 0, 0.137);
+        border-radius: 5px;
+        box-shadow: 3px 5px 15px black;
+        padding:10px;
+        width: 600px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        transition: 1s;
+      }
+
+      div:hover{
+        cursor: pointer;
+        border: 5px solid black;
+        box-shadow: 0 0 0 0 ,-350px 0px rgb(216, 133, 8) inset , 350px 0px rgb(185, 35, 80) inset, 1px 5px 700px 700px rgb(0, 0, 0);
+      }
+    </style>
+    <script>
+      let num = Number(prompt("숫자를 입력하세요", "123"));
+      let list = `
+      <div>
+            <p>입력하신 ${num} 값은 ${typeof num} 타입 입니다.<br>
+               이 타입을 Number()를 사용하여 숫자로 변환 하겠습니다.<br><br>
+               <mark>변환 완료: ${num} (타입:${typeof num})
+                </p>
+                
+                <p>이제 위 숫자 타입을 Boolean()를 사용하여 불리언으로 변환 하겠습니다.</p>
+                <p>위의 숫자 : ${num}는 ${typeof num} 타입으로 불리언 타입으로 변환하면 이렇게 됩니다.</p><br>
+                <mark>변환 완료 :${Boolean(num)} (타입: ${typeof Boolean(num)} )
+                </div>
+                    `;
+
+      document.write(list);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+      }
+      body {
+        background: linear-gradient(90deg, rgb(92, 2, 51), white);
+        height: 1000vh;
+        width: 100vw;
+      }
+
+      body::-webkit-scrollbar {
+        width: 5px;
+      }
+      table {
+        border-collapse: collapse;
+        background-color: rgba(255, 255, 255, 0.733);
+        width: 100vw;
+        margin: 0 auto;
+        max-width: 1000px;
+        box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.582);
+        text-align: center;
+        transition: 1s;
+      }
+
+      table:hover {
+        cursor: pointer;
+        transform: rotateX(-15deg) translateY(-90%) translateZ(-50px);
+      }
+
+      .table_container {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -10%);
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        perspective: 200px;
+        /* perspective-origin: 0 100%; */
+      }
+      td {
+        border: 1px solid rgba(0, 0, 0, 0.363);
+        padding: 10px;
+      }
+
+      .bora {
+        background-color: rgba(137, 43, 226, 0.788);
+      }
+
+      .blue {
+        background-color: rgba(176, 224, 230, 0.74);
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+
+      .beige {
+        background-color: bisque;
+      }
+
+      .red {
+        background-color: red;
+      }
+      h3 {
+        text-align: center;
+        position: fixed;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 2px 5px 8px black;
+        background-color: rgba(0, 0, 0, 0.381);
+        border-radius: 5px;
+        color: white;
+        padding: 10px;
+      }
+
+      .back_image {
+        background-color: rgb(255, 255, 255);
+        width: 300vw;
+        height: 600px;
+        padding: 10px;
+        overflow-y: scroll;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        background-attachment: fixed;
+        transform: translate(-50%, -50%);
+        font-size: 10rem;
+        box-shadow: 1px 2px 15px 5px black inset;
+        background-position: center;
+        background-size: contain;
+        animation: appear 1s ease-in-out 1;
+        opacity: 1;
+      }
+
+      .back_image:hover {
+        background-color: palegoldenrod;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-50%) translateX(100px);
+        }
+      }
+
+      .back_image::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      td:nth-child(1):hover {
+        background-color: rgba(118, 11, 128, 0.582);
+        color: white;
+      }
+
+      td:nth-child(2):hover {
+        background-color: powderblue;
+        color: white;
+      }
+
+      td:nth-child(3):hover {
+        background-color: rgb(240, 236, 13);
+      }
+
+      td:nth-child(4):hover {
+        background-color: rgba(222, 184, 135, 0.795);
+        color: white;
+      }
+
+      td:nth-child(5):hover {
+        background-color: rgba(255, 0, 0, 0.774);
+        color: white;
+      }
+    </style>
+
+    <script>
+      const input = Number(
+        prompt(`현재 온도를 입력해주세요(기본값:0).`) && "0"
+      );
+
+      // 온도 관련 메시지 배열
+      const temp = [" ", " ", " ", " ", " "];
+      const tempMessage = [
+        "매우 더워요 ",
+        "조금 더워요 ",
+        "보통이네요 ",
+        "포근한 날씨군요 ",
+        "춥네요",
+      ];
+      let message = "";
+      let index = 0;
+
+      if (input >= 32)
+        (temp[0] = "매우 더움"),
+          (index = 0),
+          document.write(
+            `<div class="back_image" style="background-image: url('../img/sun.png');" ></div>`
+          ),
+          (message = tempMessage[0]);
+      else if (input >= 28)
+        (temp[1] = "더움"),
+          (index = 1),
+          document.write(
+            `<div class="back_image" style="background-image: url('../img/icecream.png');" >would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</div>`
+          ),
+          (message = tempMessage[1]);
+      else if (input >= 22)
+        (temp[2] = "보통"),
+          (index = 2),
+          document.write(
+            `<div class="back_image" style="background-image: url('../img/cherry.png');" >would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</div>`
+          ),
+          (message = tempMessage[2]);
+      else if (input >= 16)
+        (temp[3] = "포근한 날씨"),
+          (index = 3),
+          document.write(
+            `<div class="back_image" style="background-image: url('../img/trees2.png');" >would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</div>`
+          ),
+          (message = tempMessage[3]);
+      else {
+        (temp[4] = "조금 쌀쌀"),
+          (index = 4),
+          document.write(
+            `<div class="back_image" style="background-image: url('../img/trees.png');" >would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</div>`
+          ),
+          (message = tempMessage[4]);
+      }
+
+      const output = `지금온도는 <mark> ${input}도 </mark>이며, 상태는 <u>${message}</u>`;
+
+      document.write(`
+          <div class ="table_container">
+        <table>
+        <tr>
+          <td colspan="6">16미만</td>
+          <td colspan="4">16이상~22미만</td>
+          <td colspan="4">22이상~28미만</td>
+          <td colspan="3">28이상~32미만</td>
+          <td colspan="6">32이상</td>
+        </tr>
+        <tr>
+          <td class="bora"></td>
+          <td class="bora"></td>
+          <td class="bora"></td>
+          <td class="bora"></td>
+          <td class="bora"></td>
+          <td class="bora"></td>
+
+          <td class="blue"></td>
+          <td class="blue"></td>
+          <td class="blue"></td>
+          <td class="blue"></td>
+
+          <td class="yellow"></td>
+          <td class="yellow"></td>
+          <td class="yellow"></td>
+          <td class="yellow"></td>
+
+          <td class="beige"></td>
+          <td class="beige"></td>
+          <td class="beige"></td>
+
+          <td class="red"></td>
+          <td class="red"></td>
+          <td class="red"></td>
+          <td class="red"></td>
+          <td class="red"></td>
+          <td class="red"></td>
+        </tr>
+
+        <tr>
+          <td colspan="6">${temp[4]}</td>
+          <td colspan="4">${temp[1]}</td>
+          <td colspan="4">${temp[2]}</td>
+          <td colspan="3">${temp[3]}</td>
+          <td colspan="6">${temp[0]}</td>
+        </tr>
+
+      </table>
+      </div>
+      <h3> ${output} </h3>
+        `);
+    </script>
+  </head>
+  <body></body>
+</html>

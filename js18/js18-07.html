@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메소드 내부의 this</title>
+    <script>
+      const cat = {
+        name: "kitty",
+        age: 3,
+        attack: "할퀴기",
+        sound:"냥냐홍~",
+        eat: function () {
+          console.log('----둘 다 가능----')
+          console.log(
+            `1. this : 올해 ${this.age}살 먹은 우리 ${this.name}는 "냐옹!" 하며 밥을 먹습니다. 밥을 뺏으려고 하면 ${this.attack}를 시전합니다. `
+          );
+          console.log(
+            `2. cat : 올해 ${cat.age}살 먹은 우리 ${cat.name}는 "냐옹!" 하며 밥을 먹습니다. 밥을 뺏으려고 하면 ${cat.attack}를 시전합니다. `
+          );
+        },
+        짖어 : function(meow){
+            console.log(`3. "짖어!" 하면, 우리 ${this.name}는 "${meow||this.sound}" 하고 울어요. 그러다가 눈이 마주치면 ${this.attack}를 시전합니다.`)
+        }
+      };
+
+      cat.eat();
+      cat['짖어']('멍멍')
+    </script>
+  </head>
+  <body></body>
+</html>

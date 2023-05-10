@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자료형 변환</title>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+      }
+    </style>
+    <script>
+      /* const 는 선언 시 한 번 값을 할당할 수 있음 */
+      const input = prompt("입력하세요.", "1234");
+      alert(input); //확인을 누르기 전까지 멈춤
+      console.log(typeof input, input);
+      alert(
+        "타입을 Number()로 바꾸면" +
+          typeof Number(input) +
+          "타입" +
+          Number(input)
+      );
+      console.log(typeof Number(input), input);
+      alert(
+        "타입을 Boolean()로 바꾸면" +
+          typeof Boolean(input) +
+          "타입" +
+          Boolean(input)
+      );
+      console.log(typeof Boolean(input), input);
+    </script>
+  </head>
+  <body>
+    <h1>자료형 변환</h1>
+    <hr />
+    <pre>
+
+        ㅁ NaN : 숫자가 아님.
+
+        ㅁ 디지털: 
+          - 0 , 1, 123, 1234 => 모두 true 이다
+          - true는 0이 아닌 모든 것
+          - 0은 flase 무조건 flase 이다.
+          - prompt() 로 받은 값은 무조건 문자열로 받는다. 
+            ㄴ 따라서 숫자든 불린이든 모두 문자열로 인식하므로 타입 검사 시 string 으로 뜨고, boolean 검사 시 true로 나온다.
+
+      <h4>------------- 출력결과 ---------------</h4>
+
+    </pre>
+
+    <h4>** 보충자료 링크</h4>
+    <p><a href="../ex2j/ex2j-1.html">자료형변환 보충 보러가기</a></p>
+    <script src="./js/js01-10.js"></script>
+  </body>
+</html>

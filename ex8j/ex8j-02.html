@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const arr = [22, 11];
+      let temp;
+
+      // if (arr[0] > arr[1]) {
+      //// -- 전통적인 방법
+      //   temp = arr[0];
+      //   arr[0] = arr[1];
+      //   arr[1] = temp;
+      //// --- 새로 나온 방법
+      //   [(arr[0], arr[1])] = [arr[1], arr[0]];
+      // }
+
+      for (let i = 0; i < 100; i++) {
+        if (arr[0] < arr[1] && arr[1] < arr[2]) break;
+        if (arr[0] > arr[1]) {
+          [arr[0], arr[1], arr[2]] = [[arr[1]], arr[0], arr[2]];
+        }
+        if (arr[1] > arr[2]) {
+          [arr[0], arr[1], arr[2]] = [arr[0], arr[2], arr[1]];
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h3>메모</h3>
+    <hr />
+    <pre>
+    temp = A
+    A = B
+    B = temp
+    
+    let a = 11
+    let b = 22
+
+    [a,b] = [b,a]
+  </pre
+    >
+  </body>
+</html>

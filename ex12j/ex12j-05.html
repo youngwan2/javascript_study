@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자의 증감</title>
+    <style>
+      article {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      article > div {
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div>0</div>
+      <button onclick="increaseFunc()">증가</button>
+      <button onclick="decreaseFunc()">감소</button>
+    </article>
+    <script>
+      let num = 0;
+
+      function increaseFunc() {
+        document.close();
+        num += 1;
+        console.log(num);
+
+        if(num >10) return num =10
+        document.write(`
+        <article style="   position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;">
+        <div style=" padding: 15px;">${num}</div>
+        <button onclick="increaseFunc()">증가</button>
+        <button onclick="decreaseFunc()">감소</button>
+    </article>
+      `);
+      }
+
+      function decreaseFunc() {
+        document.close();
+        num -= 1;
+
+        if (num <0) return num=0;
+        document.write(`
+        <article style="   position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;">
+        <div style=" padding: 15px;">${num}</div>
+        <button onclick="increaseFunc()">증가</button>
+      <button onclick="decreaseFunc()">감소</button>
+    </article>`);
+      }
+    </script>
+  </body>
+</html>

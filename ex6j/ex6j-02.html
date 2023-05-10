@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>falsy(거짓같은 값), Nullish(병합연산자)</title>
+    <script>
+      // 거짓 같은 값 falsy (평가 시 거짓으로)
+      const a1 = null;
+      const a2 = undefined;
+      const a3 = false;
+      const a4 = "1234";
+
+      console.log(a1 || '이 값 아니야!');
+      console.log(a2 || 0);
+      console.log(a3 || 0);
+      console.log(a4 || 0);
+
+      // 병합 연산자(??) : null과 undefined 만 falsy 로 취급한다.
+      console.log(a1 ?? '이값 아니야');
+      console.log(a2 ?? 0);
+      console.log(a3 ?? 0);
+      console.log(a4 ?? 0);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        background-color: rgb(226, 226, 91);
+        width: 100%;
+        height: 100vh;
+        box-shadow: 2px 2px 5px inset black;
+      }
+
+      .inner_con {
+        position: absolute;
+        background-color: white;
+        border-radius: 20px;
+        left: 50%;
+        top: 50%;
+        width: 500px;
+        height: 300px;
+        transform: translate(-50%, -50%);
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        box-shadow: 200px -90px 8px rgb(128, 128, 128);
+      }
+      .light {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid black;
+      }
+
+      .red {
+        background-color: red;
+        margin: 20px;
+      }
+
+      .yellow {
+        background-color: yellow;
+        margin: 20px;
+      }
+
+      .green {
+        background-color: rgba(0, 128, 0, 0.699);
+        margin: 20px;
+      }
+
+      .bar {
+        width: 150px;
+        height: 500px;
+        border: 1px solid black;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        background-color: black;
+      }
+
+      .bar_shadow {
+        background-color: gray;
+        border: none;
+        transform: rotate(30deg) translateY(-40px) translateX(30%);
+        z-index: 0;
+      }
+      .hacking_btn{
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%);
+        background-color: black;
+        border: none;
+        padding: 10px;
+        color:white;
+        box-shadow: 80px -50px 5px black;
+        border-bottom: 4px solid gray;
+        cursor: pointer;
+      }
+
+      .hacking_btn:hover{
+        background: yellowgreen;
+        border-bottom: none;
+        box-shadow: 1px 1px 3px black inset, 80px -50px 5px black;;
+        transform: translate(-50%,5px);
+      }
+    </style>
+
+    <script>
+      // 초록 불 3초, 노란색 1초, 빨간불 4초 반복
+
+      let 초록불온오프 = false;
+      let 노란불온오프 = false;
+      let 빨간불온오프 = false;
+      let count = 0;
+
+      /* 그린 */
+      function greenLightOn() {
+        const clear = setTimeout(() => {
+          초록불온오프 = !초록불온오프;
+          console.log("초록불:", 초록불온오프);
+
+          if (초록불온오프) {
+            document.close();
+            document.write(`
+            <article class="container" style="
+                background-color: rgb(226, 226, 91);
+                width: 100%;
+                height: 100vh;
+                box-shadow: 2px 2px 5px inset black;
+            ">
+            <div class="inner_con" style="
+                position: absolute;
+                background-color: white;
+                border-radius: 20px;
+                left: 50%;
+                top: 50%;
+                width: 500px;
+                height: 300px;
+                transform: translate(-50%, -50%);
+                border: 2px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+                box-shadow: 200px -90px 8px rgb(128, 128, 128);
+            ">
+            <div class="light red" style="
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                bottom: 0;
+                border-radius: 50%;
+                left: 50%;
+                z-index: 1;
+                background-color: black;
+                margin:20px;
+            "></div>
+            <div class="light yellow" style="
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                bottom: 0;
+                border-radius: 50%;
+                left: 50%;
+                z-index: 1;
+                background-color: black;
+                margin: 20px;
+            "></div>
+            <div class="light green" style="
+                background-color: rgba(0, 128, 0, 0.699);
+                margin: 20px;
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                border-radius: 50%;
+                bottom: 0;
+                left: 50%;
+                z-index: 1;
+                margin:20px;
+            "></div>
+            </div>
+            <div class="bar" style="
+                width: 150px;
+                height: 500px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                background-color: black;
+            
+            "></div>
+            <div class="bar bar_shadow" style="
+                width: 150px;
+                height: 500px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform:  rotate(30deg) translateY(-40px) translateX(30%);
+                z-index: 1;
+                background-color: gray;
+                border: none;
+                z-index: 0;
+            "></div>
+            </article>
+                `);
+          }
+          yellowLightOn();
+        }, 3000);
+        // clearTimeout(clear)
+      }
+
+      /* 엘로우 */
+      function yellowLightOn() {
+        const clear = setTimeout(() => {
+          노란불온오프 = !노란불온오프;
+          console.log("노란불:", 노란불온오프);
+
+          if (노란불온오프) {
+            document.close();
+            document.write(`
+            <article class="container" style="
+                background-color: rgb(226, 226, 91);
+                width: 100%;
+                height: 100vh;
+                box-shadow: 2px 2px 5px inset black;
+            ">
+            <div class="inner_con" style="
+                position: absolute;
+                background-color: white;
+                border-radius: 20px;
+                left: 50%;
+                top: 50%;
+                width: 500px;
+                height: 300px;
+                transform: translate(-50%, -50%);
+                border: 2px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+                box-shadow: 200px -90px 8px rgb(128, 128, 128);
+            ">
+            <div class="light red" style="
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                bottom: 0;
+                border-radius: 50%;
+                left: 50%;
+                z-index: 1;
+                background-color: black;
+                margin:20px;
+            "></div>
+            <div class="light yellow" style="
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                bottom: 0;
+                border-radius: 50%;
+                left: 50%;
+                z-index: 1;
+                background-color: yellow;
+                margin: 20px;
+            "></div>
+            <div class="light green" style="
+                margin: 20px;
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                border-radius: 50%;
+                bottom: 0;
+                left: 50%;
+                z-index: 1;
+                background-color: black;
+                margin:20px;
+            "></div>
+            </div>
+            <div class="bar" style="
+                width: 150px;
+                height: 500px;
+                border: 1px solid black;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                background-color: black;
+            "></div>
+            <div class="bar bar_shadow" style="
+                width: 150px;
+                height: 500px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform:  rotate(30deg) translateY(-40px) translateX(30%);
+                z-index: 1;
+                background-color: black;
+                background-color: gray;
+                border: none;
+                z-index: 0;
+            "></div>
+            </article>
+                `);
+          }
+
+          redLightOn();
+        }, 1000);
+        // clearTimeout(clear)
+      }
+
+      /* 레드 */
+      function redLightOn() {
+        const clear = setTimeout(() => {
+          빨간불온오프 = !빨간불온오프;
+          console.log("빨간불:", 빨간불온오프);
+
+          if (빨간불온오프) {
+            document.close();
+            document.write(`
+            <article class="container" style="
+                background-color: rgb(226, 226, 91);
+                width: 100%;
+                height: 100vh;
+                box-shadow: 2px 2px 5px inset black;
+            ">
+            <div class="inner_con" style="
+                position: absolute;
+                background-color: white;
+                border-radius: 20px;
+                left: 50%;
+                top: 50%;
+                width: 500px;
+                height: 300px;
+                transform: translate(-50%, -50%);
+                border: 2px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+                box-shadow: 200px -90px 8px rgb(128, 128, 128);
+            ">
+            <div class="light red" style="
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                bottom: 0;
+                border-radius: 50%;
+                left: 50%;
+                z-index: 1;
+                background-color: red;
+                margin:20px;
+            "></div>
+            <div class="light yellow" style="
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                bottom: 0;
+                border-radius: 50%;
+                left: 50%;
+                z-index: 1;
+                background-color: black;
+                margin: 20px;
+            "></div>
+            <div class="light green" style="
+                margin: 20px;
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                border-radius: 50%;
+                bottom: 0;
+                left: 50%;
+                z-index: 1;
+                background-color: black;
+                margin:20px;
+            "></div>
+            </div>
+            <div class="bar" style="
+                width: 150px;
+                height: 500px;
+                border: 1px solid black;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                background-color: black;
+            "></div>
+            <div class="bar bar_shadow" style="
+                width: 150px;
+                height: 500px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform:  rotate(30deg) translateY(-40px) translateX(30%);
+                z-index: 1;
+                background-color: black;
+                background-color: gray;
+                border: none;
+                z-index: 0;
+            "></div>
+            </article>
+                `);
+          }
+          greenLightOn();
+          console.log(`${++count}번 완료`);
+        }, 4000);
+        //   clearTimeout(clear)
+      }
+      // greenLightOn();
+      document.write(`<button class="hacking_btn" onclick="  greenLightOn()">신호등 해킹하기</button>`)
+    </script>
+  </head>
+
+  <body>
+
+    <article class="container">
+      <div class="inner_con">
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+      </div>
+      <div class="bar"></div>
+      <div class="bar bar_shadow"></div>
+    </article>
+  </body>
+</html>

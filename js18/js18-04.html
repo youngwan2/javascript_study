@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       // 전역에 엄격모드를 선언하면 모든 영역에서 엄격한 타입체크를 실시한다.
+        // 엄격모드가 없다면 키워드 없이 변수에 값을 할당해도 아무런 에러가 없으나
+        // 엄격모드를 지정 후 다음과 같이 할당하려고 하면 에러를 띄운다.
+        "use strict"
+        a=5;
+
+        // 블록 내부에서만 엄격 모드가 실행된다.
+        (()=>{
+            'use strict'
+
+            //문장
+            //문장
+        })()
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

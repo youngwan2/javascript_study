@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제1) 다음 중 제거하고 싶은 품목을 입력하세요.</title>
+    <style>
+      body {
+        color: white;
+        background-color: black;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      span {
+        color: gold;
+        margin: 5px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+      }
+
+      h1 {
+        padding: 5px;
+        background-color: grey;
+        border-radius: 5px;
+        position: absolute;
+        text-align: center;
+        width: 450px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 50px;
+      }
+
+      span {
+        position: relative;
+        border-color: transparent;
+      }
+
+      span::before {
+        content: "";
+        bottom: 0rem;
+        position: absolute;
+        border-bottom: 2px dashed gold;
+        width: 0px;
+        transition: 1s;
+      }
+
+      span:hover {
+        cursor: pointer;
+      }
+
+      span:hover::before {
+        width: 280px;
+      }
+    </style>
+    <script>
+      // // 특정 위치에 요소 추가하기
+      // const 과일 = ["수박", "키위", "배", "오렌지", "사과"];
+
+      // const 추가하고싶은과일 = prompt(
+      //   `${과일} 외에 추가하고 싶은 과일을 입력하세요.`
+      // );
+
+      // 과일.splice(과일.length, 1, 추가하고싶은과일);
+      // console.log(과일);
+
+      //-------------------------------------------------------------------------
+      /** 1. 다음 중 제거하고 싶은 품목을 입력하세요.
+       * [
+          "수박",
+          "키위",
+          "딸기",
+          "파인애플",
+          "복숭아",
+          "포도",
+          "오렌지",
+          "한라봉",
+        ];
+       *  ex) prompt 에 '배'라고 입력
+       */
+
+      //  const 과일 = ["수박", "키위", "배", "오렌지", "사과"];
+
+      // const 제거하고싶은과일 = prompt(
+      //   `1. 다음 중 제거하고 싶은 품목을 입력하세요.\n ["수박","키위","배","오렌지","사과"]`
+      // );
+
+      // const 제거하고싶은과일위치 = 과일.indexOf(제거하고싶은과일);
+      // 과일.splice(제거하고싶은과일위치, 1);
+      // document.write(
+      //   `<h1>말씀하신 품목을 제거한 결과는 "<span>${과일}</span>" 입니다.</h1> `
+      // );
+
+      // 문제1) 홀수는 빨간색, 짝수는 파란색(해결)
+      // for (let i = 1; i <= 50; ++i) {
+      //   if (i % 2 !== 0) {
+      //     console.log(`%c${i}`, "color:red;");
+      //   }
+      // }
+
+      // for (let i = 1; i <= 50; ++i) {
+      //   if (i % 2 === 0) {
+      //     console.log(`%c${i}`, "color:blue;");
+      //   }
+      // }
+
+      // 문제2)일반은 흰색, 3의 배수 빨간색, 5의 배수 초록색, 둘이 만나면 파란색(해결)
+
+      /** 각 배수를 처리한 뒤에 공통배수를 처리하려고 하면, 이전 조건문에서 배수 처리가 된 이후
+       다음 코드를 실행하지 않는다. 따라서 공통배수를 우선 처리하고 각 배수를 처리하면 정상적으로 출력*/
+      // for (let i = 1; i <= 100; i++) {
+      //   // 3으로 나누고 5로 나누었을 때 모두 true 가 되면 3과 5의 공통배수
+
+      //   if (i % 3 === 0 && i % 5 === 0) {
+      //     console.log(`%c 짝 ${i}`, "color:red");
+      //     document.write(`<span style="color:red">${i}</span>`)
+      //     // 5로 나누어 떨어지면 5의 배수
+      //   } else if (i % 5 === 0) {
+      //     console.log(`%c 오 ${i}`, "color:green");
+      //     document.write(`<span style="color:green">${i}</span>`)
+      //     // 3으로 나누어 떨어지면 3의 배수
+      //   } else if (i % 3 === 0) {
+      //     console.log(`%c 오예 ${i}`, "color:blue");
+      //     document.write(`<span style="color:blue">${i}</span>`)
+      //     // 그 외 값들
+      //   } else {
+      //     console.log(`%c${i}`, "color:gray");
+      //     document.write(`<span style="color:gray">${i}</span>`)
+      //   }
+      // }
+
+      // document.write(`<span></span>`);
+
+      
+    </script>
+  </head>
+  <body></body>
+</html>

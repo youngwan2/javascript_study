@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>원의 넓이, 둘레구하기</title>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+        background-color: teal;
+      }
+
+      div {
+        position: absolute;
+        padding: 8px;
+        width: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        font-size: 1.4rem;
+        box-shadow: 0 0 0 0, 1px 2px 20px 5px black inset;
+        border-radius: 5px;
+        transition: 1s;
+      }
+
+      div:hover {
+        cursor: pointer;
+        box-shadow: 5px 5px 15px rgb(255, 228, 159),
+          1px 1px 15px 1000px rgb(94, 9, 49);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 원의 둘레 (2*반지름*3.14) -->
+    <!-- 원의 넓이 반지름 * 반지름 *3.14 -->
+
+    <script>
+      // 반지름
+      const radius = prompt("반지름을 입력하시오", 5);
+
+      // 넓이
+      const area = radius * radius * 3.14;
+
+      // 둘레
+      const circumference = 2 * radius * 3.14;
+
+      const docu = `
+
+      <div>
+        <h2>원의 넓이, 둘레를 구해보자</h2>
+    <hr />
+      <p><strong>원의 둘레</strong> : ${circumference}</p>
+      <p><strong>원의 넓이</strong> : ${area}</p>
+      </div>
+      `;
+
+      document.write(docu);
+    </script>
+  </body>
+</html>

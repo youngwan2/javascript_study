@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let text = ``;
+      function actOn() {
+        document.close();
+        text = `<div style="color:blue; border:1px solid red">동작버튼on</div>
+        <button onclick="actOff()">오프</button>`;
+        document.write(text);
+      }
+
+      function actOff() {
+        document.close();
+        text = `<div style="color: #000; border: 1px solid blue; background-color:gold">동작버튼off</div>
+        <button onclick="actOn()">온</button>`;
+        document.write(text);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="actOn()">온</button>
+    <button onclick="actOff()">오프</button>
+  </body>
+</html>

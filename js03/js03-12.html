@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>태어난 연도를 입력받아 띠 출력하기</title>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+
+      h1 {
+        color: greenyellow;
+      }
+      body {
+        animation: 1s appear ease-in-out;
+        background-color: black;
+        color: white;
+      }
+      pre {
+        line-height: 2;
+        font-size: 15px;
+      }
+    </style>
+    <script>
+      const rawInput = prompt("태어난 해를 입력해주세요.");
+      const year = Number(rawInput);
+      const e = year % 12;
+
+      let result;
+
+      if (e === 0) {
+        result = "원숭이";
+      } else if (e === 1) {
+        result = "닭";
+      } else if (e === 2) {
+        result = "개";
+      } else if (e === 3) {
+        result = "돼지";
+      } else if (e === 4) {
+        result = "쥐";
+      } else if (e === 5) {
+        result = "소";
+      } else if (e === 6) {
+        result = "호랑이";
+      } else if (e === 7) {
+        result = "토끼";
+      } else if (e === 8) {
+        result = "용";
+      } else if (e === 9) {
+        result = "뱀";
+      } else if (e === 10) {
+        result = "말";
+      } else if (e === 11) {
+        result = "양";
+      }
+      alert(`${year}년에 태어났다면 ${result} 띠 입니다.`);
+    </script>
+  </head>
+  <body>
+    <p>
+      <a style="text-decoration: none; color: white" href="./js03-00.html"
+        >목차로 돌아가기</a
+      >
+    </p>
+    <pre>
+        <h1>소스코드</h1>
+        <hr>
+     
+
+        const score = Number(prompt("학점을 입력해주세요", "학점"));
+     
+        if (score === 4.5) {
+          alert("신");
+        } else if (4.2 <= score) {
+          alert("교수님의 사랑");
+        } else if (3.5 <= score) {
+          alert("현 체제의 수호자");
+        } else if (2.8 <= score) {
+          alert("일반인");
+        } else if (2.3 <= socre) {
+          alert("일탈을 꿈구는 소시민");
+        } else if (1.75 <= score) {
+          alert("오락문화의 선구자");
+        } else if (1.0 <= score) {
+          alert("불가촉천민");
+        } else if (0.5 <= score) {
+          alert("자벌레");
+        } else if (0 < score) {
+          alert("플랑크톤");
+        } else {
+          alert("시대를 앞서가는 혁명의 씨앗");
+        }
+    </pre>
+  </body>
+</html>

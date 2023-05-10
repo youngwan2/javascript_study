@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        background: linear-gradient(30deg,hotpink,pink);
+        text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.589);
+        width: 300px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border: none;
+        transform: translate(-50%, -50%);
+        box-shadow: 5px 5px 10px black;
+        border-radius: 10px;
+        padding: 10px;
+      }
+    </style>
+
+    <script>
+      const arr = [111, 22, 3, 4, 55, 6, 77];
+      // 중에서 33보다 큰 수만 출력하여라 (forEach 사용할 것)
+
+      const 삼십삼보다큰수들의모임 = [];
+
+      arr.forEach((number, i) => {
+        if (arr[i] > 33) {
+          return 삼십삼보다큰수들의모임.push(number);
+        }
+      });
+      document.write(
+        `<h1>삼십삼보다 큰수들 : <small>  ${삼십삼보다큰수들의모임}</small></h1>`
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

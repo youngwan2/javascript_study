@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호이스팅2</title>
+    <script>
+
+        // 1. let 인 경우
+        // function fn1(){
+        //     let bb
+        //     console.log(bb)
+        //     bb='bb나는 호이스팅 되었어'
+        // }
+        // fn1()
+        // console.log(bb)
+
+        // 2. var 인 경우
+        function fn2(){
+            var cc  //undefined
+            console.log(cc)
+            bb='cc나는 호이스팅 되었어'
+        }
+        fn2()
+        console.log(cc)  //'cc나는 호이스팅 되었어'
+
+        // 3. var 가 외부에서 사용된 경우
+        var dd  //undefined
+        function fn3(){
+          
+            console.log(dd)
+            bb='dd나는 호이스팅 되었어'
+        }
+        fn3()
+        console.log(dd)  //'dd나는 호이스팅 되었어'
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

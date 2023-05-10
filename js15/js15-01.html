@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열의 map() 메소드</title>
+    <script>
+      // 속성(프로퍼티) ex. string.length
+
+      // 메소드 ex. Math.max()
+
+      "use strict";
+      const arr1 = [11, 22, 33, 44, 55];
+      const arr2 = [];
+      // for (let i = 0; i < arr1.length; i++) {
+      //     arr2.push;
+      // }
+
+      const arr3 = arr1.map(function (v, i, a) {
+        return v * 2;
+      });
+      // console.log(arr3);
+
+      // 1.function () {} 는 다음과 같댜ㅏ. () =>{}
+      // 2.forEach 처럼 동작하려면 ?
+      const arr4 = arr1.map((v) => v * 2);
+      const arr5 = arr1.map((v,i) => i);
+      // console.log(arr4);
+      console.log(arr5);
+
+
+
+    </script>
+  </head>
+  <body></body>
+</html>

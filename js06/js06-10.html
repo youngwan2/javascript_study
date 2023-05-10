@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      *{
+        margin: 0;
+      }
+      h1{
+        background-color: tomato;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width: 100vw;
+        min-height: 230px;
+        height: 20vw;
+        max-height: 250px;
+        line-height: 7;
+        
+        border-radius: 5px;
+        text-align: center;
+        padding:10px;
+        box-shadow: 25px 30px 5px rgba(0, 0, 0, 0.644);
+      }
+    </style>
+    <script>
+      // 1부터 45까지의 수중 한개를 랜덤하게 3개를 뽑아내어 배열에 넣으시오
+
+      // 랜덤으로 뽑은 번호를 저장 하는 리스트
+      const randomNumList = [];
+
+      // 총 뽑을 번호의 갯수
+      const 뽑을번호갯수 = prompt(`번호를 몇 개 뽑을거임?`);
+
+      for (let i = 0; i < 뽑을번호갯수; i++) {
+        const random = Math.floor(Math.random() * 45) + 1;
+
+        // 반복을 돌린 값 만큼 배열에 차례대로 넣는다.
+        console.log(random); //랜덤 번호 확인3
+        randomNumList.push(random);
+      }
+
+      // 단 서로 중복하지 않도록
+
+      // filter() 메서드는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환
+      const 중복제거결과 = randomNumList.filter(
+        (num, i) => randomNumList.indexOf(num) === i
+      );
+
+      console.log(중복제거결과);
+      document.write(`<h1>${중복제거결과}</h1>`)
+    </script>
+  </head>
+  <body></body>
+</html>

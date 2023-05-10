@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고급랜덤</title>
+    <script>
+      // 난수가 배열 요소로 생성된다.
+      // 지정한 개수 만큼 난수가 배열 형태로 반환된다.
+      const array = new Uint32Array(2);
+      self.crypto.getRandomValues(array);
+      console.log("오늘자 행운의 수:");
+
+      const ran1 = array[0];
+      const ran100 = Math.floor((array[0] / 255) * 100);
+      const ran2 = (array[1] % 100) + 1;
+      console.log(ran1, ran2);
+    </script>
+  </head>
+  <body></body>
+</html>

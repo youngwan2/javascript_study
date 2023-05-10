@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>짝수와 홀수 구분하기(2)</title>
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+
+      h1{
+        color:greenyellow
+      }
+      body {
+        animation: 1s appear ease-in-out;
+        background-color: black;
+        color:white;
+        
+      }
+      pre{
+        line-height: 2;
+        font-size: 15px;
+      }
+
+    </style>
+    <script>
+      const 입력 = prompt("정수를 입력해주세요.", "");
+      const 숫자 = Number(입력);
+      if (숫자 % 2 === 0) {
+        alert(`${입력}은 짝수입니다.`);
+      } else {
+        alert(`${입력}은 홀수입니다.`);
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <a style="text-decoration: none; color: white" href="./js03-00.html"
+        >목차로 돌아가기</a
+      >
+    </p>
+    <pre>
+        <h1>소스코드</h1>
+        <hr>
+
+        const 입력 = prompt("정수를 입력해주세요.", "");
+        const 숫자 = Number(입력);
+      
+        if (숫자 % 2 === 0) {
+          alert(`${입력}은 짝수입니다.`);
+       
+        } else {
+          alert(`${입력}은 홀수입니다.`);
+        }
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+      }
+      body {
+        width: 100%;
+        overflow: hidden;
+        height: 100vh;
+        background: linear-gradient(-10deg, red, black);
+      }
+      .container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .article {
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        top: 50%;
+        width: 200px;
+        margin: 0 auto;
+        left: 50%;
+        height: 100px;
+        transform: translate(-50%, -50%);
+        background-color: tomato;
+        align-items: center;
+        box-shadow: 15px 15px 5px 3px rgba(0, 0, 0, 0.616);
+      }
+
+      button {
+        box-shadow: 1px 1px 5px black;
+        margin: 5px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      button:hover {
+        background-color: gold;
+        cursor: pointer;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../img/animal2.png" alt="animal" />
+    <div class="article">
+      <button onclick="gugu2()">2단</button>
+      <button onclick="gugu3()">3단</button>
+      <button onclick="gugu4()">4단</button>
+    </div>
+    <script>
+      document.write(`<div class="container">`);
+      function gugu2() {
+        document.close();
+        for (let i = 2; i <= 2; i++) {
+          for (let j = 1; j <= 9; j++) {
+            document.write(`<p>${i} X ${j}= ${i * j}</p>`);
+          }
+        }
+        document.write(`
+          <button onclick="gugu3()">3단</button>
+          <button onclick="gugu4()">4단</button>`);
+      }
+
+      function gugu3() {
+        document.close();
+        for (let i = 3; i <= 3; i++) {
+          for (let j = 1; j <= 9; j++) {
+            document.write(`<p>${i} X ${j}= ${i * j}</p>
+           `);
+          }
+        }
+        document.write(`
+         <button onclick="gugu2()">2단</button>
+         <button onclick="gugu4()">4단</button>
+        `);
+      }
+
+      function gugu4() {
+        document.close();
+        for (let i = 4; i <= 4; i++) {
+          for (let j = 1; j <= 9; j++) {
+            document.write(`<p>${i} X ${j}= ${i * j}</p>
+           `);
+          }
+        }
+        document.write(`
+        <button onclick="gugu2()">2단</button>
+        <button onclick="gugu3()">3단</button>
+        `);
+      }
+
+      document.write(`</div>`);
+    </script>
+  </body>
+</html>

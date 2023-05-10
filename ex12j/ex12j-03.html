@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수 스코프</title>
+    <script>
+      function myscope() {
+        var a = "나는 var 타입의 a 입니다.";
+        console.log(a);
+
+        {
+          var b = "나는 var 의 b 입니다.";
+          let c = "나는 let 의 c 입니다.";
+          console.log(b);
+          console.log(c);
+        }
+        console.log(b); // var 는 함수 스코프라서 그 외 블록은 다 무시함
+        console.log(c); // let 과 const 는 블록 스코프라서 모든 블록에 다 걸림
+      }
+
+      myscope();
+    </script>
+  </head>
+  <body></body>
+</html>

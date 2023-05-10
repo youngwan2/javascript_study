@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>접합 splice 그 외 shift</title>
+    <style>
+
+        @keyframes appear {
+            from {opacity: 0;}
+        }
+        body{
+            animation: appear 1s 1;
+        }
+
+        span{
+            font-size: 16px;
+            line-height: 2;
+        }
+    </style>
+    <script>
+      const arr = [11, 22, 33, 44, 55, 66, 77];
+      //   console.log(arr); // 기존배열을 출력한다.
+      //   console.log(arr.push(88)); //추가 된 배열의 길이가 반환되어 출력
+      //   console.log(arr); // 기존배열에서 요소가 추가되어 출력
+
+      //   /** 선입선출(FIFO) : 처음에 들어간 것을 처음으로 꺼낸다. */
+      //   const a1 = arr.shift(); // 기존배열에서 제거한 요소를 따로 반환하여 a1 변수에 할당
+      //   console.log(a1);
+      //   console.log(arr); // 기존배열에서 젤 앞 요소가 제거된 결과의 배열이 출력된다.
+      //   arr.push(11); // 요소 11을 배열의 가장 뒤에 추가한다.
+      //   console.log(arr);
+
+      //   /** 후입선출(LIFO)*/
+      //   const last = arr.pop(); // 배열의 가장 뒷 요소를 빼내서 따로 last 변수에 할당
+      //   console.log(last);
+      //   console.log(arr);
+
+      /** Array.prototype.splice(시작 인덱스, 갯수) : 시작 지점에서 지정한 갯수 만큼 요소를 제거하고,
+       * 제거한 요소를 배열로 반환한다.
+       */
+      const a1 = arr.splice(arr.length - 3, 3);
+      console.log(a1); //제거된 요소가 배열로 반환되어 출력되었다.
+      console.log(arr); //제거한 요소를 제외하고 배열이 반환되어 출력 되었다.
+       console.log(arr.indexOf(33))
+ </script>
+  </head>
+  <body>
+    <h3>메모</h3><br>
+    
+        <span><strong>Array.prototype.splice(시작인덱스,삭제할 개수)</strong>: 시작지점에서 지정한 개수만큼 요소를 삭제하고 삭제한 요소를 배열로 반환한다.</span></pre><br>
+        <span><strong>Array.prototype.pop()</strong>: 배열의 가장 뒤에 있는 요소를 제거하고, 제거된 배열에서 요소를 반환한다.</span><br>
+        <span><strong>Array.prototype.indexOf('찾을 요소')</strong>: 배열에서 찾은 요소의 위치를 인덱스로 반환한다.</span><br>
+      </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>즉시실행함수(IIFE)</title>
+    <script>
+      /* 일반적인 함수 표현식 */
+      let add = function (a, b) {
+        return a + b;
+      };
+
+      console.log(add(10, 7));
+      console.log(typeof add);
+
+      /* 즉시실행함수 */
+      let add2 = (function (a, b) {
+        return a + b;
+      })(7, 10);
+
+      // console.log(add2(7,10))
+      console.log(add2); // 즉시실행함수가 실행되고 소멸되는 동시에 add2 변수에 저장된 값이 즉시 반환되었다.
+      console.log(typeof add2); // 즉시실행된 결과의 타입을 검사하므로 number가 뜬다.
+    </script>
+  </head>
+  <body></body>
+</html>

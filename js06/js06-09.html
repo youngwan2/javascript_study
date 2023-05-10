@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body {
+        background: linear-gradient(-90deg, rgb(34, 21, 1), tomato);
+        text-align: center;
+      }
+
+      h1 {
+        padding: 20px;
+        box-shadow: 15px 30px 15px 5px rgba(0, 0, 0, 0.589);
+        background: linear-gradient(90deg, tomato, black);
+        font-size: 1.9rem;
+        color: white;
+        text-shadow: 8px 10px 5px black;
+      }
+
+      @keyframes updown {
+        from {
+          transform: translate(-50%, -43%);
+        }
+      }
+      table {
+        color: white;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        box-shadow: 15px 20px 5px rgba(0, 0, 0, 0.685);
+      }
+      td {
+        border: 1px solid rgb(255, 255, 255);
+        width: 200px;
+        padding: 5px;
+      }
+      th {
+        border: 1px solid rgb(255, 255, 255);
+        background-color: rgb(27, 29, 29);
+        padding: 6px;
+      }
+
+      .table_sum > td {
+        background: linear-gradient(60deg, rgb(0, 0, 0), rgb(20, 20, 20));
+      }
+
+      p > a {
+        font-size: 18px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 20%;
+        color: white;
+        padding-top: 2rem;
+        text-decoration: none;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.747);
+      }
+
+      a:hover {
+        color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>주사위를 1000000 번 던져서 n 이 나올 확률</h1>
+
+    <script>
+      // 각 눈금자별로 조작하고자 하는 고정값을 지정받는다.
+      /* 10만을 기준으로 10% 를 증가시킨다. */
+      // let one = prompt(`1 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      // let two = prompt(`2 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      // let three = prompt(`3 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      // let four = prompt(`4 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      // let five = prompt(`5 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      // let six = prompt(`6 에 고정값 줄거?(기본값:0)`, 0) * 1;
+
+      // ** 확률 지정 시도 해볼 것들
+      let one =
+        prompt(
+          `다이스 1의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let two =
+        prompt(
+          `다이스 2의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let three =
+        prompt(
+          `다이스 3의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let four =
+        prompt(
+          `다이스 4의 경우의 수 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let five =
+        prompt(
+          `다이스 5의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let six =
+        prompt(
+          `다이스 6의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+
+      // 주사위 눈금 배열
+      let diceNum = [1, 2, 3, 4, 5, 6];
+
+      // 각 주사위 눈금의 경우의 수를 저장함.
+      let count = [one, two, three, four, five, six];
+
+      // 고정값을 주고 난뒤 백만번에서 고정값 만큼 빼기 위한 조건
+      let 고정값 = one + two + three + four + five + six;
+      let 백만 = 1000000;
+
+      // 백만에서 고정값을 뺀 만큼 나머지 경우의 수를 돌린다.
+      for (let i = 0; i < 백만 - 고정값; i++) {
+        const random = Math.floor(Math.random() * 6) + 1;
+        if (random === diceNum[random - 1]) count[random - 1]++;
+      }
+
+      // 각 경우의 수가 나오는 확률을 배열 형태로 저장
+      const 확률리스트 = [
+        (count[0] / 백만) * 100,
+        (count[1] / 백만) * 100,
+        (count[2] / 백만) * 100,
+        (count[3] / 백만) * 100,
+        (count[4] / 백만) * 100,
+        (count[5] / 백만) * 100,
+      ];
+
+      // 확률 총 합계
+      let total = 0;
+      for (const el of 확률리스트) {
+        total += el;
+      }
+
+      // 경우의 수 합계
+      let countSum = 0;
+      for (const sum of count) {
+        countSum += sum;
+      }
+
+      // HTML
+      document.write(
+        `<table>
+      <tr>
+        <th>주사위</th>
+        <th>경우의 수</th>
+        <th>나올 확률</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>${count[0]}</td>
+        <td>${확률리스트[0].toFixed(2)}%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>${count[1]}</td>
+        <td>${확률리스트[1].toFixed(2)}%</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>${count[2]}</td>
+        <td>${확률리스트[2].toFixed(2)}%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>${count[3]}</td>
+        <td>${확률리스트[3].toFixed(2)}%</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>${count[4]}</td>
+        <td>${확률리스트[4].toFixed(2)}%</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>${count[5]}</td>
+        <td>${확률리스트[5].toFixed(2)}%</td>
+      </tr>
+      <tr class="table_sum">
+        <td>합계</td>
+        <td>${countSum}</td>
+        <td>${Math.round(total)}%</td>
+        
+        </tr>
+    </table>`
+      );
+    </script>
+
+    <p><a href="../ex7j/ex07-03.html">주사위 시각화 보러가기</a></p>
+  </body>
+</html>

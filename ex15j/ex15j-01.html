@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속도테스트</title>
+
+    <script>
+      const arr = [];
+      for (let i = 0; i < 1000000; i++) {
+        arr.push(i);
+      }
+
+      //   for -
+      console.time("for -");
+      const cnt = arr.length;
+      for (let i = cnt; i > 0; i--) {}
+      console.timeEnd("for - ");
+
+      // for 1000000
+      console.time("for - 1000000");
+      const cnt2 = arr.length;
+      for (let i = cnt; i < 1000000; i++) {}
+      console.timeEnd("for - 1000000");
+
+      // for length; let
+      console.time("let : for - length-ENd");
+      const cnt3 = arr.length;
+      for (let i = cnt; i < arr.length; i++) {}
+      console.timeEnd("let: for - length-ENd");
+
+      // for length; var
+      console.time("var: for - length-ENd");
+      const cnt4 = arr.length;
+      for (var i = cnt; i < arr.length; i++) {}
+      console.timeEnd("var: for - length-ENd");
+
+      //   forEach
+      console.time("forEach");
+      const cnt5 = arr.length;
+      arr.forEach((v, i) => {});
+      console.timeEnd("forEach");
+
+      //   for of
+      console.time("for-of");
+      const cnt7 = arr.length;
+      for (const element of arr) {
+      }
+      console.timeEnd("for-of");
+
+      //   for in
+      console.time("for-in");
+      const cnt6 = arr.length;
+      for (const index in arr) {
+      }
+      console.timeEnd("for-in");
+    </script>
+  </head>
+  <body></body>
+</html>

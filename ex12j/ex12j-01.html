@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>매개변수 네 개 넣었을 때 그중 가장 작은 수를 반환</title>
+    <script>
+        /* min(11,22,33,44) ==>> 11 */
+
+        function min(...arr){
+            let filter=0;
+            for(let i=0; i<arr.length; i++){
+                if(arr[0]>arr[i]){
+                    filter = arr[i]
+                } 
+            }
+            return filter
+        }
+
+       console.log( min(22,11,6,33,44,55))
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

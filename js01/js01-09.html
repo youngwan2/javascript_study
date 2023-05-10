@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복합대입 연산자</title>
+    <script>
+      console.log("<복합대입 연산자>");
+      console.log("--------------------");
+      let a = 10;
+      let b = 7;
+      let c = 11;
+      let d = 13;
+      let e = 9;
+
+      console.log(`a=${a}, b=${b},c=${c},d=${d},e=${e} 일 때`);
+      console.log(`a+=1 => ${(a += 1)}`);
+      console.log(`a+=1 => ${(a += 1)}`);
+      console.log(`b*=2 => ${(b *= 2)}`);
+      console.log(`b*=2 => ${(b *= 2)}`);
+      console.log(`b-=2 => ${(b -= 2)}`);
+      console.log(`b-=2 => ${(b -= 2)}`);
+      console.log(`c/=2 => ${(c /= 2)}`);
+      console.log(`c/=2 => ${(c /= 2)}`);
+      console.log(`d%=2 => ${(d %= 2)}`);
+      console.log(`d-=2 => ${(d -= 2)}`);
+      console.log(`e-=2 => ${(d -= 2)}`);
+    </script>
+
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+      }
+    </style>
+    <script></script>
+  </head>
+  <body>
+    <h1>복합 대입 연산자</h1>
+    <hr />
+    <pre>
+      a = a + 1 === a += 1 
+      - const 는 변하지 않는 값을 대입한다. 
+      - let 은 변할 가능성이 있는 값을 대입한다.
+      
+
+      console.log(`a=${a}, b=${b},c=${c},d=${d},e=${e} 일 때`);
+      console.log(`a+=1 => ${(a += 1)}`);
+      console.log(`a+=1 => ${(a += 1)}`);
+      console.log(`b*=2 => ${(b *= 2)}`);
+      console.log(`b*=2 => ${(b *= 2)}`);
+      console.log(`b-=2 => ${(b -= 2)}`);
+      console.log(`b-=2 => ${(b -= 2)}`);
+      console.log(`c/=2 => ${(c /= 2)}`);
+      console.log(`c/=2 => ${(c /= 2)}`);
+      console.log(`d%=2 => ${(d %= 2)}`);
+      console.log(`d-=2 => ${(d -= 2)}`);
+      console.log(`e-=2 => ${(d -= 2)}`);
+      <h4>      --- 출력결과 ---</h4>
+        a=10, b=7,c=11,d=13,e=9 일 때
+        a+=1 => 11
+        a+=1 => 12
+        b*=2 => 14
+        b*=2 => 28
+        b-=2 => 26
+        b-=2 => 24
+        c/=2 => 5.5
+        c/=2 => 2.75
+        d%=2 => 1
+        d-=2 => -1
+        e-=2 => -3
+     
+
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>윤년인지 확인하는 함수</title>
+    <script>
+      function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      }
+
+      console.log(`2020년은 윤년일까? == ${isLeapYear(2020)}`)
+      console.log(`2010년은 윤년일까? == ${isLeapYear(2010)}`)
+      console.log(`2000년은 윤년일까? == ${isLeapYear(2000)}`)
+      console.log(`1900년은 윤년일까? == ${isLeapYear(1900)}`)
+
+      function restParameter(...arr){
+        console.log(...arr)
+      }
+
+      restParameter(1,2,3,4,5,6,7,8)
+    </script>
+  </head>
+  <body></body>
+</html>

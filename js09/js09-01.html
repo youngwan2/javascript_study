@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function lotto() {
+        const arr =[]
+        while (arr.length < 6) {
+          const ran = Math.floor(Math.random() * 45 + 1);
+          if (!arr.includes(ran)) arr.push(ran);
+        }
+        console.log(arr.sort((a,b)=>a-b))
+      }
+
+
+      for(let i =0 ; i<100; i++){
+        console.log(i+1)
+        lotto()
+      }
+     
+
+      
+    </script>
+  </head>
+  <body></body>
+</html>

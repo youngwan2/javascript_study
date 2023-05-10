@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>전개연산자</title>
+    <style>
+      body {
+        background-color: rgb(121, 18, 90);
+      }
+
+      .outer_container{
+        transform: perspective(600px) translate(-50%, -50%);
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+      }
+      .container {
+        transform-style: preserve-3d;
+        transform:  rotateX(0deg) rotateY(0deg);
+        padding: 19px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px;
+        background-color: white;
+        min-width:310px;
+        transition: 1s;
+        box-shadow: 0 0 0 0, 0px -2px 10px 9px rgba(0, 0, 0, 0.863) inset;
+      }
+
+      .container:hover{
+        transform: rotateX(15deg) rotateY(30deg);
+        box-shadow: 100px 150px 10px 2px rgba(0, 0, 0, 0.466),-60px 2px 100px 0 rgba(0, 0, 0, 0.719) inset;
+        animation: game 2s infinite alternate-reverse linear;
+      }
+
+      @keyframes game {
+        from {
+          transform: translateY(-30px) rotateX(15deg) rotateY(30deg);
+        }
+        
+      }
+
+      
+    </style>
+    <script>
+      // 변수
+      let arr1 = [1, 2, 3];
+      let arr2 = [4, 5, 6];
+      let arr3 = [7, 8, 9];
+
+      //---- 1 번째 방법
+      const total = [...arr1, ...arr2, ...arr3];
+      // console.log(total);
+
+      //---- 2 번째 방법
+      const total2 = [];
+      for (let i = 0; i < arr1.length; i++) {
+        total2.push(arr1[i]);
+      }
+
+      for (let i = 0; i < arr2.length; i++) {
+        total2.push(arr2[i]);
+      }
+
+      for (let i = 0; i < arr3.length; i++) {
+        total2.push(arr3[i]);
+      }
+
+      // console.log(total2);
+
+      //---- 3 번째 방법
+      function ascFunc(...arr) {
+        return arr;
+      }
+
+      const total3 = ascFunc(...arr1, ...arr2, ...arr3);
+      // console.log(total3);
+
+      const totalList = [total, total2, total3];
+
+      // ---------------- 그리는 영역
+      document.write(`<div class="outer_container">`);
+      document.write(`<div class="container">`);
+      document.write(`<p><strong> arr1의 배열 값은 :</strong> ${arr1}</p>`);
+      document.write(`<p><strong> arr2의 배열 값은 :</strong> ${arr2}</p>`);
+      document.write(`<p><strong> arr3의 배열 값은 :</strong> ${arr3}</p>`);
+      document.write(`<hr></hr>`);
+      document.write(`<h3><strong>배열을 모두 합치면:</strong> </h3>`);
+
+      // totalList 배열을 순회하면서 결과를 그린다.
+      for (let i = 0; i < 3; i++) {
+        document.write(
+          `<p><strong>${i + 1} 번째 방법:</strong> ${totalList[i]}</p>`
+        );
+        document.write(`<p>---------------------------------</p>`);
+        document.write(
+          `<p><strong>${
+            i + 1
+          }번 방법이 배열인지 아닌지 확인하면:</strong> ${Array.isArray(
+            totalList[i]
+          )}</p>`
+        );
+        document.write(
+          `<p><strong>배열의 길이는:</strong> ${totalList[i].length}</p>`
+        );
+      }
+
+      document.write("</div>");
+      document.write("</div>");
+    </script>
+  </head>
+  <body></body>
+</html>

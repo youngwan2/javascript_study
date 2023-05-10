@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호이스팅3</title>
+
+
+    <!-- 호이스팅 벼수나 함수의 선언이 코드의 최상단으로 끌어 올려지지는 현상 -->
+    <script>
+
+    var name ="글로벌 변수"
+    function callName(){
+        // var name = undefined -> 호이스팅 돔
+        console.log(name)
+        // name = "로컬 변수 ->호이스팅 안 됨"
+        name ="로컬 변수"
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자연산자</title>
+    <style>
+      @keyframes appear {
+        from {
+          opacity: 0;
+        }
+      }
+      body {
+        animation: 1s appear ease-in-out;
+      }
+    </style>
+    <script>
+      const result1 = 30 + 20 * 5;
+      const result2 = (30 + 20) * 5;
+      const result3 = 33 % 7;
+      console.log("30+20*5=", result1);
+      console.log("(30+20)*5=", result2); //괄호먼저 계산
+      console.log("33%7=", result3); //나머지를 구함
+    </script>
+  </head>
+  <body>
+    <h1>숫자연산자</h1>
+    <hr />
+    <pre>
+      const result1 = 30 + 20 * 5;
+      const result2 = (30 + 20) * 5;
+      const result3 = 33 % 7;
+      console.log("30+20*5=", result1);
+      console.log("(30+20)*5=", result2); //괄호먼저 계산
+      console.log("33%7=", result3); //나머지를 구함
+      // 30+20*5= 130
+      // js01-04.html:12 (30+20)*5= 250
+      // 33%7= 5
+
+    </pre>
+  </body>
+</html>

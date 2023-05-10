@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function b1() {
+        alert("펑션팝업1");
+      }
+      function b2() {
+        alert("펑션팝업2");
+      }
+    </script>
+    <style>
+      div {
+        background-color: aqua;
+      }
+      span {
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <div onclick="b1()">버튼1입니다.</div>
+    <span onclick="b1()">버튼2입니다.</span>
+    <div onclick="alert('div팝업입니다.')">팝업 띄우기</div>
+  </body>
+</html>

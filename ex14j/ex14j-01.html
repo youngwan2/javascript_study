@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백함수 연습하기</title>
+    <script>
+      function ror(heroName, level, callback) {
+        if (level >= 6) {
+          document.write(`<h1>${heroName}님께서 궁극기를 시전하였습니다.</h1>`);
+          callback(level);
+        } else
+          document.write(`<h1>${heroName}님께서 평타를 때립니다. 아야~ </h1>`);
+      }
+
+      function fire(level) {
+        for (let i = 1; i < level; i++) {
+          document.write(`<h2>${i}번째 파이어를 ${i}개 던집니다.</h2>`);
+        }
+      }
+
+      /* 얼음송곳
+        자신의 레벨을 곱한 만큼 던지기
+        i 번째 얼음송곳을 i*레벨 개 던집니다. */
+
+      function ice(level) {
+        for (let i = 1; i < level; i++) {
+          document.write(
+            `<h2>${i}번째 얼음송곳을 ${i * level}개 던집니다.</h2>`
+          );
+        }
+      }
+
+      /*
+        슬로우
+        5를 곱한 만큼 점점 더 느려지기
+        i 번째 때려서 i*5 % 느려 집니다.
+
+        */
+      function slow(level) {
+        for(let i= 1; i<level; i++){
+        document.write(`<h2>${i} 번째 때려서 ${i*5}% 느려집니다.</h2>`);
+      }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

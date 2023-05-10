@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4 콜백함수(선언적 함수 사용하기)</title>
+    <script>
+      // 함수 선언
+      function callThreeTimes(callback) {
+        for (let i = 0; i < 3; i++) {
+          callback(i + 1); // i 가 2가 될 때 마다 함수를 호출한다.
+        }
+      }
+
+      function print(x) {
+        console.log(`${x}번째 함수 호출`);
+      }
+
+      // 함수 호출
+      callThreeTimes(print);
+    </script>
+  </head>
+  <body></body>
+</html>

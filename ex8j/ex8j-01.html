@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상 선택자 추가 응용</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+      #wrapper {
+        padding: 20px;
+        width: 250px;
+        height: 300px;
+        background: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: auto auto;
+      }
+
+      #wrapper > .box {
+        color: white;
+        line-height: 2;
+        text-align: center;
+        float: left;
+        width: 30px;
+        height: 30px;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 0 5px 5px 0;
+      }
+      /* 7의 배수 */
+      #wrapper > .box:nth-child(7n) {
+        background-color: red;
+      }
+      /* 22부터 끝까지 */
+      #wrapper > .box:nth-child(n + 22) {
+        background-color: aqua;
+      }
+
+      /* 첨부터 5까지 */
+      #wrapper > .box:nth-child(-n + 5) {
+        background-color: gold;
+      }
+
+      /* 13 부터 17까지 */
+      #wrapper > .box:nth-child(n + 13):nth-child(-n + 17) {
+        background-color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+      <div class="box">21</div>
+      <div class="box">22</div>
+      <div class="box">23</div>
+      <div class="box">24</div>
+      <div class="box">25</div>
+      <div class="box">26</div>
+      <div class="box">27</div>
+      <div class="box">28</div>
+    </div>
+  </body>
+</html>
