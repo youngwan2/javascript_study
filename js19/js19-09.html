@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기본자료형을 객체로 선언하기</title>
+    <script>
+      // const num = Number('123')
+      // console.log(num)
+
+      const f = new Number(1234);
+      console.log(typeof f); // object -> 원시값(기본자료형)이 객체로 바뀜
+      f.sample = 11; // 11
+      f.sample = 22; // 22
+      console.log(f); // Number {1234, sample : 22}
+      console.log(f + 4321); // 5555
+    </script>
+  </head>
+  <body></body>
+</html>
