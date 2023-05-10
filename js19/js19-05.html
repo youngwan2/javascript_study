@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this 키워드의 차이</title>
+    <script>
+      const test = {
+        a: function () {
+          console.log(this); // 현재 객체를 가리킨다.
+        },
+        b: () => {
+          console.log(this); // 현재 객체가 아닌 그 보다 상위 객체를 가리킨다.
+        },
+      };
+
+      test.a();
+      test.b();
+    </script>
+  </head>
+  <body></body>
+</html>
