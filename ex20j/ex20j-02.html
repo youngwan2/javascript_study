@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유용한 메소드</title>
+    <script>
+      //   let str1 = "  안녕  하 세 세셋"
+      //   console.log(str1)
+      //   console.log(str1.trim())
+
+      //   let str2 ="a!b!c!d!e!f"
+      //   console.log(str2.split('!'))
+
+      //   const str3 = "오늘 학교에서 시험을 아주 망쳤어요.";
+
+      //   /* array에 문장을 인덱스를 부여하여 완성하시오. 단, 뛰어쓰기를 기준으로 */
+
+      //   const array = str3.split(" ");
+      //   console.log(array);
+
+      const str4 = `내가 만약
+            나비라면
+            날아갈텐데...
+      `;
+      //   const str4A = str4.split("\n")
+      // // str4A[0] = str4A[0].trim()
+      // // str4A[1] = str4A[1].trim()
+      // // str4A[2] = str4A[2].trim()
+      // // str4A[3] = str4A[3].trim()
+      // // console.log(str4A)
+
+      // for( i in str4A) {
+      //     console.log(i, str4A)
+      //     str4A[i] = str4A[i].trim();
+      // }
+
+      // console.log(str4A);
+
+      const oldArray = str4.split("\n");
+      console.log(oldArray);
+
+      // map 을 이용해서 요소마다 trim() 을 적용하고 새로운 배열ㅇ르 생성하시오.
+      const newArray = oldArray.map((oldEl, i) => {
+        return oldEl.trim();
+      });
+
+      console.log(newArray);
+    </script>
+  </head>
+  <body></body>
+</html>

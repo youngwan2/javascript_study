@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const j = "안녕하세요"; // undefined
+
+      const 안녕인덱스 = j.indexOf("안녕");
+      console.log(안녕인덱스); //0
+
+      const 하세인덱스 = j.indexOf("하세");
+      console.log(하세인덱스); // 2
+
+      const 없는문자열 = j.indexOf("없는 문자열");
+      console.log(없는문자열); // -1
+
+      const k = [1, 2, 3]; // undefined
+
+      console.log(k.indexOf(2)); // 1
+
+      console.log(k.indexOf(3)); // 2
+      console.log(k.indexOf(100)); // -1
+    </script>
+  </head>
+  <body></body>
+</html>

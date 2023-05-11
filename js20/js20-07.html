@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>string.split()</title>
+    <script>
+      let input = `
+        일자,달러,엔,유로
+        02,1141.8,1097.46,1262.37
+        03,1148.7,1111.36,1274.65
+        `;
+      input = input.trim();
+
+      input = input.split("\n");
+
+      const trimArr = input.map((inputEl, i)=>{
+        return inputEl.trim()
+      })
+
+      console.log(trimArr)
+
+      const jsonArr = JSON.stringify(trimArr)
+      console.log(jsonArr)
+    
+    
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입 연습</title>
+    <script>
+      // contain() 메소드 추가
+      //   String.prototype.contain = function (data) {
+      //     return this.indexOf(data) >= 0
+      //       ? `'${data}'은(는) ${this.indexOf(data)} 번째 인덱스에 있어요`
+      //       : `'${data}'은(는) 없네요ㅠㅍㅠ`;
+      //   };
+
+      //   const str = "안녕하세요";
+      //   console.log(str.contain(`하세`));
+      //   console.log(str.contain(`없는`));
+
+      //   배열 contain 메소드 추가
+      Array.prototype.contain = function (data) {
+        return this.indexOf(data) >= 0;
+      };
+
+      const b = [1, 2, 3, 4, 5];
+      console.log(b.contain(1)); // true
+      console.log(b.contain(6)); // false
+    </script>
+  </head>
+  <body></body>
+</html>

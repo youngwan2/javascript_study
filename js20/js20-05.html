@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /* isNaN  */
+      const m = Number("숫자로 변환할 수 없는 경우");
+
+      console.log(m); // NaN
+
+      console.log(m === NaN); // NaN과 비교해서는 NaN인지 확인할 수 없다.
+
+      console.log(Number.isNaN(m)); // isNaN 을 사용하면 확인 가능
+
+      /* Infinity */
+      const n = 10 / 0;
+      console.log(n); // 양의 무한대를 생성한다.
+
+      const o = -10 / 0;
+      console.log(o); // 음의 무한대를 생성한다.
+
+      // 해당 인자가 유한한 숫자인지 물어봤을 때 아니라고 응답했다.
+      console.log(Number.isFinite(n)); //false
+      console.log(Number.isFinite(o)); // false
+
+      // 일반적인 숫자는 셀 수 있으므로 true가 나온디ㅏ.
+      console.log(Number.isFinite(1));
+      console.log(Number.isFinite(10));
+    </script>
+  </head>
+  <body></body>
+</html>
