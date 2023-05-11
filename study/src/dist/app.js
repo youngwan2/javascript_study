@@ -1,3 +1,11 @@
-"use strict";
-let data = "이름";
-const num = 5;
+class Person {
+    constructor(name) {
+        this.name = name;
+
+        return {}
+    }
+}
+
+
+const me = new Person('Lee')
+console.log(me)
