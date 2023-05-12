@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+const users = [
+  { 'user': 'fred',   'age': 48 },
+  { 'user': 'barney', 'age': 36 },
+  { 'user': 'fred',   'age': 40 },
+  { 'user': 'barney', 'age': 34 }
+];
+ 
+const output1=_.sortBy(users, [function(o) { return o.user; }]);
+// => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+ 
+const output2=_.sortBy(users, ['user', 'age']);
+// => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+   
+   
+        console.log(output1, output2)
+   </script>
+</head>
+<body>
+    
+</body>
+</html>

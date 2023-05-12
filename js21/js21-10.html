@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 전개 연산자를 사용해 배열 복사하기
+
+    // 이렇게 되면 두 배열은 서로 독립적으로 작용한다.
+    const item1 =['우유','식빵']
+    const item2 =[...item1]
+
+    // 같은 메모리 주소를 가리키는 화살표 자체를 벗겨내고 새로운 화살표를 만들어 item2 에 할당했다
+    // 따라서 서로 다른 메모리 공간에 저장된 값을 가리키므로 서로 다르게 작동한다.
+    
+    console.log(item2) 
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

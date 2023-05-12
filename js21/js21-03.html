@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lodash</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+      const books = [
+        {
+          name: "혼자 공부하는 파이썬",
+          price: 18000,
+          publisher: "한빛미디어",
+        },
+        {
+          name: "HTML5 웹 프로그래밍 입문",
+          price: 20000,
+          publisher: "한빛아카데미",
+        },
+        {
+          name: "머신러닝 딥러닝 실전 개발 입문",
+          price: 30000,
+          publisher: "위키북스",
+        },
+        {
+          name: "딥러닝을 위한 수학",
+          price: 25000,
+          publisher: "위키북스",
+        },
+      ];
+
+      /* 책 예제 */
+      // const output = _.sortBy(books, (book)=> book.price)
+      // console.log(output)
+
+      /* 예제2 */
+      // _.orderBy(배열, [기준], [정렬방식]) : name 을 기준으로 오름차순으로 정렬한다.
+      const arr1 = _.orderBy(books, ["name"], ["asc"]);
+      const arr1_1 = _.orderBy(books, ["name"], ["desc"]);
+      console.log(arr1);
+      console.log(arr1_1); // 내림차순
+
+      const arr2 = _.orderBy(books, (x) => x.name);
+      console.log(arr2);
+
+    /* 예제3 */
+      const arr3 = _.orderBy(books, ['price','name'],['desc','asc'])
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const obj = {
+        name: "혼자 공부하는 파이썬",
+        price: 18000,
+        publisher: "한빛미디어",
+      };
+  // 객체 내부에 속성이 있는지 확인1
+      if (obj.name !== undefined) {
+        console.log("name 속성이 존재");
+      } else {
+        console.log("name 속성 없음");
+      }
+
+      if (obj.author !== undefined) {
+        console.log("author 속성 있음");
+      } else {
+        console.log("author 속성 없음");
+      }
+
+      // 객체 내부에 속성이 있는지 확인2
+     obj.name || console.log('name 속성 없음')
+     obj.author || console.log('author 속성 없음')
+    </script>
+  </head>
+  <body></body>
+</html>

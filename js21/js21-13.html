@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const 구름 = {
+        이름: "구름",
+        나이: 6,
+        종족: "강아지",
+      };
+
+      // 전개 연산자가 앞에 배치되면, 뒤에 있는 이름과 나이가 앞에 있는 이름과 나이를
+      // 덮어쓴다.
+
+      const 별1 = {
+        ...구름,
+        이름: "별",
+        나이: 1,
+        예방접종: true,
+      };
+
+      // 전개 연산자가 뒤에 있으면, 앞에 있는 이름과 나이를 전개연산자가 덮어쓴다.
+      const 별2 = {
+        이름: "별",
+        나이: 1,
+        예방접종: true,
+        ...구름,
+      };
+
+      console.log(별1);
+      console.log(별2);
+    </script>
+  </head>
+  <body></body>
+</html>
