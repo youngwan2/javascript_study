@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const arr = [
+        "밥먹자",
+        "뛰놀자",
+        "공부하자",
+        "잠자자",
+        "춤추자",
+        "게임하자",
+        "사귀자",
+      ];
+      const key = ["식사", "플레이", "스터디", "수면", "춤", "오락", "연인"];
+
+      // 객체생성
+      const objectMaker = (arr, key) => {
+        let obj = {};
+        for (let i = 0; i < arr.length; i++) {
+          obj[key[i]] = arr[i];
+        }
+        return obj;
+      };
+
+      console.log(objectMaker(arr, key));
+    </script>
+  </head>
+  <body>
+
+
+
+  </body>
+</html>
