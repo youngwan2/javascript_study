@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body{
+        background-color: black;
+      }
+
+      h1{
+        background-color: rgba(255, 255, 255, 0.322);
+        border-radius: 50%;
+        box-shadow: 1px 1px 50px 50px rgba(243, 243, 243, 0.178);
+        text-align: center;
+        line-height: 3;
+        height: 40px;
+        transition: 0.5s;
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        backface-visibility: hidden;
+      }
+
+
+      .container{
+        max-width: 300px;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        transform: translate(-50%,-50%) perspective(600px);
+        transform-style: preserve-3d;
+        
+      }
+
+      h1:hover{
+        box-shadow: 0 0 0 0, 0 0 0 0, inset 1px -50px 50px 100px rgb(251, 255, 5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+   
+</div>
+
+    <script>
+      let header = document.querySelectorAll("h1");
+      header = [...header];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // const log = (_) => console.log(log);
+        for (let i = 0; i < header.length; i++) {
+          header[i].style.margin = "10px 0";
+          header[i].innerHTML = `${i + 1}`;
+
+          i % 2 === 0
+            ? header[i].style.color = "red"
+            : header[i].style.color = "blue";
+        }
+      });
+    </script>
+  </body>
+</html>

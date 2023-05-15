@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const log = (_) => console.log(_);
+
+
+        const header = document.querySelectorAll(".head");
+        
+        // 각 헤더에 텍스트 추가
+        for(let i=0; i<header.length; i++){
+            if(i<1)
+            header[i].textContent =`<em>${i+1} 번째 헤더</em>`
+        }
+        header[1].style.color="red"
+      });
+    </script>
+  </head>
+  <body>
+    <p class="head">헤더 1</p>
+    <p class="head">헤더 2</p>
+    <p class="head">헤더 3</p>
+    <p class="head">헤더 4</p>
+  </body>
+</html>

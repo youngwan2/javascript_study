@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      h1 {
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 출력함수 축약
+        const log = (_) => console.log(_);
+
+        // HTML 요소를 읽어 들인다.
+        const header = document.querySelector("h1");
+        log(header);
+
+        // 텍스트와 스타일을 변경합니다.
+        header.textContent = "누구냐!";
+        header.style.color = "white";
+        header.style.backgroundColor = "gold";
+        header.style.padding = "19px";
+        header.style.boxShadow =
+          "1px 1px 5px 100px rgb(6,0,0,0.5), inset 1px 1px 8px black";
+        header.style.display = "inline";
+        header.style.lineHeight = "2";
+        header.style.position = "absolute";
+        header.style.left = "50%";
+        header.style.top = "50%";
+        header.style.transform = "translate(-50%,-50%)";
+
+        document.body.style.background = "rgb(201,0,0,0.5)";
+
+        /* 오늘의 핵심 용어 
+            addEventListener : 이벤트 리스너(이벤트 감시자)
+            querySelector : 쿼리 셀렉트(html 요소 선택자)
+            querySelectorAll : 셀렉터(유사배열 ; 진짜 배열은 아니라서 제약이 있음)
+            innerHTML : HTML 형식 실행
+            textContent :텍스트 내용 그대로 */
+      });
+    </script>
+  </head>
+  <body>
+    <h1 style="color: blue">누구냐?</h1>
+  </body>
+</html>

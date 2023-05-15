@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const header = document.querySelectorAll("h1");
+
+        const log = (_) => console.log(_);
+
+        log(header);
+
+        for (let i = 0; i < header.length; i++) {
+          header[i].style.background = "black";
+          header[i].style.margin = "10px 0";
+          header[i].innerHTML = `<mark>${i + 1}</mark>`;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+  </body>
+</html>
