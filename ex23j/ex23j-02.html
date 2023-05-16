@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /* 태그 생성 */
+        const divC1 = document.createElement("div");
+        const divC2 = document.createElement("div");
+        const c1Span1 = document.createElement("span");
+        const c1Span2 = document.createElement("span");
+        const c2Ol = document.createElement("ol");
+        const c2OlLi1 = document.createElement("li");
+        const c2OlLi2 = document.createElement("li");
+        const c2OlLi3 = document.createElement("li");
+        const aSpan1 = document.createElement("span");
+        const aSpan2 = document.createElement("span");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const br = document.createElement('br')
+
+        /* divC1 영역 */
+        divC1.setAttribute("class", "c1");
+        c1Span1.textContent = " 1. 문서객체 생성하기";
+        c1Span2.textContent = "2. 그리고 추가하기";
+        divC1.appendChild(c1Span1);
+        divC1.appendChild(c1Span2);
+
+        /* divC2 영역 */
+        divC2.setAttribute("class", "c2");
+        c2OlLi1.textContent = "생성하고";
+        c2OlLi2.textContent = "추가하고";
+        c2OlLi3.textContent = "문서읽고";
+        c2Ol.appendChild(c2OlLi1);
+        c2Ol.appendChild(c2OlLi2);
+        c2Ol.appendChild(c2OlLi3);
+        divC2.appendChild(c2Ol);
+
+        /* 링크 영역 */
+        a1.setAttribute("herf", "www.naver.com");
+        a2.setAttribute("herf", "www.google.com");
+        aSpan1.textContent = "네이버";
+        aSpan2.textContent = "구글";
+        a1.appendChild(aSpan1)
+        a2.appendChild(aSpan2)
+
+        /* body 태그에 추가하기 */
+        document.body.appendChild(divC1);
+        document.body.appendChild(divC2);
+        document.body.appendChild(a1);
+        document.body.appendChild(br);
+        document.body.appendChild(a2);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>다음 html 형식을 js로 작성하시오.</h1>
+    <!-- <div class="c1">
+      <span>1.문서객체 생성하기</span><span>그리고 추가하기</span>
+    </div>
+    <div class="c2">
+      <ol>
+        <li>생성하고(장전)</li>
+        <li>추가하고(겨냥)</li>
+        <li>문서읽고(격발)</li>
+      </ol>
+    </div>
+    <span><a href="https://www.naver.com">네이버</a> </span><br />
+    <span><a href="https://www.daum.net">다음</a> </span> -->
+  </body>
+</html>

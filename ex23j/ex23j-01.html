@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /* 첫 번째 div */
+        const firstDiv = document.createElement("div");
+        const firstDivH1 = document.createElement("h1");
+
+        /* 두 번째 div */
+        const secondDiv = document.createElement("div");
+
+        const secondDivSpan = document.createElement("span");
+
+        /* a 태그 */
+        const a = document.createElement("a");
+
+        /*첫 번째 div의 자식요소로 넣을 h1 태그를 생성 */
+        firstDiv.setAttribute("class", "d1");
+
+        firstDivH1.textContent = "저를 자바스크립트로 작성해주세요.";
+
+        // 첫 번째 div의 자식요소로 h1 태그를 추가한다.
+        firstDiv.appendChild(firstDivH1);
+
+        /* ------------------------------------------------------- */
+
+        a.setAttribute("href", "http://www.google.com");
+        a.appendChild(secondDivSpan);
+        secondDiv.appendChild(a);
+
+        // 두 번째 div 태그의 자식요소로 넣을 span 태그 생성
+        secondDiv.setAttribute("class", "d2");
+        secondDivSpan.setAttribute("id", "s1");
+        secondDivSpan.style.color = "tomato";
+        secondDivSpan.textContent = "아주 감사합니다!.";
+
+        /* ------------------------------------------------------- */
+        /*      body 태그 안에 생성한 요소들을 넣는다. */
+        document.body.appendChild(firstDiv);
+        document.body.appendChild(secondDiv);
+      });
+    </script>
+  </head>
+  <body>
+    <!-- <div class="d1">
+        <h1>저를 자바스크립트로 작성해주세요.</h1>
+    </div>
+    <div class="d2">
+        <span id="s1" style="color:tomato">아주 감사합니다!</span>
+    </div> -->
+  </body>
+</html>

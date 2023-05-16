@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문서 객체 동적 생성</title>
+    <style>
+      * {
+        margin: 0;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const h1 = document.createElement("h1");
+
+        h1.textContent = "문서 객체 동적으로 생성하기";
+        h1.setAttribute("data-custom", "사용자 정의 속성");
+        h1.setAttribute('id','set-id');
+        h1.setAttribute('class','header');
+        // h1.classList.remove('header') // 클래스 삭제한다.
+        h1.style.color = "white";
+        h1.style.background = "black";
+
+        document.body.append(h1);
+        console.log(h1)
+
+        // 생성한 객체 조작하기
+
+        // h1 태그를 바디 태그 아래에 추가하기
+      });
+      /*   문서 객체 생성 */
+      //document.createElement(문서객체이름)
+
+      /* 문서 객체를 부모 객체 내에 생성 */
+      // 부모 객체.appendChild(자식 객체)
+    </script>
+  </head>
+  <body>
+
+    <img src="../../javascript/img/" alt="">
+  </body>
+</html>
