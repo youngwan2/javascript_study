@@ -5,6 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>문서 객체 이동하기(body생략)</title>
+    <style>
+      body {
+        animation: appear 1s 1;
+      }
+
+      @keyframes appear {
+        from {
+          transform: translate(-50px);
+          opacity: 0;
+        }
+      }
+    </style>
     <script>
       //   document.addEventListener("DOMContentLoaded", () => {
       //     // 문서 객체 읽어들이고 생성하기
