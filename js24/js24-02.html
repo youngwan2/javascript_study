@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문서 객체 이동하기(body생략)</title>
+    <script>
+      //   document.addEventListener("DOMContentLoaded", () => {
+      //     // 문서 객체 읽어들이고 생성하기
+      //     const divA = document.createElement("div");
+      //     const divB = document.createElement("div");
+      //     const h1First = document.createElement("h1");
+      //     const h1Second = document.createElement("h1");
+      //     const h1 = document.createElement("h1");
+
+      //     // 속성 추가
+      //     divA.setAttribute("id", "first");
+      //     divB.setAttribute("id", "second");
+      //     h1First.textContent = "첫 번째 div 태그 내부";
+      //     h1Second.textContent = "두 번째 div 태그 내부";
+      //     h1.textContent = "이동하는 h1 태그";
+
+      //     // 각 div 태그 내에 h1 태그 추가
+      //     divA.appendChild(h1First);
+      //     divB.appendChild(h1Second);
+
+      //     // 문서 객체 추가 생성
+      //     divA.appendChild(divB);
+      //     document.body.appendChild(divA);
+
+      //     // 서로 번걸아가면서 실행하는 함수를 구현한다.
+      //     const toFirst = () => {
+      //       divA.appendChild(h1); // h1 태그를 divA 에 추가한다.
+      //       setTimeout(toSecond, 1000); // 1초 뒤에 toSecond 함수를 실행
+      //     };
+
+      //     const toSecond = () => {
+      //       divB.appendChild(h1); //h1 태그를 divB 에 추가한다.
+      //       setTimeout(toFirst, 1000); // 10초 뒤에 toFirst 함수를 실행
+      //     };
+
+      //     toFirst();
+      //   });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const div1 = document.createElement("div");
+        const div2 = document.createElement("div");
+        const h1 = document.createElement("h1");
+        div1.innerHTML = `<h1>첫 번째 div 태그</h1>`;
+        div2.innerHTML = `<h1>두 번째 div 태그</h1>`;
+        h1.innerHTML = "내부 h1";
+        document.body.append(div1, div2);
+
+        const div1_on = (_) => {
+          div1.appendChild(h1);
+          setTimeout(div2_on, 1000);
+        };
+
+        const div2_on = (_) => {
+          div2.appendChild(h1);
+          setTimeout(div1_on, 1000);
+        };
+
+        div1_on();
+      });
+    </script>
+  </head>
+  <body>
+    <!-- <div id="first">
+      <h1>첫 번째 div 태그 내부</h1>
+      <div id="second">
+        <h1>두 번째 div 태그 내부</h1>
+      </div>
+    </div> -->
+    <pre>
+        <h1>* 메모</h1>
+        <p>append : 부모 요소의 내부에 자식요소를 여러 개 추가 가능(반환값 없음- 메소드 체이닝이 불가능)</p>
+        <p>appendChild(): 부모 요소 내부에 자식요소를 하나 추가 가능(반환값 있어서 메소드 체이닝 가능)</p>
+    </pre>
+    <hr />
+  </body>
+</html>
