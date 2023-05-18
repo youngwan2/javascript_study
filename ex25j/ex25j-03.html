@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event 타겟</title>
+    <style>
+      input {
+        display: none;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let counter =0
+        const test1 = document.getElementById("test1");
+        const button = document.getElementsByTagName("button");
+        const test2 = document.getElementById("test2");
+        test2.addEventListener("change", (e) => {
+          document.querySelector(".filename").innerHTML = e.target.value;
+        });
+
+        button[0].addEventListener("click", (e) => {
+          console.log(e.currentTarget)
+          console.log(e.currentTarget.value)
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="test1"> 입력하세요.</label>
+    <input type="text" id="test1" />
+    <button>전송</button>
+    <hr />
+    <label for="test2"> 업로드</label>
+    <input type="file" id="test2" />
+    <div class="filename"></div>
+  </body>
+</html>

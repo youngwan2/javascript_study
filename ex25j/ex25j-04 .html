@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .image {
+        background-image: url("../img/querySel.PNG");
+        width: 500px;
+        height: 800px;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <script>
+      // get 중에서 Elements 에서 's' 가 붙은 경우 HTMLCollection 으로 반환한다.(유사배열)
+      // query중에서 All 이 붙은 것은 NodeList 형태의 유사배열로 반환한다.
+      document.addEventListener("DOMContentLoaded", () => {
+        const all = document.querySelectorAll("div");
+        const c1 = document.querySelector(".c1");
+        const i1 = document.querySelector("#i1");
+        const name = document.getElementsByName("text1");
+        const c2 = document.getElementsByClassName("c2");
+        const i2 = document.getElementById("i2");
+
+        console.log(all);
+        console.log(c1);
+        console.log(i1);
+        console.log(c2);
+        console.log(i2);
+        console.log(name);
+      });
+
+      // HTMLCollection 은 살아있는(live) 객체와 같다. 실시간으로 변화 내용을 반영하기 때문이다.
+      // NodeList 는 죽어있는 개체와 같다. 최초의 상태를 유지하며, 노드 객체의 변화된 상태를  반영하지 않는다.
+    </script>
+  </head>
+  <body>
+    <div class="c1">
+      <div id="i1"></div>
+    </div>
+    <div class="c2">
+      <div id="i2"></div>
+    </div>
+
+    <textarea name="text1" id="" cols="30" rows="10"></textarea>
+
+    <div class="image"></div>
+  </body>
+</html>

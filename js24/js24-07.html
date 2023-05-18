@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7. 남은 글자수 세기</title>
-  <script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. 남은 글자수 세기</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        
+        
+        const textarea = document.createElement('textarea');
+        const h1 =document.createElement('h1');
+        let maxLength =50;
+        textarea.style.resize="none"
 
-    document.addEventListener('DOMContentLoaded',()=>{
+        h1.textContent=`글자 길이: ${maxLength} `
 
-      
-    })
-  </script>
-</head>
-<body>
-  
-</body>
+
+        textarea.addEventListener('keyup',()=>{
+          const length = textarea.value.length;
+
+          if(maxLength>0) 
+          h1.textContent =`글자 길이: ${maxLength-length}`
+        })
+        document.body.append(h1,textarea)
+        
+      });
+    </script>
+  </head>
+  <body>
+    
+  </body>
 </html>

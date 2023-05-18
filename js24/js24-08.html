@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const h1 = document.querySelector("h1");
+ 
+        const print = (e) => {
+          const key = e.key || e.keyCode
+          let output = "";
+          output += `alt : ${e.altKey}<br>`;
+          output += `ctrl : ${e.ctrlKey}<br>`;
+          output += `shift : ${e.shiftKey}<br>`;
+          output += `code : ${
+            typeof e.code !== "undefined"
+              ? //  keyCode -> Deprecated(지원중단)
+                e.code
+              : e.key
+          }<br>`;
+          h1.innerHTML = output;
+        };
+
+        document.addEventListener("keydown", print);
+        document.addEventListener("keyup", print);
+      });
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+  </body>
+</html>
