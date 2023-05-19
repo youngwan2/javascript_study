@@ -14,9 +14,17 @@
         height: 100vh;
         background-color: #000000;
         border: 1px solid black;
-      
+
         position: absolute;
         width: 100vw;
+        animation: appear 1s 1;
+      }
+
+      @keyframes appear {
+        from {
+          transform: translate(-50px);
+          opacity: 0;
+        }
       }
       h1 {
         background-image: url("../img/sun.gif");

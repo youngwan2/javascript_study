@@ -1,0 +1,43 @@
+
+*{
+    margin: 0;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 440px;
+    border: 1px solid black;
+    padding: 28px;
+}
+
+#main_select{
+    width: 433px;
+    height: 40px;
+    margin: 8px 0;
+}
+
+
+
+.input_container{
+    display: flex;
+}
+
+
+.input_container input{
+    width: 200px;
+    height: 40px;
+}
+
+.input_container select{
+    width: 208px;
+    height: 30px;
+    border-top: none;
+}
+
+p{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const h1 = document.createElement("h1");
+      const h2 = document.createElement("h2");
+      document.body.append(h1, h2);
+
+      /* for 를 사용하여 1을 100 번 더하기 */
+
+      let sum = 0;
+      const num = 0.1;
+
+      for (let i = 0; i < 100; i++) {
+        sum = sum + num;
+      }
+
+      console.log(sum);
+      console.log(num + 0.2);
+      h1.innerHTML = sum.toFixed(1);
+      h2.textContent = (0.1 + 0.2).toFixed(1);
+    </script>
+  </body>
+</html>

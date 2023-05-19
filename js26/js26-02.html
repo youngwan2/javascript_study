@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. 이메일 형식 확인하기</title>
+    <style>
+      .email_form {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        min-width: 400px;
+        border-radius: 10px;
+      }
+      p{
+        position: absolute;
+      }
+
+      #email {
+        border: none;
+        border-bottom: 2px solid black;
+        padding: 15px;
+        color: white;
+        font-size: 15px;
+        transition: 0.5s;
+      }
+
+      #email::placeholder {
+        color: white;
+        font-size: 15px;
+      }
+
+      #email:focus{
+        outline: none;
+        background-color: tomato;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const input = document.querySelector("input");
+        const p = document.querySelector("p");
+
+        // 이메일 형식인지 아닌지 검사한다.
+        const isEmail = (value) => {
+          // 유저가 입력한 값에서 '@'이 존재하면서
+          // value 을 '@'를 기준으로 구분했을 때 두 번째 배열에서 '.' 이 존재한다면
+          // true 를 반환한다. 아니라면 false
+          console.log(
+            value.indexOf("@") > 1 && value.split("@")[1].indexOf(".") > 1
+          );
+          return value.indexOf("@") > 1 && value.split("@")[1].indexOf(".") > 1;
+        };
+
+        // 키보드 이벤트 등록
+        input.addEventListener("keyup", (e) => {
+          const value = e.currentTarget.value;
+
+          // isEmail 에서 반환된 값이 true 라면 p 태그의 텍스트를 그린색으로
+          // p 태그의 text 에 안내문구를 입력한다.
+          if (isEmail(value)) {
+            p.style.color = "green";
+            p.textContent = `이메일 형식입니다 : ${value}`;
+
+            // 그게 아니라면 반대로 빨간색 글씨로 안내 문구를 입력한다.
+          } else {
+            p.style.color = "red";
+            p.textContent = `이메일 형식이 아닙니다 : ${value}`;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="email_form">
+      <label for="email">E-mail</label>
+      <input type="text" name="" id="email" placeholder="exam@naver.com" />
+      <p></p>
+    </div>
+  </body>
+</html>

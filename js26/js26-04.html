@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const select = document.querySelector("select");
+        const p = document.querySelector("p");
+
+        select.addEventListener("change", (e) => {
+          const options = e.currentTarget.options;
+          const list = [];
+          for (const option of options) {
+            if (option.selected) {
+              list.push(option.textContent);
+            }
+          }
+          p.textContent = `선택 :${list.join(",")}`;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <select multiple name="" id="">
+      <option>떡볶이</option>
+      <option>순대</option>
+      <option>오뎅</option>
+      <option>튀김</option>
+    </select>
+    <p></p>
+
+    <script>
+      const p = document.createElement("p");
+      // select 태그 생성 및 multiple 옵션 추가
+      // 이 옵션은 여러 개의 셀렉트 옵션을 선택가능하게 해준다/
+      const select = document.createElement("select");
+      select.setAttribute("multiple");
+
+      // 생성된 option 태그를 담을 빈배열
+      const options = [];
+      // 생성된 option 태그의 텍스트로 추가할 텍스트 배열
+      const texts = ["떡볶이", "순대", "오뎅", "튀김"];
+
+      // 반복을 돌면서 옵션 태그를 생성 후에 select 태그의 자식요소로 추가
+      for (let i = 0; i < texts.length; i++) {
+        options.push(document.createElement("option"));
+        options[i].textContent = text[i];
+        select.appendChild(options);
+      }
+
+      // select 에 변동이 발생하면 콜백함수를 호출한다.
+      select.addEventListener("change", (e) => {
+        // 이벤트 타겟이 되는 select 태그가 가진 option 태그 배열 담는다.
+        const options = e.currentTarget.options;
+
+        // 선택된 옵션을 담을 배열
+        const lists = [];
+
+        // 선택된 옵션이 존재한다면 해당 요소를 lists 배열에 담는다.
+        for (const option of options) {
+          if (option.selected) {
+            lists.push(option.textContent);
+          }
+        }
+        p.textContent =`선택: ${lists.join(',')}`
+      });
+    </script>
+  </body>
+</html>

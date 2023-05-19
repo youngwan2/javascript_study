@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            box-shadow: inset 0 0 5px 15px rgba(0, 0, 0, 0.74);
+        }
+        .h1{
+            background-color: rgba(0, 0, 0, 0.411);
+            box-shadow: inset rgba(0, 0, 0, 0.63) 0 0 7px 8px;
+            color:rgb(255, 255, 255);
+            border-radius: 5px;
+            text-align: center;
+            width: 500px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            padding:20px
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- <h1 class="h1">안녕하세요. 이 글은 3초 있다가 지워집니다.</h1> -->
+    
+    <script>
+        const h1 = document.createElement('h1')
+        h1.setAttribute('class',"h1")
+        h1.innerText ="안녕하세요. 이 글은 3초 있다가 지워집니다."
+    
+        document.body.appendChild(h1)
+        setTimeout(()=>{
+            h1.parentElement.removeChild(h1)
+        },3000)
+    </script>
+</body>
+</html>

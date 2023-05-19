@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.select 옵션값 가져오기</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+      
+        const select = document.createElement("select");
+        const p = document.createElement("p");
+      
+        const options = [];
+        const values = ["떡볶이", "순대", "오뎅", "튀김"];
+
+        // select 태그의 option 요소에 들어갈 속성을 생성 후 추가하는 함수
+        function selectElAttrMaker() {
+          for (let i = 0; i < 4; i++) {
+            options.push(document.createElement("option"));
+            options[i].setAttribute("value", `${values[i]}`);
+            options[i].innerText = `${values[i]}`;
+            select.appendChild(options[i]);
+          }
+        }
+        selectElAttrMaker();
+
+        p.innerHTML = `메뉴를 선택하세요!(초기: ${select.value})`;
+
+        function handleMenuSelector() {
+          p.innerText = `선택: '${select.value}'을 선택하셨습니다. `;
+        }
+        // select 옵션 선택 시 콜백함수 호출
+        select.addEventListener("change", handleMenuSelector);
+
+        // 요소를 바디에 추가
+        document.body.appendChild(select);
+        document.body.appendChild(p);
+      });
+    </script>
+  </head>
+  <body>
+
+    <select name="" id="">
+      <option >떡볶이</option>
+      <option >순대</option>
+      <option >오뎅</option>
+      <option >튀김</option>
+
+    </select>
+
+      <!--  교재 -->
+  <script>
+    
+    const select = document.querySelector('select')
+    const p = document.querySelector('p')
+
+    select.addEventListener('change',(e)=>{
+      // select 태그에 저장된 options 정보를 가져온다.
+      const options = e.currentTarget.options
+      const index = e.currentTarget.options.selectedIndex
+
+      p.textContent = `선택: ${options[index].textContent}}`
+    })
+
+  </script>
+  </body>
+
+
+</html>
