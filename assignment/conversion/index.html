@@ -4,25 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>단위변환 프로그램</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+
+    <!-- <canvas class="canvas" width="600px" height="600px"></canvas> -->
     <div class="container">
-      <select name="" id="main_select">
+      <select name="" id="top_select">
+        <option value="선택">== 선택 ==</option>
         <option value="온도">온도</option>
+        <option value="길이">길이</option>
+        <option value="질량">질량</option>
+        <option value="부피">부피</option>
       </select>
       <div class="input_container">
-        <div class="left_input_form">
-          <input type="text" /><br />
-          <select name="" id=""></select>
+        <div id="left_input_form">
+          <input type="text" id="left_input" value="0" /><br />
+          <select id="left_input_select">
+          </select>
         </div>
         <p>=</p>
-        <div class="right_input_form">
-          <input type="text" /><br />
-          <select name="" id=""></select>
+        <div id="right_input_form">
+          <input type="text" id="right_input" value="0" readonly /><br />
+          <select id="right_input_select">
+          </select>
         </div>
       </div>
+      <div class="message_modal">
+        <h3>참고</h3><hr>
+        <span>①  <u>상단의 선택창</u>을 클릭하시면, <u>변환 가능한 단위</u>가 뜹니다.</span> <br>
+        <span>② 단위를 선택 후 아래의 <u>■ 검은색 선택창</u>에서 변환할 세부 단위를 선택하시면 됩니다.</span>
     </div>
+    </div>
+    <div class="scale_back"></div>
+    <script src="./Main.js"></script>
+    <script src="./Temp.js"></script>
+    <script src="./Length.js"></script>
+    <script src="./Mass.js"></script>
+    <script src="./Volume.js"></script>
+    <!-- <script src="./canvas.js"></script> -->
   </body>
 </html>
