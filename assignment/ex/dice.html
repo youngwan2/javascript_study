@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: linear-gradient(30deg, black, rgb(87, 83, 84));
+        width: 100%;
+        height: 100vh;
+      }
+
+      #myChart {
+         box-shadow: 2px 2px 5px 3px black inset;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(255, 252, 255);
+        padding:10px;
+      }
+
+      p > a {
+        color: white;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      //주사위 통계
+      const ctx = document.getElementById("myChart");
+
+      // 각 눈금자별로 조작하고자 하는 고정값을 지정받는다.
+      /* 10만을 기준으로 10% 를 증가시킨다. */
+      //   let one = prompt(`1 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      //   let two = prompt(`2 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      //   let three = prompt(`3 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      //   let four = prompt(`4 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      //   let five = prompt(`5 에 고정값 줄거?(기본값:0)`, 0) * 1;
+      //   let six = prompt(`6 에 고정값 줄거?(기본값:0)`, 0) * 1;
+
+      // ** 확률 지정 시도 해볼 것들
+      let one =
+        prompt(
+          `다이스 1의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let two =
+        prompt(
+          `다이스 2의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let three =
+        prompt(
+          `다이스 3의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let four =
+        prompt(
+          `다이스 4의 경우의 수 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let five =
+        prompt(
+          `다이스 5의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+      let six =
+        prompt(
+          `다이스 6의 경우의 수에 더하거나 뺄 확률을 적으세요(0 지정 시 아무런 적용 없음)`,
+          0
+        ) * 10000;
+
+      // 주사위 눈금 배열
+      let diceNum = [1, 2, 3, 4, 5, 6];
+
+      // 각 주사위 눈금의 경우의 수를 저장함.
+      let count = [one, two, three, four, five, six];
+
+      // 고정값을 주고 난뒤 백만번에서 고정값 만큼 빼기 위한 조건
+      let 고정값 = one + two + three + four + five + six;
+      let 백만 = 1000000;
+
+      // 백만에서 고정값을 뺀 만큼 나머지 경우의 수를 돌린다.
+
+      console.time('테스트 시간측정')
+      for (let i = 0; i < 백만 - 고정값; i++) {
+        const random = Math.floor(Math.random() * 6) + 1;
+        if (random === diceNum[random - 1]) count[random - 1]++;
+      }
+      console.timeEnd('테스트 시간측정')
+
+      // 각 경우의 수가 나오는 확률을 배열 형태로 저장
+      const 확률리스트 = [
+        (count[0] / 백만) * 100,
+        (count[1] / 백만) * 100,
+        (count[2] / 백만) * 100,
+        (count[3] / 백만) * 100,
+        (count[4] / 백만) * 100,
+        (count[5] / 백만) * 100,
+      ];
+
+      // 확률 총 합계
+      let total = 0;
+      for (const el of 확률리스트) {
+        total += el;
+      }
+
+      // 경우의 수 합계
+      let countSum = 0;
+      for (const sum of count) {
+        countSum += sum;
+      }
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "다이스:1",
+            "다이스:2",
+            "다이스:3",
+            "다이스:4",
+            "다이스:5",
+            "다이스:6",
+          ],
+          datasets: [
+            {
+              label: "주사위 n이 나올 경우의 수",
+              data: [
+                count[0],
+                count[1],
+                count[2],
+                count[3],
+                count[4],
+                count[5],
+              ],
+              borderWidth: 0.5,
+              backgroundColor: [
+                "blue",
+                "tomato",
+                "red",
+                "green",
+                "gray",
+                "orange",
+              ],
+            },
+          ],
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            fontColor:'black',
+            fontSize:15
+          },
+        },
+
+      });
+    </script>
+    <p><a href="../js06/js06-09.html">주사위 표 정리 보러가기</a></p>
+    <p>
+      <a href="https://www.chartjs.org/docs/4.2.1/getting-started/">chart.js</a>
+    </p>
+  </body>
+</html>
