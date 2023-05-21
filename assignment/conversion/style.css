@@ -165,7 +165,7 @@ p {
 
 .container:hover > .message_modal {
   visibility: visible;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 /* 리셋 버튼 */
