@@ -1,60 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
 
 * {
   margin: 0;
 }
 
-.canvas{
-    background: white;
-    z-index: -3;
+.canvas {
+  background: white;
+  z-index: -3;
 }
 
 body {
   background: linear-gradient(30deg, rgb(142, 164, 225), black);
   width: 100%;
   height: 100vh;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: "Gowun Dodum", sans-serif;
+  transform: perspective(600px);
+  transform-style: preserve-3d;
 }
 
-.scale_back{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 40%;
-    z-index: -1;
-
-    height: 100%;
-    background-image: url("../images/scales.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+.scale_back {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  z-index: -1;
+  opacity: 0.1;
+  height: 100%;
+  background-image: url("../images/scales.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
+/* 메인 컨테이너 */
 .container {
+
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* mix-blend-mode: soft-light; */
-  background-color: rgba(37, 57, 131, 0.792);
+  background-color: rgba(255, 255, 255, 0.022);
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   max-width: 440px;
   min-width: 350px;
-  box-shadow: 10px 10px 15px black;
+  box-shadow: 5px 5px 15px black;
   padding: 28px;
   transition: 0.5s ease-in-out;
+  animation: upDown 2s infinite ease-in-out alternate;
+}
+
+@keyframes upDown {
+  from {
+    transform: scale(1.05) translate(-50%, -60%);
+    box-shadow: 10px 120px 10px 40px rgba(12, 12, 12, 0.501);
+  }
 }
 
 .container:hover {
-  background-color: rgba(248, 166, 36, 0.728);
+  background-color: rgba(12, 6, 87, 0.417);
+  animation-play-state: paused;
 }
 
 :is(input, select) {
   box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.852);
   border: none;
   cursor: pointer;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: "Gowun Dodum", sans-serif;
   font-size: 1.1rem;
   text-align: center;
 }
@@ -62,12 +79,15 @@ body {
 :is(input, select):focus {
   outline: none;
 }
+
+/* 상단 선택창 */
 #top_select {
   width: 101%;
   height: 40px;
-  margin: 8px 0;
+  margin: 8px 0 8px 4px;
 }
 
+/* 사용자 입력창 컨테이너 */
 .input_container {
   display: flex;
   justify-content: space-between;
@@ -75,13 +95,12 @@ body {
   width: 100%;
 }
 
-
-.left_input_form{
-    width: 100%;
+.left_input_form {
+  width: 100%;
 }
 
-.right_input_form{
-    width: 100%;
+.right_input_form {
+  width: 100%;
 }
 /* 유저 입력창 */
 .input_container input {
@@ -92,9 +111,10 @@ body {
 
 /* 유저 선택창 */
 .input_container select {
-  box-shadow: inset 0 0 5px 1px rgba(7, 34, 108, 0.612);
+  box-shadow: inset 0 0 5px 1px rgba(67, 67, 67, 0.612);
   width: 102%;
   height: 40px;
+  border-radius: 2px;
   background-color: rgb(0, 0, 0);
   color: white;
   border-top: none;
@@ -145,5 +165,22 @@ p {
 
 .container:hover > .message_modal {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.7;
+}
+
+/* 리셋 버튼 */
+
+#reset_btn {
+  font-size: 1.1em;
+  font-family: "Gowun Dodum", sans-serif;
+  width: 150px;
+  margin-top: 1.3rem;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: inset rgba(0, 0, 0, 0.508) 0 0 4px 2px;
+}
+
+#reset_btn:hover {
+  cursor: pointer;
 }
