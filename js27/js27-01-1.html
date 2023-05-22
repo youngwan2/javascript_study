@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-1. 타이머 활용하기 2</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const checkbox = document.querySelector("input");
+        const label = document.querySelector("label");
+        const date = new Date();
+
+        const span = document.querySelector("span");
+
+        checkbox.addEventListener("change", clock);
+
+        function clock(e) {
+          const target = e.currentTarget.checked;
+
+          if (target) {
+            second();
+            console.log('실행')
+          } else {
+            second()
+            console.log('종료')
+          }
+        }
+        // getMinutes()
+        // getMilliseconds() : 밀리세컨드
+        // getSeconds() : 세컨트
+
+        function second() {
+          const date = new Date();
+
+          const m = date.getMinutes();
+          const s = date.getSeconds();
+          const ms = date.getMilliseconds();
+
+          span.innerHTML = `
+          ${m}분 ${s}초 ${ms}밀리초
+        `;
+
+          requestAnimationFrame(second);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <label for="checkbox">켜기</label>
+    <input type="checkbox" id="checkbox" />
+
+    <h1>시계:<span></span></h1>
+  </body>
+</html>

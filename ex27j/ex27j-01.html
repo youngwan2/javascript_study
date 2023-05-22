@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+    src="<https://unpkg.com/typeit@8.7.1/dist/index.umd.js>"
+  ></script>
+  <script>
+    document.addEventListener("DOMContentLoad", () => {
+      const h1 = document.createElement('h1')
+      document.body.appendChild(h1)
+      h1.textContent = "반갑습니다. 감사합니다."
+  
+      new TypeIt(h1)
+          .pause(1000) // 정지
+          .delete(6, {delay:1000}) // 6글자 삭제 1초 딜레이
+          .type("감사합니다.")
+          .go() // 시작
+      
+      // new TypeIt(h1, {
+      //   speed: 50,
+      //   startDelay: 900,
+      // })
+      //   .type("the mot versti", { delay: 100 })
+      //   .move(-8, { delay: 100 })
+      //   .type("s", { delay: 400 })
+      //   .move(null, { to: "START", instant: true, delay: 300 })
+      //   .move(1, { delay: 200 })
+      //   .delete(1)
+      //   .type("T", { delay: 225 })
+      //   .pause(200)
+      //   .move(2, { instant: true })
+      //   .pause(200)
+      //   .move(5, { instant: true })
+      //   .move(5, { delay: 200 })
+      //   .type("a", { delay: 350 })
+      //   .move(null, { to: "END" })
+      //   .type("le typing utlity")
+      //   .move(-4, { delay: 150 })
+      //   .type("i")
+      //   .move(null, { to: "END" })
+      //   .type(' on the <span class="place">internet</span>', { delay: 400 })
+      //   .delete(".place", { delay: 800, instant: true })
+      //   .type('<em><strong class="font-semibold">planet.</strong></em>', {
+      //     speed: 100,
+      //   })
+      //   .go();
+    });
+  </script>
+  </head>
+  <body>
+    <span id="hero">123</span>
+
+ 
+  </body>
+</html>

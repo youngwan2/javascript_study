@@ -1,20 +1,21 @@
-
-const fn = require('./fn3');
-
-// 목 함수
-const mockFn = jest.fn();
-
-mockFn();
-mockFn(1);
+const fn3ForEach = require('./fn3')
 
 
-// .only 옵션을 추가하면 해당 옵션이 붙은 테스트만 실행한다.
-test("1+1=2", () => {
-    expect(1 + 1).toBe(2)
-})
 
-test.skip("1+2=3", () => {
-    expect(1 + 2).toBe(3)
+
+const mockCallback = jest.fn((number)=>{
+    return number +"를 반환합니다."
+});
+
+
+
+// 테스트 설계
+
+test('목 함수는 21을 인수로 두 번 반환한다.',()=>{
+    
+    fn3ForEach([21,21], mockCallback)
+
+    expect(mockCallback.mock.calls).toBe
 })
 
 

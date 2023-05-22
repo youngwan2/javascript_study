@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.라디오 버튼 사용해보기(p 348)</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const animals = ["강아지", "고양이", "물개", "사자", "여우", "기타"];
+        const h3 = document.createElement('h3')
+          const hr = document.createElement('hr')
+        for (let i = 0; i < animals.length; i++) {
+          const input = document.createElement("input");
+          const span = document.createElement("span");
+
+          input.type = "radio";
+          input.name = "pet";
+          input.value = animals[i];
+
+          span.innerHTML += animals[i];
+
+          document.body.appendChild(input);
+          document.body.appendChild(span);
+        }
+        h3.id='output'
+        document.body.append(h3,hr)
+        const output = document.querySelector("#output");
+        const radios = document.querySelectorAll("[name =pet]");
+
+        // 모든 라디오 버튼를 순회하면서 checked 확인
+        radios.forEach((radio) => {
+          radio.addEventListener("change", (e) => {
+            const current = e.currentTarget;
+            if (current.checked) {
+              output.textContent = `좋아하는 애완동물은 ${current.value}`;
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3># 좋아하는 애완동물을 선택해주세요</h3>
+    <input type="radio" name="pet" value="치타" />
+    <span>치타</span>
+    <input type="radio" name="pet" value="맘모스" />
+    <span>맘모스</span>
+    <input type="radio" name="pet" value="햄스터" />
+    <span>햄스터</span>
+
+  </body>
+</html>

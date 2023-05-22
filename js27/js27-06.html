@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+ 
+      body {
+        color: white;
+        background-image: url("../img/land.png");
+        background-position: center;
+        opacity: 0.9;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .container {
+        background-image: url("../img/land.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        max-width: 800px;
+        min-width: 500px;
+        height: 100vh;
+        padding: 20px;
+        background-color: gray;
+        box-shadow: 2px 15px 8px 3px rgba(0, 0, 0, 0.671);
+      }
+
+      #user_input {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        transition: 1s;
+      }
+
+      #user_input:focus{
+        outline: none;
+        background-color: gold;
+        color:black;
+      }
+      #add_btn,#all_del {
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        background-color: black;
+        color: white;
+      }
+
+      :is(#add_btn,#all_del):hover {
+        background-color: rgba(218, 165, 32, 0.905);
+      }
+
+
+      /* 추가된 목록이 보이는 영역 */
+      .todo_area {
+        display: flex;
+        box-shadow: 0 0 0 0, inset 0 0 0 0;
+        transition: 0.5s;
+        border-radius: 20px;
+        padding: 5px;
+        border-bottom: 0.5px dashed white;
+      }
+
+      .todo_area:hover{
+        color:black;
+        box-shadow : 0 0 0 0, inset 800px 0px 0 0 rgb(255, 231, 98)
+      }
+
+      .checkbox {
+        padding: 10px;
+        margin: 5px;
+      }
+
+      .del_btn {
+        margin: 10px;
+        height: 30px;
+        padding: 5px;
+        border: none;
+        background-color: black;
+        color: white;
+      }
+
+      .del_btn:hover {
+        background-color: goldenrod;
+      }
+
+      .line {
+        text-decoration: line-through;
+      }
+   
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>할 일 목록</h1>
+      <div class="add_area">
+        <input type="text" id="user_input" />
+        <button id="add_btn">추가하기</button>
+        <button id="all_del">전체삭제</button>
+      </div>
+      <hr />
+      <div class="todo_container">
+        <!-- 목록 추가 되는 곳 -->
+      </div>
+    </div>
+
+    <script>
+      const input = document.getElementById("user_input");
+      const addBtn = document.getElementById("add_btn");
+      const items = [];
+      const todoContainer = document.querySelector(".todo_container");
+
+      // 1. 사용자가 input 창에 텍스트를 입력한 값을 가져온다.(input.value)
+
+      function itemAddFunc() {
+        const store = {
+          isComplate: false,
+          todos: input.value,
+        };
+
+        if (input.value === '') return;
+        items.push(store);
+        render();
+
+        console.log(items);
+      }
+
+      // 리스트 그리는 곳
+      function render() {
+        let textHTML = "";
+
+        for (let i = 0; i < items.length; i++) {
+          if (!items[i].isComplate) {
+            textHTML += `
+          <div class="todo_area">
+        <input type="checkbox" class="checkbox" onclick="checkFunc(${i})" />
+        <p class="todo">${items[i].todos}</p>
+        <button class="del_btn" onclick="delFunc(${i})">제거하기</button>
+      </div>`;
+          } else {
+            textHTML += `
+          <div class="todo_area">
+        <input type="checkbox" class="checkbox" checked onclick="checkFunc(${i})" />
+        <p class="todo line">${items[i].todos}</p>
+        <button class="del_btn" onclick="delFunc(${i})">제거하기</button>
+      </div>
+          `;
+          }
+        }
+        return (todoContainer.innerHTML = textHTML);
+      }
+
+      // 이벤트 리스너
+      addBtn.addEventListener("click", itemAddFunc);
+      document.addEventListener("keydown", (e) => {
+        console.log(e)
+        if (e.key ==='Enter') itemAddFunc();
+      });
+
+      // 게시글 줄 긋는 함수?
+      function checkFunc(i) {
+        items[i].isComplate = !items[i].isComplate;
+        render();
+      }
+
+      // 게시글 삭제 함수
+      function delFunc(i) {
+        console.log(i);
+        items.splice(i, 1);
+        render();
+      }
+    </script>
+  </body>
+</html>
