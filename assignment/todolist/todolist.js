@@ -35,7 +35,7 @@ function render() {
     <div class="todo_area v">
         <input id="todo_check${i}" type="checkbox" class="checkbox" checked onclick="checkFunc(${i})" />
         <label for="todo_check${i}" class="todo line">${items[i].todos}</label>
-        <button class="del_btn" onclick="delFunc(${i})">삭제</button>
+        <button class="del_btn hide" onclick="delFunc(${i})">삭제</button>
     </div>
     `;
         }
