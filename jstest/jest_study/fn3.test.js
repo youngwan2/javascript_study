@@ -1,22 +1,30 @@
-const fn3ForEach = require('./fn3')
 
 
+//목 함수
+
+const mockFunc = jest.fn();
 
 
-const mockCallback = jest.fn((number)=>{
-    return number +"를 반환합니다."
-});
+// 목함수의 반환값을 바꿔준다.
+mockFunc.mockReturnValueOnce(10);
+mockFunc.mockReturnValueOnce(20);
+mockFunc.mockReturnValueOnce(30);
+mockFunc.mockReturnValueOnce(40);
+mockFunc.mockReturnValueOnce(50);
 
 
+mockFunc()
+mockFunc()
+mockFunc();
+mockFunc();
+mockFunc();
 
-// 테스트 설계
+console.log(mockFunc.mock.results)
 
-test('목 함수는 21을 인수로 두 번 반환한다.',()=>{
-    
-    fn3ForEach([21,21], mockCallback)
 
-    expect(mockCallback.mock.calls).toBe
+//
+test('dd', () => {
+    expect('dd').toBe('dd');
+    expect(mockFunc.mock.calls.length).toBe(5);
+
 })
-
-
-

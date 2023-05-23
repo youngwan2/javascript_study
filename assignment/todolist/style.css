@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+body {
+  font-family: "Gowun Dodum", sans-serif;
+  color: white;
+  background-image: url("../../img/land.png");
+  background-position: center;
+  opacity: 0.9;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  font-family: "Gowun Dodum", sans-serif;
+  transition: 1s;
+  background-image: url("../../img/land.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+  height: 100vh;
+  padding: 20px;
+  background-color: gray;
+  box-shadow: 2px 15px 8px 3px rgba(0, 0, 0, 0.671);
+ 
+}
+
+
+#user_input {
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  transition: 1s;
+}
+
+#user_input:focus {
+  outline: none;
+  background-color: gold;
+  color: black;
+}
+#add_btn{
+  background-color: white;
+}
+#add_btn,
+#all_del,
+#choice_del {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  transition: 0.5s;
+  margin: 10px 1px 5px 1px;
+  background-color: black;
+  color: white;
+  font-family: "Gowun Dodum", sans-serif;
+}
+
+#choice_del {
+  position: relative;
+}
+
+:is(#add_btn, #all_del, #choice_del):hover {
+  cursor: pointer;
+  color: gold;
+}
+
+/* 추가된 목록이 보이는 영역 */
+.todo_area {
+  display: flex;
+  box-shadow: 0 0 0 0, inset 0 0 0 0;
+  transition: 0.5s;
+  border-radius: 20px;
+  padding: 5px;
+  border-bottom: 0.5px dashed white;
+}
+
+.todo_area:hover {
+  color: black;
+  box-shadow: 0 0 0 0, inset 800px 0px 0 0 rgb(255, 231, 98);
+}
+
+.checkbox {
+  padding: 10px;
+  margin: 5px;
+}
+
+.del_btn {
+  margin: 10px 15px 10px 15px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+.line {
+  text-decoration: line-through;
+}
+
+.todo{
+  line-height: 3;
+      }
+
+@media screen and (max-width: 506px) {
+  .add_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #add_btn,
+  #all_del,
+  #choice_del {
+    width: 170px;
+    margin: 2px;
+    border-radius: 5px;
+  }
+}
