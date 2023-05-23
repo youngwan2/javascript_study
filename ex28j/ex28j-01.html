@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const h1 = document.createElement("h1");
+      const div = document.createElement("div");
+      const indiv = document.createElement("div");
+      const span = document.createElement("span");
+      document.body.append(h1, div);
+      div.append(indiv, span);
+      h1.textContent = `ClassName과 ClassList 를 사용해보기`;
+      div.className = `클래스 1번`;
+      // classList.add('추가할_클래스명') :클래스를 1개 이상 추가 가능
+      indiv.classList.add("내부클래스1", "여기추가요!!!");
+      // classList.contains() : 해당 클래스가 존재하는지 확인하여 불린값으로 반환함.
+      const what = indiv.classList.contains("내부클래스1");
+      console.log(what);
+
+      // classList.replace('대체대상클래스','대체클래스') : 대체대상클래스를 대체클래스로 수정한다.
+      span.classList.add("c1", "c2", "c3", "c4");
+      span.classList.replace("c2", "cc22");
+      console.log(span.className); // c1 cc22 c3
+
+      // classList.remove('삭제할 클래스명') : 해당 클래스를 요소에서 삭제한다. 
+      span.classList.remove("c4")
+
+      // classList.length : 해당 요소가 가진 클래스의 길이를 반환한다.
+      span.classList.length 
+
+        const length = span.classList.length;
+        
+        span.textContent = `${length} 개의 클래스를 가진 span 태그`
+
+        console.log(length)
+    </script>
+  </body>
+</html>
