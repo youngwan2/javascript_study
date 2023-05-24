@@ -37,7 +37,7 @@ function render() {
       // 체크 여부를 나타내는 isComplete 가 true 라면 실행
       textHTML += `
         <div class="todo_area v">
-            <input id="todo_check${i}" type="checkbox" class="checkbox" onclick="checkFunc('${items.id}')" />
+            <input id="todo_check${i}" type="checkbox" class="checkbox" onclick="checkFunc('${items.id}')" checked />
             <label for="todo_check${i}" class="todo line">${items.todos}</label>
             <button class="del_btn hide" onclick="delFunc('${items.id}')">삭제</button>
         </div>`;
