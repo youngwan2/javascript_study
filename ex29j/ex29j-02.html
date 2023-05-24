@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유사배열을 배열로</title>
+  </head>
+  <body>
+    <div class="c1 c"></div>
+    <div class="c2 c"></div>
+    <div class="c3 c"></div>
+    <div class="c4 c"></div>
+    <div class="c5 c"></div>
+
+    <script>
+      const query = document.querySelectorAll("div");
+      console.log(query);
+      //  NodeList(5) [div.c1.c, div.c2.c, div.c3.c, div.c4.c, div.c5.c]0: div.c1.c1: div.c2.c2: div.c3.c3: div.c4.c4: div.c5.clength: 5[[Prototype]]: NodeList
+      const getBy = document.getElementsByClassName("c");
+      console.log(getBy);
+      //  ex29j-02.html:21 HTMLCollection(5) [div.c1.c, div.c2.c, div.c3.c, div.c4.c, div.c5.c]
+
+      const arr1 = Array.from(query);
+      const arr2 = Array.from(getBy);
+      console.log("nodeList:", arr1, `\n배열인교? ${Array.isArray(arr1)}`);
+      console.log("HTMLcollection", arr2, `\n배열인교? ${Array.isArray(arr2)}`);
+      /* 
+      ex29j-02.html:25 nodeList: (5) [div.c1.c, div.c2.c, div.c3.c, div.c4.c, div.c5.c] 
+      배열인교? true
+
+      ex29j-02.html:26 HTMLcollection (5) [div.c1.c, div.c2.c, div.c3.c, div.c4.c, div.c5.c] 
+      배열인교? true
+      */
+
+      arr1.push(500);
+      arr2.push(600);
+
+      console.log(arr1, arr2);
+      /* 
+      (6) [div.c1.c, div.c2.c, div.c3.c, div.c4.c, div.c5.c, 500] 
+      (6) [div.c1.c, div.c2.c, div.c3.c, div.c4.c, div.c5.c, 600]
+      */
+    </script>
+  </body>
+</html>

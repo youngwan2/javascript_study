@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>번외) 1. 할 일 목록</title>
+    <style>
+      .check-ok {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>할 일 목록</h1>
+    <input id="user_input" type="text" />
+    <button id="add_btn">추가하기</button>
+    <button id="all_delbtn">전체삭제</button>
+
+    <script>
+      const input = document.getElementById("user_input");
+      let ct;
+      const button = document.getElementById("add_btn");
+      const allDelBtn = document.getElementById("all_delbtn");
+
+      button.addEventListener("click", () => {
+        ct++;
+        let content = input.value;
+        console.log(content);
+
+        if (content) {
+          const div = document.createElement("div");
+          const check = document.createElement("input");
+          const span = document.createElement("span");
+          const inbutton = document.createElement("button");
+
+          document.body.append(div);
+
+          div.append(check, span, inbutton);
+          inbutton.innerHTML = "삭제하기";
+          check.setAttribute("type", "checkbox");
+          span.innerHTML = content;
+          input.value = "";
+          content = "";
+          const del = document.querySelector("." + ct);
+
+          // 스타일 1
+          // check.addEventListener("change", (e) => {
+          //   if (e.currentTarget.checked) {
+          //     span.style.textDecoration = "line-through";
+          //   } else {
+          //     span.style.textDecoration = "none";
+          //   }
+          // });
+
+          //  스타일2
+          check.addEventListener("change", (e) => {
+            if (e.currentTarget.checked) {
+              span.className = "check-ok";
+              // 삭제 함수 호출
+              itemDelEvent();
+            } else {
+              span.className = "check-no";
+            }
+          });
+
+          // 아이템 개별 삭제 함수
+          function itemDelEvent() {
+            inbutton.addEventListener("click", (e) => {
+              e.currentTarget.parentNode.remove();
+            });
+          }
+
+          // 전체 삭제
+          allDelBtn.addEventListener("click", () => {
+            document.body.removeChild(div);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
