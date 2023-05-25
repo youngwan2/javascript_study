@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. 타이머를 사용한 글자수 출력하기</title>
+  </head>
+  <body>
+    <h1>글자수 세기:</h1>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <script>
+      const h1 = document.querySelector("h1");
+      const textarea = document.querySelector("textarea");
+
+      let timerId;
+
+      textarea.addEventListener("focus", () => {
+        timerId = setInterval(() => {
+          const length = textarea.value.length;
+          h1.textContent = `글자수: ${length}`;
+        }, 100);
+      });
+
+      textarea.addEventListener("blur", () => {
+        clearInterval(timerId);
+      });
+    </script>
+  </body>
+</html>
