@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. 배열 CRUD(localStorage 활용하기)</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button class="add">추가</button>
+    <button class="pop">삭제</button>
+    <button class="fix">중복제거</button>
+    <button class="sort">정렬</button>
+    <button class="all_pop">요소 모두 제거</button>
+    <div>
+      <p class="p1"></p>
+      <p class="p2"></p>
+    </div>
+
+    <script>
+      const p1 = document.querySelector(".p1");
+      const p2 = document.querySelector(".p2");
+      const input = document.querySelector("input");
+      const popBtn = document.querySelector(".pop");
+      const sortBtn = document.querySelector(".sort");
+      const allPop = document.querySelector(".all_pop");
+      const addBtn = document.querySelector(".add");
+      const setBtn = document.querySelector(".fix");
+
+      
+      
+      let arr;
+      arr = localStorage.getItem('arr1')?.split(",")??[]
+      let vin = "";
+      input.addEventListener("keyup", (e) => {
+        vin = e.target.value;
+      });
+
+      //   리스트에 값을 추가
+      addBtn.addEventListener("click", () => {
+        if (vin) {
+          localStorage.setItem("input", vin);
+          p1.innerHTML = "값<mark> '" + vin + "'</mark>을 추가하였습니다.";
+          input.value = ""; // 값을 추가하고 인풋 영역의 텍스트는 ''으로 초기화
+          p2.innerHTML = `${arr}`; // 배열의 요소를 렌더링
+        } else {
+          p1.innerHTML = "값을 입력하세요!";
+        }
+      });
+
+      // 빼기
+      popBtn.addEventListener("click", () => {
+        const popEl = localStorage.setItem('input',null);
+        p1.innerHTML = popEl
+          ? `${popEl}을 제거하였습니다.`
+          : "배열이 비었습니다.";
+
+        p2.innerHTML = `${arr}`; // 배열의 요소를 렌더링
+      });
+
+      //   정렬
+      sortBtn.addEventListener("click", () => {
+        arr.sort((a, b) => {
+          return a - b;
+        });
+        p2.innerHTML = `${arr}`;
+      });
+
+      //   중복제거
+      setBtn.addEventListener("click", () => {
+        arr = [...new Set(arr)];
+        p2.innerHTML = `${arr}`;
+      });
+
+      // 요소 모두 제거
+      allPop.addEventListener("click", () => {
+        localStorage.clear()
+        p1.innerHTML = `요소를 모두 제거하였습니다.`;
+        p2.innerHTML = `${arr||''}`;
+      });
+
+      console.log(arr);
+    </script>
+  </body>
+</html>

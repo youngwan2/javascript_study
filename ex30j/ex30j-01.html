@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>옵셔널체이닝 물음표 점(?.)</title>
+  </head>
+  <body>
+    <script>
+      const test = null;
+      const test2 = undefined;
+      // 만일 ? 앞의 변수가 undefined 혹은 null 이라면 뒤에 것을 실행하지 않고
+      //  undefined 를 대신 반환한다.
+      console.log(test?.data); //undefined
+      console.log(test2?.data); // undefined
+
+      const obj = { 딸기: "맛있다." };
+      const result = obj && obj.바나나.length;
+      console.log(result);
+    </script>
+  </body>
+</html>

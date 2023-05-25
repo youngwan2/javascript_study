@@ -12,7 +12,7 @@ function itemAddFunc() {
     todos: input.value,
   };
 
-  if (input.value === "") return;
+  if (input.value === "") return; //빈값이면 함수 즉시 종료
   localStoreFunc(store);
   render(store);
   return store;
@@ -58,9 +58,7 @@ function render() {
 
 // 이벤트 리스너
 addBtn.addEventListener("click", itemAddFunc);
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") itemAddFunc();
-});
+document.addEventListener("keydown", (e) => { if (e.key === "Enter") itemAddFunc(); });
 allDelBtn.addEventListener("click", itemAllDelFunc);
 choiceDelBtn.addEventListener("click", itemChoiceDelFunc);
 
@@ -89,11 +87,10 @@ function delFunc(id) {
 
 // 리스트 전체 삭제
 function itemAllDelFunc() {
-  // 로컬스토로지에 저장된 데이터 배열의 길이가 0 일 때 alert 를 띄운다.
-  if (localStorage.length <= 0)
-    return alert("삭제할 아이템이 존재하지 않습니다.");
+  // 0. 로컬스토로지에 저장된 데이터 배열의 길이가 0 일 때 alert 를 띄우며 일찍 함수를 종료한다.
+  if (localStorage.length <= 0) return alert("삭제할 아이템이 존재하지 않습니다.");
 
-  // 실제 데이터를 삭제하기 전에 confirm 을 통해 응답에 따른 true/false 에 따라 분기처리한다.
+  // 1. 실제 데이터를 삭제하기 전에 confirm 을 통해 응답에 따른 true/false 에 따라 분기처리한다.
   const toDelete = confirm("삭제 하시겠습니까?");
   if (toDelete) localStorage.clear();
 
@@ -103,21 +100,24 @@ function itemAllDelFunc() {
 
 // 리스트 선택 삭제
 function itemChoiceDelFunc() {
+  console.log('아이템 삭제 테스트 ')
   let item;
+  //0. 삭제할 요소가 존재하지 않으면 함수를 일찍 종료한다.
+  if (localStorage.length <= 0)
+    return alert("삭제할 아이템이 존재하지 않습니다.");
 
+  // 1. 로컬스토로지에 저장된 요소들의 길이 만큼 반복을 돈다.
   for (let i = 0; i < localStorage.length; i++) {
+    /*2. 로컬스토로지의 키를 받아와서 해당 키의 아이템을 읽어온 후 json 데이터를
+     js 객체로 변환하여 item 변수에 담는다. */
     item = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
-    if (localStorage.length <= 0)
-      return alert("삭제할 아이템이 존재하지 않습니다.");
-    if (item.isComplete === true) return localStorage.removeItem(item.id);
+    // 3. 아이템의 상태가 true 라면 해당 id 의 아이템을 로컬 스토로지에서 제거한다.
+    if (item.isComplete === true) 
+    return (localStorage.removeItem(item.id), render());
   }
-
-  render();
 }
 
 
 // 목록의 각 아이템을 고유하게 식별하기 위해 사용.
-function randomId() {
-  return `id_` + Math.floor(Math.random() * 10000);
-}
+function randomId() { return `id_` + Math.floor(Math.random() * 10000); }
