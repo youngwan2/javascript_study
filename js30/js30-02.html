@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. localStorage()</title>
+</head>
+<body>
+
+
+    <button>삭제하기</button>
+    <input type="text">
+    <p></p>
+
+    <hr>
+    <pre>
+        localStorage.getItem(키) : 저장된 값을 읽어온다.</p>
+        localStorage.setItem(키,값) : 값을 저장한다. ex) {이름:'동물'}</p>
+        localStorage.clear() : 저장된 모든 값을 제거한다.</p>
+      </pre>
+
+    <script>
+        const p = document.querySelector('p');
+        const input =document.querySelector('input');
+        const button = document.querySelector('button');
+
+        const saveValue = localStorage.getItem('input');
+
+
+        if(saveValue){
+            input.value = saveValue
+            p.textContent = `이전 실행 때의 마지막 값: ${saveValue}`
+        }
+
+        input.addEventListener('keyup',(e)=>{
+            const value = e.target.value
+            localStorage.setItem('input',value)
+        })
+
+        button.addEventListener('click',()=>{
+            localStorage.clear();
+        })
+    </script>
+</body>
+</html>
