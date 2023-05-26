@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. try catch 구문2</title>
+  </head>
+  <body>
+    <script>
+        try {
+            alert('try 블록시작')
+            if(confirm('에러를 만드시겠습니까?')){
+                이상한코드();
+            }
+        } catch (error){
+            alert('catch를 잡음:'+ new Error(error)) // 디테일한 에러 내용을 확인할 수 있다.
+            console.log(new Error(error))
+        } finally{
+            alert('finally 연산 끝까지 종료')
+        }
+
+    </script>
+  </body>
 </html>

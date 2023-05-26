@@ -4,9 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>4. 예외 처리 구문 내부에서 return 사용하기(1)</title>
 </head>
 <body>
   
+
+<script>
+  function test (){
+    try {
+      alert('A위치 입니다.')
+      throw "예외 강제 발생" // 예외 발생
+    } catch(error){  // -> 예외로 던진 에러를 잡아서 error 인자로 전달됨.
+      alert('B위치입니다.') // 실행
+      return // 반환 및 함수 종료
+    }
+    alert('C위치 입니다.') // 실행 안 됨
+  }
+  test()
+</script>
 </body>
 </html>
