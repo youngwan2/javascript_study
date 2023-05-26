@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. finally</title>
+  </head>
+  <body>
+    <script>
+      try {
+        willExcept.byeBye();
+        console.log("try 구문의 마지막 줄");
+      } catch (exception) {
+        console.log(exception);
+        console.log("catch 구문의 마지막 줄");
+        // finally 내 구문은 에러유무 상관없이 무조건 마지막에 실행된다.
+      } finally {
+        console.log("finally 구문의 마지막 줄줄");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>에러</title>
+  </head>
+  <body>
+    <script>
+      function add(a, b) {
+        console.log("에러 전"); // 실행된다.
+
+        if (a == b || b == 0) {
+          console.log("에러 전"); // 실행된다.
+          throw new Error("같은 값은 더할 수 없어요");
+        }
+        console.log("에러 후"); // 실행되지 않는다.
+        return a + b;
+      }
+
+      add(0, 0);
+    </script>
+  </body>
+</html>
