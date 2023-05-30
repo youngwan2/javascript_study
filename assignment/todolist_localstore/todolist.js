@@ -111,6 +111,7 @@ function itemChoiceDelFunc() {
     /*2. 로컬스토로지의 키를 받아와서 해당 키의 아이템을 읽어온 후 json 데이터를
      js 객체로 변환하여 item 변수에 담는다. */
     item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    console.log(item)
 
     // 3. 아이템의 상태가 true 라면 해당 id 의 아이템을 로컬 스토로지에서 제거한다.
     if (item.isComplete === true) 

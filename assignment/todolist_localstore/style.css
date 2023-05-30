@@ -8,10 +8,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#title{
+#title {
   margin: 5px;
 }
 
+input::placeholder {
+  color: red;
+}
 
 .container {
   font-family: "Gowun Dodum", sans-serif;
@@ -19,6 +22,7 @@ body {
   background-image: url("../../img/land.png");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 10px;
   margin: 0 auto;
   text-align: center;
   width: 100%;
@@ -30,7 +34,7 @@ body {
 }
 
 /* 상단 컨테이너 */
-.add_area{
+.add_area {
   box-shadow: 0 20px 15px 5px black;
 }
 
@@ -57,7 +61,7 @@ body {
   border-radius: 5px;
   border: none;
   padding: 5px 10px 5px 10px;
-  transition: 0.5s;
+  transition: 0u5s;
   margin: 10px 1px 5px 1px;
   background-color: black;
   color: white;
@@ -87,7 +91,8 @@ body {
 .todo_area:hover {
   color: rgb(255, 255, 255);
   border: none;
-  box-shadow: 0 0 0 0, inset 700px 0px 0 0 goldenrod, inset -100px 0 0 rgb(255, 4, 113);
+  box-shadow: 0 0 0 0, inset 700px 0px 0 0 goldenrod,
+    inset -100px 0 0 rgb(255, 4, 113);
 }
 
 .todo_area:hover > button {
@@ -125,7 +130,6 @@ body {
 .line {
   text-decoration: line-through red;
 }
-
 
 .todo {
   line-height: 3;

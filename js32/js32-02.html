@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. 예외 강제로 발생 시키고 잡기</title>
+  </head>
+  <body>
+    <script>
+      function divide(a, b) {
+        if (b === 0) {
+          throw "0으로 나눌 수 없습니다.";
+        }
+        return a / b;
+      }
+
+      console.log(divide(10, 2));
+      console.log(divide(10, 0));
+    </script>
+  </body>
+</html>
