@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        animation: appear 1s;
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          transform: translate(-20px);
+        }
+      }
+    </style>
   </head>
   <body>
-    <h3>목차</h3>
+    <h1>목차</h1>
     <hr />
     <p><a href="./js32-01.html">1.예외 정보 출력하기</a></p>
     <p><a href="./js32-02.html">2.예외 강제로 발생시키고 잡기</a></p>
