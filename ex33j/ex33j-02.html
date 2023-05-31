@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage를 활용한 배열 저장소 생성하기</title>
+  </head>
+  <body>
+    <script>
+      // HTML 요소 생성
+      const h1 = document.createElement("h1");
+      const input = document.createElement("input");
+      const button = document.createElement("button");
+      const clear = document.createElement("button");
+      const div = document.createElement("div");
+
+      // HTML 요소 DOM 트리와 연결하기
+      document.body.append(h1, input, button, clear, div);
+      h1.innerHTML = "할 일 목록";
+      button.innerHTML = "추가하기";
+      clear.innerHTML = "삭제하기";
+
+      let inputData = "";
+      input.addEventListener("keyup", (e) => {
+        inputData = e.currentTarget.value;
+        if (e.key === "Enter") todo();
+      });
+
+      let edata = [];
+      let nid = 0;
+      if (localStorage.length > 0) {
+        const getData = JSON.parse(localStorage.getItem("array"));
+        console.log(getData);
+        nid = 2;
+      } else {
+        nid = 0;
+      }
+      console.log(nid);
+
+      // 데이터 가져옴
+      function getData() {
+        const getInput = document.querySelector("input");
+        edata.forEach((v) => {
+          list(v, v.id);
+        });
+      }
+
+      // 리스트
+
+      // value === edata
+      function list(value, id) {
+        ediv = document.createElement("div");
+        espan = document.createElement("span");
+        einput = document.createElement("input");
+        ebutton = document.createElement("button");
+        /* 방법 1 */
+        // einput.setAttribute("type", "checkbox");
+        // einput.setAttribute("id", `id_${id}`);
+        /* 방법 2 */
+        Object.assign(einput, {
+          type: "checkbox",
+          id: `id_${id}`,
+        });
+        ediv.setAttribute("id", `div_${id}`);
+
+        const getDiv = document.querySelector("div");
+        getDiv.appendChild(ediv).append(einput, espan, ebutton);
+        espan.innerHTML = value.data;
+        ebutton.textContent = "제거하기";
+      }
+
+      // 투두
+      const todo = () => {
+        if (inputData) {
+          edata.push({ id: nid++, data: inputData, checked: true });
+          let memory = JSON.stringify(edata);
+          localStorage.setItem("array", memory);
+          input.value = "";
+          inputData = "";
+
+          if (edata) {
+            list(edata[edata.length - 1], nid);
+            console.log(`test:`, nid);
+          }
+        } else {
+          alert("값을 넣어라");
+        }
+      };
+
+      button.addEventListener("click", todo);
+    </script>
+  </body>
+</html>

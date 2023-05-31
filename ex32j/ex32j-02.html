@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. 함수 내 에러처리</title>
+  </head>
+  <body>
+    <script>
+      function fn2() {
+        console.log("fn2()의 시작");
+        throw "고의적 에러"; //에러를 만나면 그 이후 코드를 모두 실행이 안 됨.
+        console.log("fn2()의 끝");
+      }
+      function fn1() {
+        console.log("fn1()의 시작");
+        try {
+          fn2(); // 에러가 반환되어 fn2() 자리에 남음
+        } catch (error) {
+          // 에러가 catch 되어 error 매개변수에 담긴다.
+          console.error(error); // 에러 메시지 출력
+        }
+        console.log("fn1()의 끝");
+      }
+
+      console.log("======== 프로그램의 시작 =========");
+      fn1(); //fn1() 사이에 기능
+
+      console.log("======== 프로그램의 끝 ===========");
+    </script>
+  </body>
+</html>

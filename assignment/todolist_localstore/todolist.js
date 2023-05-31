@@ -3,6 +3,7 @@ const addBtn = document.getElementById("add_btn");
 const allDelBtn = document.getElementById("all_del");
 const choiceDelBtn = document.getElementById("choice_del");
 const todoContainer = document.querySelector(".todo_container");
+let index =0;
 
 // 아이템 목록에 사용될 데이터 저장 객체
 function itemAddFunc() {
@@ -78,7 +79,7 @@ function checkFunc(id) {
 // 게시글 삭제 함수
 function delFunc(id) {
   // 1. render 함수에서 delFunc 함수를 호출 시 전달 받은 목록 데이터의 아이디에
-  //해당하는 키값을 로컬스토로지에서 젲거한다.
+  //해당하는 키값을 로컬스토로지에서 제거한다.
   localStorage.removeItem(`${id}`);
 
   //2.  제거 후 화면을 다시 그리기 위해 render() 함수를 호출한다.
@@ -95,6 +96,7 @@ function itemAllDelFunc() {
   if (toDelete) localStorage.clear();
 
   // 제거 후 화면을 다시 그리기 위해 render() 함수를 호출한다.
+  index=0;
   render();
 }
 
@@ -114,11 +116,12 @@ function itemChoiceDelFunc() {
     console.log(item)
 
     // 3. 아이템의 상태가 true 라면 해당 id 의 아이템을 로컬 스토로지에서 제거한다.
-    if (item.isComplete === true) 
-    return (localStorage.removeItem(item.id), render());
+    if (item.isComplete === true)
+      return (localStorage.removeItem(item.id), render());
   }
 }
 
 
 // 목록의 각 아이템을 고유하게 식별하기 위해 사용.
-function randomId() { return `id_` + Math.floor(Math.random() * 10000); }
+
+function randomId() { return index+=1 }
