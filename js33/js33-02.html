@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. 객체활용하기(p389)</title>
+</head>
+<body>
+
+    <script>
+    // 객체 선언
+    const students = []
+    students.push({이름:'구름',국어:87, 영어:98, 수학:88, 과학:90})
+    students.push({이름:'별이',국어:92, 영어:98, 수학:96, 과학:88})
+    students.push({이름:'겨울',국어:76, 영어:96, 수학:94, 과학:86})
+    students.push({이름:'바다',국어:98, 영어:52, 수학:98, 과학:92})
+
+
+    // 출력
+    /* \t : tab과 같다. 일정거리를 띄운다. 
+       \n : 개행한다 커서를 코드의 다음 줄 앞으로 이동시킨다.
+     for(const/let 변수명 of 배열명) : 배열의 각 요소를 변수에 담는다.
+    */
+    let output = `이름\t총점\t평균\n`
+    for(const s of students) {
+        const sum = s.국어 + s.영어 + s.수학 + s.과학
+        const average = sum / 4
+        output += `${s.이름}\t${sum}점\t${average}점\n`
+    }
+    console.log(output)
+    alert(output)
+    /* 
+    이름	총점	평균
+    구름	363점	90.75점
+    별이	374점	93.5점
+    겨울	352점	88점
+    바다	340점	85점
+    */
+    </script>
+    
+</body>
+</html>

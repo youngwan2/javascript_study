@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 객체와 배열조합하기(p388)</title>
+</head>
+<body>
+
+
+ <script>
+    // 객체 선언
+    const students = []
+    // 객체를 생성 후 배열에 push한다. push는 해당 요소를 배열의 마지막 자리에 넣는다.
+    students.push({이름:'구름',국어:87, 영어:98, 수학:88, 과학:90})
+    students.push({이름:'별이',국어:92, 영어:98, 수학:96, 과학:88})
+    students.push({이름:'겨울',국어:76, 영어:96, 수학:94, 과학:86})
+    students.push({이름:'바다',국어:98, 영어:52, 수학:98, 과학:92})
+
+
+    // 출력
+    alert(JSON.stringify(students, null, 2))
+    //           ㄴ 객체를 json 문자열로 변환 시 사용하는 메소드
+    console.log(JSON.stringify(students, null, 2))
+
+    /* 출력결과)
+     [
+  {
+    "이름": "구름",
+    "국어": 87,
+    "영어": 98,
+    "수학": 88,
+    "과학": 90
+  },
+  {
+    "이름": "별이",
+    "국어": 92,
+    "영어": 98,
+    "수학": 96,
+    "과학": 88
+  },
+  {
+    "이름": "겨울",
+    "국어": 76,
+    "영어": 96,
+    "수학": 94,
+    "과학": 86
+  },
+  {
+    "이름": "바다",
+    "국어": 98,
+    "영어": 52,
+    "수학": 98,
+    "과학": 92
+  }
+] */
+ </script>
+    
+</body>
+</html>

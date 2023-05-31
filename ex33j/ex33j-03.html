@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 흉내</title>
+    
+</head>
+<body>
+
+    <script>
+            const User = function(name, age){
+            let that ={};
+            that.name =name;
+            that.age = age;
+            that.show = function(){
+                conosle.log(that.name + `은` + that.age + "살");
+            };
+            return that // this 흉내
+        }
+
+    </script>
+    
+</body>
+</html>

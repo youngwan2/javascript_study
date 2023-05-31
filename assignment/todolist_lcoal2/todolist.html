@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List!</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">할 일 목록</h1>
+      <div class="add_area">
+        <input type="text" id="user_input" placeholder="스스로와의 약속, 어기실 겁니까?" />
+        <button type="button" id="add_btn">✍</button>
+        <div>
+          <button type="button" id="all_del">전체삭제</button>
+          <button type="button" id="choice_del">선택삭제</button>
+        </div>
+      </div>
+      <div class="todo_container">
+        <!-- 목록 추가 되는 곳 -->
+      </div>
+    </div>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script src="./TypeIt.js"></script>
+    <script src="./todolist.js"></script>
+  </body>
+</html>
