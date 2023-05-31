@@ -150,9 +150,5 @@ window.addEventListener('resize',()=>{
 })
 
 
-
-
-
-
 nextBtn.addEventListener('click', nextMove)
 prevBtn.addEventListener('click', prevMove)

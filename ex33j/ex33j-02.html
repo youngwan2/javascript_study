@@ -5,8 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>localStorage를 활용한 배열 저장소 생성하기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        mix-blend-mode: luminosity;
+        overflow: hidden;
+      }
+
+      video{
+        opacity: 0.1;
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+
+      html {
+        background-image: url("./newspaper-8021381.jpg");
+        background-position: center;
+      }
+
+      h1 {
+        background-image: url("./newspaper-8021381.jpg");
+        background-position: center;
+        background-size: cover;
+        text-shadow: 20px 15px 3px ;
+        opacity: 0.8;
+        width: 100%;
+        line-height: 2.5;
+        box-shadow: inset -400px 100px 20px 6px rgba(0, 0, 0, 0.774);
+        margin: 1rem 0;
+        text-align: center;
+        background-color: rgb(167, 28, 46);
+
+        color: white;
+      }
+
+      body {
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        mix-blend-mode: luminosity;
+        background-color: rgba(180, 131, 131, 0.659);
+        max-width: 1000px;
+        margin: 0 auto;
+        height: 100vh;
+        padding: 10px;
+        border: 1px solid rgb(173, 172, 172);
+        transition: 1s;
+      }
+
+      body:hover {
+        box-shadow: 0 -5000px 0 0 rgba(180, 131, 131, 0.659) inset;
+      }
+
+      input {
+        background-color: rgb(71, 255, 194);
+        padding: 5px;
+        border: none;
+        color: white;
+      }
+
+      button {
+        padding: 5px;
+        background-color: black;
+        border: none;
+        margin: 5px;
+        color: white;
+        transition: 1s;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
+ 
     <script>
       // HTML 요소 생성
       const h1 = document.createElement("h1");
@@ -14,6 +92,7 @@
       const button = document.createElement("button");
       const clear = document.createElement("button");
       const div = document.createElement("div");
+      let inputData = "";
 
       // HTML 요소 DOM 트리와 연결하기
       document.body.append(h1, input, button, clear, div);
@@ -21,22 +100,10 @@
       button.innerHTML = "추가하기";
       clear.innerHTML = "삭제하기";
 
-      let inputData = "";
-      input.addEventListener("keyup", (e) => {
-        inputData = e.currentTarget.value;
-        if (e.key === "Enter") todo();
-      });
-
-      let edata = [];
-      let nid = 0;
-      if (localStorage.length > 0) {
-        const getData = JSON.parse(localStorage.getItem("array"));
-        console.log(getData);
-        nid = 2;
-      } else {
-        nid = 0;
+      function save(edata) {
+        memory = JSON.stringify(edata);
+        localStorage.setItem("array", memory);
       }
-      console.log(nid);
 
       // 데이터 가져옴
       function getData() {
@@ -44,41 +111,84 @@
         edata.forEach((v) => {
           list(v, v.id);
         });
+        getInput.value = null;
+        inputData = null;
       }
 
-      // 리스트
+      input.addEventListener("keyup", (e) => {
+        inputData = e.currentTarget.value;
+        // 사용자의 키보드 입력코드가 Enter이면 todo목록을 추가하는 함수를 실행
+        if (e.key === "Enter") todo();
+      });
 
+      // 로컬스토로지에 있는 JSON 데이터를 읽어온다.
+      let earr = localStorage.getItem("array");
+      // JSON을 자바스크립트 객체로 변환한다.
+      // 만일 null 이나 undefined 라면 빈배열로 초기화
+      let edata = JSON.parse(earr) ?? [];
+      // 만일 데이터가 존재한다면, 데이터를 list 함수로
+      if (edata) getData();
+      let nid = 0;
+
+      // 데이터를 시각화하는 함수
       // value === edata
       function list(value, id) {
-        ediv = document.createElement("div");
-        espan = document.createElement("span");
-        einput = document.createElement("input");
-        ebutton = document.createElement("button");
+        const ediv = document.createElement("div"); //투두목록 컨테이너
+        const espan = document.createElement("span"); //목록 내용
+        const echeck = document.createElement("input"); //체크버튼
+        const ebutton = document.createElement("button"); //삭제버튼
         /* 방법 1 */
         // einput.setAttribute("type", "checkbox");
         // einput.setAttribute("id", `id_${id}`);
         /* 방법 2 */
-        Object.assign(einput, {
+        Object.assign(echeck, {
           type: "checkbox",
           id: `id_${id}`,
         });
-        ediv.setAttribute("id", `div_${id}`);
+
+        // 줄긋기 버튼
+        echeck.addEventListener("click", (e) => {
+          const checked = e.currentTarget.checked;
+          ediv.style.textDecoration = checked ? "line-through red" : "none";
+
+          // const fck = edata.findIndex((v)=>{
+          //   return v.id === e.currentTarget.id.slice(1)
+          // })
+
+          // edata[fck*1].check = e.currentTarget.checked;
+        });
+
+        // 삭제버튼
+        ebutton.addEventListener("click", (e) => {
+          if (e.currentTarget) ediv.remove(); //리스트 목록 자체 삭제
+          const findId = edata.findIndex((v) => {
+            return v.id === id;
+          }); // 해당 아이디의 항목을 삭제
+          console.log("findId", findId);
+          edata.splice(findId, 1);
+          save(edata);
+        });
 
         const getDiv = document.querySelector("div");
-        getDiv.appendChild(ediv).append(einput, espan, ebutton);
+        getDiv.appendChild(ediv).append(echeck, espan, ebutton);
         espan.innerHTML = value.data;
         ebutton.textContent = "제거하기";
       }
 
-      // 투두
+      // 할일 목록의 데이터를 관리하는 함수
       const todo = () => {
+        // 사용자가 입력한 데이터가 존재한다면 실행
         if (inputData) {
+          // 배열에 목록 추가
           edata.push({ id: nid++, data: inputData, checked: true });
-          let memory = JSON.stringify(edata);
-          localStorage.setItem("array", memory);
+          // 객체를 JSON 데이터로 변환
+          // JSON 데이터를 로컬스토로지에 저장
+          save(edata);
+          // input 창 " "로 초기화
           input.value = "";
           inputData = "";
 
+          // 데이터가 존재하면 실행
           if (edata) {
             list(edata[edata.length - 1], nid);
             console.log(`test:`, nid);
@@ -88,7 +198,10 @@
         }
       };
 
+      // 게시글을 추가하는 이벤트리스너
       button.addEventListener("click", todo);
     </script>
+
+<video src="./news.mp4" autoplay loop muted></video>
   </body>
 </html>
