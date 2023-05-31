@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 내부 this 시작</title>
+    
+</head>
+<body>
+
+    <script>
+        const User = function(name, age){
+            // let this = {} : this는 생략이 되어 있다.
+            this.name = name
+            this.age = age
+            this.show = function() {
+                console.log(this.name)
+            }
+
+            // return this : this는 반환되지만 생략되어 있음
+        }
+
+        const user = new User('kim',13)
+        console.log(user.age)
+        
+    </script>
+</body>
+</html>
