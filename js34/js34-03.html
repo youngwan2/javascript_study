@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Rectangle 클래스(p403)</title>
+    <script>
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+
+        //  사각형 둘레를 구하는 메소드
+
+        getPerimeter() {
+          return 2 * (this.width + this.height);
+        }
+
+        //  사각형의 넓이를 구하는 메소드
+        getArea() {
+          return this.width * this.height;
+        }
+      }
+
+      const rec = new Rectangle(10, 20);
+      const rec2 = new Rectangle(30, 30);
+      console.log(`사각형의 둘레:${rec.getPerimeter()}`);
+      console.log(`사각형의 넓이:${rec.getArea()}`);
+
+      console.log(rec2.getPerimeter())
+      console.log(rec2.getArea())
+
+    </script>
+  </head>
+  <body></body>
+</html>

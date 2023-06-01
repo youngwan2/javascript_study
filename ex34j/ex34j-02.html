@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // 함수표현식 형태의 클래스(익명 클래스)
+      //변수에 담을 때는 클래스 명을 생략할 수 있다.
+      const fn = class {
+        constructor() {}
+        hi() {
+          console.log("hi");
+        }
+      };
+
+      console.log(new fn().hi());
+
+      /* 만일 기명 클래스로 사용한다면 클래스 내부에서 사용가능 */
+      const Class = class User {
+        constructor() {}
+        hi() {
+          console.log("User 클래스");
+        }
+      };
+
+      new Class().hi()
+
+      
+    </script>
+  </head>
+  <body></body>
+</html>
