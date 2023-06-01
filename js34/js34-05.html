@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. 사각형 클래스와 정사각형 클래스(p405)</title>
+    <script>
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+        getPerimeter() {
+          return 2 * (this.width + this.height);
+        }
+        getArea() {
+          return this.width * this.height;
+        }
+      }
+      //자식ㄱ         부모 ㄱ
+      class Square extends Rectangle {
+        constructor(length) {
+          super(length, length); // 부모의 생성자 함수(constructor를 호출한다.
+        }
+      }
+
+      const square = new Square(10);
+      console.log(`정사각형의 둘레 : ${square.getPerimeter()}`);
+      console.log(`정사각형의 넓이 : ${square.getArea()}`);
+
+
+
+      /* ==프레임워크== */
+      /* ==라이브러리== */
+      
+    </script>
+  </head>
+  <body></body>
+</html>
