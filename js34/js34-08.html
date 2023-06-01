@@ -8,7 +8,7 @@
     <script>
       class Square {
         /* 클래스 필드 field */
-        #length
+        #length // 프라이빗 변수는 클래스 내부에서 사용이 가능하다.
         constructor(length) {
           if (length <= 0) {
             throw "길이는 0보다 커야 합니다.";
@@ -25,7 +25,8 @@
 
       //클래스 사용하기
       const square = new Square(10);
-      square.length =-10
+      square.#length =-10  //프라이빗 변수를 변경하려고 하면 에러가 뜬다.
+      console.log(square.length)
       console.log(`정사각형의 둘레 : ${square.getPerimeter()}`);
       console.log(`정사각형의 넓이 : ${square.getArea()}`);
     </script>

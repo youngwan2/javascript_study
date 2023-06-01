@@ -6,14 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>클래스 필드</title>
     <script>
+      /* 방법 1) */
+      //   class Btn {
+      //     constructor(value) {
+      //       this.value = value;
+      //     }
+
+      //     click(val) {
+      //       console.log(this.value);
+      //     }
+      //   }
+
+      /* 방법2) */
       class Btn {
         constructor(value) {
           this.value = value;
         }
 
-        click(val) {
+        click = () => {
+          // 클래스의 필드에 노출되어 있는 방법
           console.log(this.value);
-        }
+        };
       }
 
       let button = new Btn("안녕하세여");
@@ -25,7 +38,7 @@
         button.click();
       }, 1000);
 
-      // 동작 안 함
+      // 방법1) 동작 안 함 ,,  방법2) 동작함
       setTimeout(button.click, 1000);
     </script>
   </head>

@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스 필드2</title>
+    <script>
+      class User {
+        name = "John";
+        hi() {
+     console.log(this)
+          console.log(`${this.name}은 가자미를 닮았어요`);
+        }
+      }
+
+      new User().hi()
+
+      class User2 {
+        name = 'wick'
+
+
+    }
+    let user2 = new User2();
+
+    console.log(user2.name) //wick
+    console.log(User2.prototype.name) //wick
+
+      
+      
+    </script>
+  </head>
+  <body></body>
 </html>
