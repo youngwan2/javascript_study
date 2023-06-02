@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 접근자 :
+      const user = {
+        name: "수퍼맨",
+        age: 27,
+        get userName() {
+          return user.name;
+        },
+
+        set userName(value) {
+          this.name = value;
+        },
+      };
+
+      console.log(user);
+      /* 
+      {name: '수퍼맨', age: 27}
+        age: 27
+        name:"수퍼맨"
+        userName:(...)
+        ▶get userName : ƒ userName()
+        ▶set userName : ƒ userName(value)
+        ▶[[Prototype]] : Object
+      */
+
+      user.userName = "동동동"; // set userName 의 파라미터로 전달됨
+      console.log(user)
+      console.log(user.name); // name 이 '동동동' 으로 바뀜
+
+      /* 만일 get,set 과 속성이 서로 이름이 같다면 무한 호출 됨. */
+    </script>
+  </head>
+  <body></body>
+</html>

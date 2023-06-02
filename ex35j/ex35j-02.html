@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const students = {
+        이름: "구름",
+        국어: 87,
+        영어: 98,
+        수학: 88,
+        과학: 90,
+
+        get국어() {
+          return `국어: ${this.국어}`;
+        },
+        get영어() {
+          return `영어: ${this.영어}`;
+        },
+        get수학() {
+          return `수학: ${this.수학}`;
+        },
+        get과학() {
+          return `과학: ${this.과학}`;
+        },
+        set국어(부정발견, value) {
+          if (value > 100 || value < 0) {
+            부정발견 = true;
+            throw new Error("점수 범위는 0~100 사이만 가능합니다.");
+          }
+          if (value >= 60) {
+            return 0;
+          }
+
+          this.국어 = value;
+          if (부정발견 === true) {
+            alert("부정은 실격입니다.");
+            this.국어 = value - value;
+          }
+        },
+      };
+
+      console.log(students.get국어());
+      students.set국어(false, 50);
+      console.log(students.get국어());
+    </script>
+  </head>
+  <body></body>
+</html>

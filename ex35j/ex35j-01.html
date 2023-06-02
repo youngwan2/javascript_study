@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      /* // getter, setter 사용전 
+         const user = {name:'홍길동', age:33}
+         console.log(user.name)
+         console.log(user.age)
+         user.name ="박길동" */
+
+      const user = {
+        name: "홍길동",
+        age: 33,
+        //  객체의 메서드
+        getName() {
+          return user.name;
+        },
+
+        setName(value) {
+          if (value.length <= 4 && value.length >= 2) return user.name;
+          // 메서드의 파리미터를 활용하여 간접적으로 객체 데이터를 변경
+          if (value.length > 4) {
+            /* 에러를 띄우려면 */
+            alert("이름은 4글자 이상 초과할 수 없습니다.");
+          }
+
+          return (user.name = value);
+        },
+      };
+      user.setName("오길동");
+      console.log(user.getName());
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -10,33 +10,39 @@
         /* 클래스 필드 field */
         #length; // 프라이빗 변수는 클래스 내부에서 사용이 가능하다.
         constructor(length) {
-          this.setLength(length)
+          this.setLength(length); //
         }
 
-        setLength(value){
-          if (value <=0) {
-            throw '길이는 0보다 커야 합니다.'
+        setLength(value) {
+          // 한 변의 길이 설정(SET)
+          if (value <= 0) {
+            throw "길이는 0보다 커야 합니다.";
           }
-          this.#length = value
-        }
-        
-        getLength(value){
-          return this.#length
+          this.#length = value;
         }
 
-        getPerimeter(){return 4*this.#length}
-        getArea(){return this.#length * this.#length}
+        getLength(value) {
+          //한 변의 길이 읽기(GET)
+          return this.#length;
+        }
+
+        getPerimeter() {
+          //사각형 둘레
+          return 4 * this.#length;
+        }
+        getArea() {
+          // 사각형 넓이
+          return this.#length * this.#length;
+        }
       }
 
       //클래스 사용하기
-     
-      const square = new Square(10)
-      console.log(`한 변의 길이는 ${square.getLength()} 입니다.`)
- 
+      const square = new Square(10);
+      console.log(`한 변의 길이는 ${square.getLength()} 입니다.`);
+
       // 예외 발생시키기
-      square.setLength(-10)
- 
- </script>
+      square.setLength(-10);
+    </script>
   </head>
   <body></body>
 </html>
