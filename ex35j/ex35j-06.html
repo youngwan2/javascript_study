@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정적 메서드(3)</title>
+
+
+    <script>
+        class School {
+            constructor(){
+                this.uesrname = '이름'
+            }
+
+
+           static name(){
+            return this.username
+            }
+        }
+
+            // 정적 메서드의 클래스 데이터 접근 실패
+            console.log(School.name())
+        const school = new School();
+        console.log(school.username)
+
+        /* 분석 */
+/*         class School{
+            constructor() {
+                this.name ="johndoe"
+            }
+            static staticThis() {
+                return this.name;
+            }
+
+            nomalThis() {
+                return this;
+            }
+        }
+
+        console.log(School.staticThis())
+        const test = new School();
+        console.log(test.nomalThis())
+ */
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

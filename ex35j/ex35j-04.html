@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정적메서드(1)</title>
+    <script>
+      class Test {
+        constructor() {}
+        static sVar = "변수입니다.";
+        static sFun() {
+          return `펑션입니다.`;
+        }
+      }
+
+      /* static(정적 메서드) 키워드를 붙인 변수나 메서드는인스턴스 없이 호출 가능 */
+      const test = new Test(); // static 을 사용하면 생략이 가능함
+      console.log(Test.sVar);
+      console.log(Test.sFun());
+    </script>
+  </head>
+  <body></body>
+</html>

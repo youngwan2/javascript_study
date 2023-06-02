@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정적메서드(2)</title>
+    <script>
+      class Test2 {
+        constructor() {}
+        static utilRandom(min, max){
+          // 5 * random = 0~4까지 나옴 여기서 | 5를 더하면 5~9 나옴
+          return Math.floor(Math.random() * (max-min)+min )
+        }
+      }
+
+      console.log(Test2.utilRandom(10,20))
+
+
+    </script>
+  </head>
+  <body></body>
+</html>
