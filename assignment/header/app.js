@@ -8,35 +8,35 @@
     // 데이터베이스
     const navList = [
       {
-        title: "About",
+        title: "About", //0
         desc: "Welcome to our company, where innovation meets excellence",
         background: "#025464",
         color: "white",
         image: "./images/tree.jpg",
       },
       {
-        title: "Products",
+        title: "Products", //1
         desc: "Experience the ultimate in luxury with our exceptional flagship product.",
         background: "#E57C23",
         color: "white",
         image: "./images/architecture.jpg",
       },
       {
-        title: "Technology",
+        title: "Technology", //2
         desc: "Our company stands out for its groundbreaking technology, revolutionizing the industry with innovative solutions that redefine the way things are done. ",
         background: "#E8AA42",
         color: "white",
         image: "./images/code.jpg",
       },
       {
-        title: "Dowunloads",
+        title: "Dowunloads", //3
         desc: "Unlock convenience and seamless connectivity with our cutting-edge company app.",
         background: "#A2C1C1",
         color: "white",
         image: "./images/internet.jpg",
       },
       {
-        title: "Etc",
+        title: "Etc", //4
         desc: "Easily locate us with our convenient and accessible location.",
         background: "#FF6D60",
         color: "white",
@@ -51,7 +51,8 @@
     const render = () => {
       let navUlHTML = "";
 
-      for (let i = 0; i < navList.length; i++) {
+      // 버튼
+      for (let i = 0; i < navList.length /* 5 */; i++) {
         navUlHTML += `
             <li>${navList[i].title}</li>
             `;

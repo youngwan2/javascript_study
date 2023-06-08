@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클로저(1)</title>
+    <script>
+
+        /* 내부 함수는 충돌 등의 문제를 방지하기 위해 익명함수를 권장한다. */
+      function addFunc(x) {
+        return function(y) {
+          return x + y;
+        };
+
+      }
+
+      const addFunc2 = addFunc(5)
+    </script>
+  </head>
+  <body></body>
+</html>

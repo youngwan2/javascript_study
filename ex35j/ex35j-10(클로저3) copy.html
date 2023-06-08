@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클로저(3)</title>
+  </head>
+  <body>
+    Count is <span class="span">0</span>
+
+    <script>
+      function init() {
+        const span = document.querySelector(".span");
+        let count = 0;
+
+        setInterval(() => {
+          count++;
+          span.innerHTML = count;
+        }, 1000);
+
+        console.log(span);
+
+        function reset() {
+          count = 500;
+          span.innerHTML = count;
+        }
+
+        return { reset: reset };
+        // 객체 의 키와 값이 똑같다면 a:a => a 로 줄여 쓸 수 있다.
+      }
+
+      const a = init();
+      console.log(a.reset());
+    </script>
+  </body>
+</html>
