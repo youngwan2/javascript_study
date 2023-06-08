@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클로저(4)</title>
+  </head>
+  <body>
+
+
+  <script>
+    // 증가, 리셋, 값 보이기
+
+    function init(){
+      let num =0;
+      function add(){
+        num++;
+        return num
+      }
+      function reset(){
+        num++;
+        return num;
+      }
+
+      function show(){
+        return num
+      }
+
+      return {add, reset,show}
+    }
+
+
+    const add = init().add
+    console.log(add())
+    console.log(add())
+    console.log(add())
+    console.log(init().reset())
+    console.log(add())
+    console.log(add())
+
+  
+
+  </script>
+  </body>
+</html>
